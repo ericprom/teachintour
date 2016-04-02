@@ -35,22 +35,22 @@ $this->title = 'packages';
             <div class="row text-center plans">
 
                 <div class="plan col-md-4">
-                    <h2 class="plan-title">Bronze</h2>
-                    <p class="plan-price">$99<span>/00</span></p>
+                    <h2 class="plan-title">2 Weeks</h2>
+                    <p class="plan-price">$400<span></span></p>
                     <ul class="plan-features">
-                        <li><strong>Check and go</strong> included</li>
-                        <li><strong>3 tours</strong> included</li>
+                        <li><strong>Airport pickup</strong> included</li>
+                        <li><strong>Home Stay</strong> included</li>
                         <li><strong>3 months</strong> valid</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Subscribe now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                     </p>
                 </div> <!-- End col-md-4 -->
 
                 <div class="plan plan-tall col-md-4">
                 <span class="ribbon_table"></span>
-                    <h2 class="plan-title">Silver</h2>
-                    <p class="plan-price">$199<span>/00</span></p>
+                    <h2 class="plan-title">4 Weeks</h2>
+                    <p class="plan-price">$600<span></span></p>
                     <ul class="plan-features">
                       <li><strong>30 Day money back</strong> guarantee</li>
                         <li><strong>Check and go</strong> included</li>
@@ -58,13 +58,13 @@ $this->title = 'packages';
                         <li><strong>6 months</strong> valid</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Subscribe now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1 green']);?>
+                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1 green']);?>
                     </p>
                 </div><!-- End col-md-4 -->
 
                 <div class="plan col-md-4">
-                    <h2 class="plan-title">Gold</h2>
-                    <p class="plan-price">$299<span>/00</span></p>
+                    <h2 class="plan-title">Extra Weeks</h2>
+                    <p class="plan-price">$50<span></span></p>
                     <ul class="plan-features">
                       <li><strong>30 Day money back</strong> guarantee</li>
                         <li><strong>Check and go</strong> included</li>
@@ -73,7 +73,7 @@ $this->title = 'packages';
                          <li><strong>Travel guide</strong> included</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Subscribe now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                     </p>
                 </div><!-- End col-md-4 -->
 
@@ -83,99 +83,181 @@ $this->title = 'packages';
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Other pricing tables</h3>
+                    <h3>Other packages</h3>
                 </div>
             </div><!-- end row -->
 
             <div class="row" id="pricing_2">
-                    <div class="col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
 
-                    <div class="pricing-table black ">
-                        <div class="pricing-table-header">
-                            <span class="heading">Single Tour</span>
-                            <span class="price-value"><span>30</span><span class="mo">$</span></span>
-                        </div>
-                        <div class="pricing-table-space "></div>
-                        <div class="pricing-table-features">
-                            <p><strong>One month</strong> valid</p>
-                            <p><strong> Saving</strong> %</p>
-                            <p><strong>Saving price</strong> 0$</p>
-                            <p>-</p>
-                        </div>
+                  <div class="pricing-table black ">
+                      <div class="pricing-table-header">
+                          <span class="heading">1 Week</span>
+                          <span class="price-value"><span>300</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>One month</strong> valid</p>
+                          <p><strong> Saving</strong> %</p>
+                          <p><strong>Saving price</strong> 0$</p>
+                          <p>-</p>
+                      </div>
 
-                        <div class="pricing-table-sign-up">
-                            <a href="payment.html" class="btn_1">BUY NOW!</a>
-                        </div>
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
 
-                    </div><!-- End pricing-table-->
-                </div><!-- End col-md-3 -->
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricing-table black">
-                        <div class="pricing-table-header">
-                            <span class="heading">4 Tours</span>
-                            <span class="price-value"><span>280</span><span class="mo">$</span></span>
-                        </div>
-                        <div class="pricing-table-space "></div>
-                        <div class="pricing-table-features">
-                            <p><strong>Three month</strong> valid</p>
-                            <p><strong> Saving </strong> 20%</p>
-                            <p><strong>Saving price</strong> 40$</p>
-                            <p><strong>Unlimited  </strong>access</p>
-                        </div>
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">2 Weeks</span>
+                          <span class="price-value"><span>400</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
 
-                        <div class="pricing-table-sign-up">
-                            <a href="payment.html" class="btn_1">BUY NOW!</a>
-                        </div>
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
 
-                    </div><!-- End pricing-table-->
-                </div><!-- End col-md-3 -->
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricing-table green ">
-                      <span class="ribbon_2"></span>
-                        <div class="pricing-table-header">
-                            <span class="heading">Full Access</span>
-                            <span class="price-value"><span>39</span><span class="mo">$ monthly</span></span>
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">3 Weeks</span>
+                          <span class="price-value"><span>500</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
 
-                        </div>
-                        <div class="pricing-table-space"></div>
-                        <div class="pricing-table-features">
-                            <p><strong>12 month</strong> valid</p>
-                            <p><strong> Saving </strong> 30%</p>
-                            <p><strong>Saving price</strong> 80$</p>
-                            <p><strong>Unlimited  </strong>access</p>
-                        </div>
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
 
-                        <div class="pricing-table-sign-up">
-                            <a href="payment.html" class="btn_1">BUY NOW!</a>
-                        </div>
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
+              <div class="col-md-3 col-sm-6">
 
-                    </div><!-- End pricing-table-->
-                </div><!-- End col-md-3 -->
+                  <div class="pricing-table black ">
+                      <div class="pricing-table-header">
+                          <span class="heading">4 Week</span>
+                          <span class="price-value"><span>600</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>One month</strong> valid</p>
+                          <p><strong> Saving</strong> %</p>
+                          <p><strong>Saving price</strong> 0$</p>
+                          <p>-</p>
+                      </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricing-table black">
-                        <div class="pricing-table-header">
-                            <span class="heading">Full + Travel guide</span>
-                            <span class="price-value"><span>800</span><span class="mo">$</span></span>
-                        </div>
-                        <div class="pricing-table-space "></div>
-                        <div class="pricing-table-features">
-                            <p><strong>Nine month</strong> valid</p>
-                            <p><strong> Saving </strong> 40%</p>
-                            <p><strong>Saving price</strong> 120$</p>
-                            <p><strong>Unlimited  </strong>access + Extra</p>
-                        </div>
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
 
-                        <div class="pricing-table-sign-up">
-                            <a href="payment.html" class="btn_1">BUY NOW!</a>
-                        </div>
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
 
-                    </div><!-- End pricing-table-->
-                </div><!-- End col-md-3 -->
+             </div>
 
+            <div class="row" id="pricing_2">
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">6 Weeks</span>
+                          <span class="price-value"><span>800</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
 
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
+
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
+
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">8 Weeks</span>
+                          <span class="price-value"><span>1,000</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
+
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
+
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">12 Weeks</span>
+                          <span class="price-value"><span>1,200</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
+
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
+
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
+
+              <div class="col-md-3 col-sm-6">
+                  <div class="pricing-table black">
+                      <div class="pricing-table-header">
+                          <span class="heading">24 Weeks</span>
+                          <span class="price-value"><span>2,000</span><span class="mo">$</span></span>
+                      </div>
+                      <div class="pricing-table-space "></div>
+                      <div class="pricing-table-features">
+                          <p><strong>Three month</strong> valid</p>
+                          <p><strong> Saving </strong> 20%</p>
+                          <p><strong>Saving price</strong> 40$</p>
+                          <p><strong>Unlimited  </strong>access</p>
+                      </div>
+
+                      <div class="pricing-table-sign-up">
+                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                      </div>
+
+                  </div><!-- End pricing-table-->
+              </div><!-- End col-md-3 -->
             </div><!-- end row -->
 
             <hr>

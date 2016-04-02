@@ -10,8 +10,4 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
-    public function actionNo()
-    {
-        return $this->render('index');
-    }
 }
