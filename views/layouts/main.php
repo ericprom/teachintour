@@ -54,6 +54,7 @@ AppAsset::register($this);
 
     <!-- CSS -->
     <link href="css/base.css" rel="stylesheet">
+    <link href="css/jquery.switch.css" rel="stylesheet">
 
      <!-- Google web fonts -->
    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -75,7 +76,7 @@ AppAsset::register($this);
       <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
     <![endif]-->
 
-    <!-- <div id="preloader">
+    <div id="preloader">
       <div class="sk-spinner sk-spinner-wave">
         <div class="sk-rect1"></div>
         <div class="sk-rect2"></div>
@@ -83,7 +84,7 @@ AppAsset::register($this);
         <div class="sk-rect4"></div>
         <div class="sk-rect5"></div>
       </div>
-    </div> -->
+    </div>
     <!-- End Preload -->
 
     <div class="layer"></div>
@@ -139,8 +140,12 @@ AppAsset::register($this);
         <div class="row">
           <div class="col-md-3 col-sm-3 col-xs-3">
             <div id="logo">
-              <a href="index.html"><img src="img/logo.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_normal"></a>
-              <a href="index.html"><img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_sticky"></a>
+              <a href="<?=Yii::$app->homeUrl;?>">
+                <img src="img/logo.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_normal">
+              </a>
+              <a href="<?=Yii::$app->homeUrl;?>">
+                <img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_sticky">
+              </a>
             </div>
           </div>
           <nav class="col-md-9 col-sm-9 col-xs-9">
@@ -152,57 +157,16 @@ AppAsset::register($this);
                 <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                 <ul>
                   <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Home <i class="icon-down-open-mini"></i></a>
-                    <ul>
-                      <li><a href="#">Some Link</a></li>
-                    </ul>
+                    <a href="<?=Yii::$app->homeUrl;?>" class="show-submenu">Home</a>
                   </li>
                   <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">About us <i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="#">Some Link</a></li>
-                    </ul>
+                    <?=Html::a('Packages', ['/package/'],['data' => ['method' => 'post']]);?>
                   </li>
                   <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Projects <i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="#">Some Link</a></li>
-                    </ul>
+                    <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
                   </li>
                   <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Locations <i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="#">Some Link</a></li>
-                    </ul>
-                  </li>
-                  <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Fee <i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="#">Some Link</a></li>
-                    </ul>
-                  </li>
-                  <li class="megamenu submenu">
-                    <a href="javascript:void(0);" class="show-submenu-mega">Packages<i class="icon-down-open-mini"></i></a>
-                    <div class="menu-wrapper">
-                      <div class="col-md-4">
-                        <h3>Group</h3>
-                        <ul>
-                            <li><a href="#">Some Link</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-4">
-                        <h3>Gap year</h3>
-                        <ul>
-                            <li><a href="#">Some Link</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-4">
-                        <h3>Career</h3>
-                        <ul>
-                            <li><a href="#"><i class="icon-columns"></i> Some Link</a></li>
-                        </ul>
-                      </div>
-                    </div><!-- End menu-wrapper -->
+                    <?=Html::a('Contact us', ['/contact/'],['data' => ['method' => 'post']]);?>
                   </li>
                 </ul>
               </div><!-- End main-menu -->
@@ -244,10 +208,16 @@ AppAsset::register($this);
           <div class="col-md-3 col-sm-3">
             <h3>About</h3>
             <ul>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">FAQ</a></li>
+              <li>
+                <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li>
+                <?=Html::a('FAQs', ['/faq/'],['data' => ['method' => 'post']]);?>
+              </li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Contacts</a></li>
+              <li>
+                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+              </li>
               <li><a href="#">Login</a></li>
               <li><a href="#">Register</a></li>
               <li><a href="#">Terms and condition</a></li>
@@ -333,12 +303,10 @@ AppAsset::register($this);
     <script src="js/common_scripts_min.js"></script>
     <script src="js/functions.js"></script>
 
-     <!-- video header -->
+    <!-- video header -->
     <script src="js/modernizr.js"></script>
     <script src="js/video_header.js"></script>
 
-     <!-- Text rotate -->
-    <script src="js/morphext.min.js"></script>
     <script>
     $(document).ready(function() {
 
@@ -348,7 +316,14 @@ AppAsset::register($this);
           videoTrigger: $("#video-trigger"),
           autoPlayVideo: false
         });
-       $("#js-rotating").Morphext({
+
+    });
+    </script>
+
+    <!-- Text rotate -->
+    <script src="js/morphext.min.js"></script>
+    <script>
+    $("#js-rotating").Morphext({
         animation: "fadeIn", // Overrides default "bounceIn"
         separator: ",", // Overrides default ","
         speed: 2000, // Overrides default 2000
@@ -356,6 +331,36 @@ AppAsset::register($this);
             // Overrides default empty function
         }
     });
+    </script>
+
+    <!-- Google Map -->
+    <script src="assets/validate.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/map_contact.js"></script>
+    <script src="js/infobox.js"></script>
+
+    <!-- Fixed sidebar -->
+    <script src="js/theia-sticky-sidebar.js"></script>
+    <script>
+        jQuery('#sidebar').theiaStickySidebar({
+          additionalMarginTop: 80
+        });
+    </script>
+    <script>
+    $(document).ready(function() {
+      'use strict';
+      $('#faq_box a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top - 120
+            }, 500);
+            return false;
+          }
+        }
+      });
 
     });
     </script>

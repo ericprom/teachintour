@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'teachin tour - teachin\' learnin\' and Discoverin\' the local people';
+$this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local people';
 ?>
 <section class="header-video">
   <div id="hero_video">
@@ -17,7 +17,7 @@ $this->title = 'teachin tour - teachin\' learnin\' and Discoverin\' the local pe
 </section><!-- End Header video -->
 <div class="container margin_60">
   <div class="main_title">
-    <h2>YOU <span>CAN</span> CHANGE</h2>
+    <h2>Breaking <span>Language</span> Barrier</h2>
     <p>Help local connect to the world by teaching them English</p>
   </div>
   <div class="row">
@@ -239,7 +239,7 @@ $this->title = 'teachin tour - teachin\' learnin\' and Discoverin\' the local pe
     <div class="col-md-4 col-sm-6">
       <h3><span>Steps</span> to start helping</h3>
       <p>
-         We are the place where you can help breaking the language barrier and find a new way of travelling to discovering an unseen thailand through the local.
+         We are the place where you can help breaking the language barrier and find a new way of travelling to discover an unseen thailand through the local.
       </p>
       <ul class="list_order">
           <li><span>1</span>Select prefer package</li>

@@ -611,7 +611,8 @@ a#forgot_pw{
 
 /* Footer  */
 footer {
-	background:#333 url(../img/pattern.png) repeat 0 0;
+	//background:#333 url(../img/pattern.png) repeat 0 0;
+  background:#17334F;
 	color:#fff;
 	padding:30px 0 10px 0;
 }
@@ -1629,7 +1630,7 @@ input.qty2 {position: relative; width:35px; height:40px; border-radius:none; tex
 .features-bg {
     position: relative;
     min-height: 400px;
-    background: url(../img/features-intro-01.jpg) no-repeat center center;
+    background: url(http://lorempixel.com/800/400/) no-repeat center center;
     background-size: cover;
 }
 .features-img {

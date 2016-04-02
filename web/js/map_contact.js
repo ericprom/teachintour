@@ -16,11 +16,11 @@
 			'Contact': [
 			{
 				name: 'Address',
-				location_latitude: 48.870587, 
+				location_latitude: 48.870587,
 				location_longitude: 2.318943,
-				map_image_url: 'img/thumb_map_1.jpg',
+				map_image_url: 'http://lorempixel.com/280/140/',
 				name_point: 'Address',
-				description_point: 'Place Charles de Gaulle, 75008 Paris<br>FRANCE<br><br>+45 423 445 99 / +45 423 445 99 ',
+				description_point: '45/140 The tree Privata, Bangsue, Bangkok 10800.<br>Thailand<br><br>+66 88 066 6933 ',
 				url_point: ''
 			}
 			]
@@ -77,9 +77,9 @@
       mapObject.setCenter(new google.maps.LatLng(item.location_latitude, item.location_longitude));
      }));
 
-					
+
 				});
-	
+
 
 		function hideAllMarkers () {
 			for (var key in markers)

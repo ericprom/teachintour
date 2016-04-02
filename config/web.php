@@ -5,7 +5,33 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','gii'],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+        ],
+        'package' => [
+            'class' => 'app\modules\package\packageModules',
+        ],
+        'booking' => [
+            'class' => 'app\modules\booking\bookingModules',
+        ],
+        'payment' => [
+            'class' => 'app\modules\payment\paymentModules',
+        ],
+        'confirmation' => [
+            'class' => 'app\modules\confirmation\confirmationModules',
+        ],
+        'about' => [
+            'class' => 'app\modules\about\aboutModules',
+        ],
+        'contact' => [
+            'class' => 'app\modules\contact\contactModules',
+        ],
+        'faq' => [
+            'class' => 'app\modules\faq\faqModules',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -38,14 +64,18 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
         'urlManager' => [
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
+                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
