@@ -12,7 +12,7 @@ $(window).load(function() { // makes sure the whole site is loaded
 =============================================== */
 $(window).scroll(function(){
     'use strict';
-    if ($(this).scrollTop() > 1){  
+    if ($(this).scrollTop() > 30){
         $('header').addClass("sticky");
     }
     else{
@@ -49,7 +49,7 @@ else
 {
 $('.collapse#collapseFilters').removeClass('out');
 $('.collapse#collapseFilters').addClass('in');
-}   
+}
 });
 /* ==============================================
 	Overaly mask form + incrementer
@@ -70,10 +70,10 @@ $('#overlay').click(function(e){
 	Common
 =============================================== */
 
-<!-- Tooltip -->	
+<!-- Tooltip -->
 $('.tooltip-1').tooltip({html:true});
-	
- //accordion	
+
+ //accordion
 function toggleChevron(e) {
     $(e.target)
         .prev('.panel-heading')
@@ -99,16 +99,16 @@ $('.parallax-window').parallax({}); /* Parallax modal*/
 
 $('.magnific-gallery').each(function() {
     $(this).magnificPopup({
-        delegate: 'a', 
+        delegate: 'a',
         type: 'image',
         gallery:{enabled:true}
     });
-}); 
+});
 
 $('.dropdown-menu').on("click",function(e) {e.stopPropagation();});  /* top drodown prevent close*/
 
 /* Hamburger icon*/
-var toggles = document.querySelectorAll(".cmn-toggle-switch"); 
+var toggles = document.querySelectorAll(".cmn-toggle-switch");
 
   for (var i = toggles.length - 1; i >= 0; i--) {
     var toggle = toggles[i];
@@ -121,19 +121,19 @@ var toggles = document.querySelectorAll(".cmn-toggle-switch");
       (this.classList.contains("active") === true) ? this.classList.remove("active") : this.classList.add("active");
     });
   };
-  
+
   /* Scroll to top*/
   $(window).scroll(function() {
 		if($(this).scrollTop() != 0) {
-			$('#toTop').fadeIn();	
+			$('#toTop').fadeIn();
 		} else {
 			$('#toTop').fadeOut();
 		}
 	});
 	$('#toTop').on("click",function() {
 		$('body,html').animate({scrollTop:0},500);
-	});	
-	
+	});
+
 	/* Input incrementer*/
     $(".numbers-row").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
     $(".button_inc").on("click", function () {
@@ -155,19 +155,19 @@ var toggles = document.querySelectorAll(".cmn-toggle-switch");
     });
 });
 
-<!-- Cat nav onclick active -->	
+<!-- Cat nav onclick active -->
 $('ul#cat_nav li a').on('click', function(){
     $('ul#cat_nav li a.active').removeClass('active');
     $(this).addClass('active');
 });
 
-<!-- Map filter onclick active -->	
+<!-- Map filter onclick active -->
 $('#map_filter ul li a').on('click', function(){
     $('#map_filter ul li a.active').removeClass('active');
     $(this).addClass('active');
 });
 
-<!-- Input range slider -->	
+<!-- Input range slider -->
     $(function () {
 		'use strict';
         $("#range").ionRangeSlider({

@@ -37,6 +37,9 @@ $config = [
         'terms' => [
             'class' => 'app\modules\terms\termsModules',
         ],
+        'register' => [
+            'class' => 'app\modules\register\registerModules',
+        ],
     ],
     'components' => [
         'request' => [

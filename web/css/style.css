@@ -1717,11 +1717,11 @@ ul#contact-info {
 	display:block;
 	text-transform:none;
 	font-size:12px;
-	background:url(../img/bg_login.jpg) no-repeat center center;
+	background:url(http://lorempixel.com/1400/470/) no-repeat center center;
 	background-size:cover;
 }
 #login {
-	margin:170px 0 60px;
+	margin:100px 0 60px;
 	color:#333;
 	text-align:left;
 	background-color:#fff;
