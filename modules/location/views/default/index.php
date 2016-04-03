@@ -95,7 +95,7 @@ $this->title = 'location';
       <div class="box_style_2">
         <i class="icon_set_1_icon-57"></i>
         <h4>Need <span>Help?</span></h4>
-        <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+        <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
         <small>Monday to Friday 9.00am - 7.30pm</small>
       </div>
     </aside><!--End aside -->

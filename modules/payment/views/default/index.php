@@ -195,7 +195,7 @@ $this->title = 'payment';
       <div class="box_style_4">
           <i class="icon_set_1_icon-90"></i>
           <h4><span>Book</span> by phone</h4>
-          <a href="tel://66880666933" class="phone">+66 88 0666 6933</a>
+          <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
           <small>Monday to Friday 9.00am - 6.00pm</small>
       </div>
     </aside>

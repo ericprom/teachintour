@@ -16,11 +16,11 @@
 			'Contact': [
 			{
 				name: 'Address',
-				location_latitude: 48.870587,
-				location_longitude: 2.318943,
-				map_image_url: 'http://lorempixel.com/280/140/',
+				location_latitude: 17.772812,
+				location_longitude: 102.194968,
+				map_image_url: 'img/covers/map_cover.png',
 				name_point: 'Address',
-				description_point: '45/140 The tree Privata, Bangsue, Bangkok 10800.<br>Thailand<br><br>+66 88 066 6933 ',
+				description_point: '71/1 Srisamran, Namsom district, Udonthani 41210, Thailand.<br>Thailand<br><br>+66 95 449 2245 ',
 				url_point: ''
 			}
 			]
@@ -29,7 +29,7 @@
 
 			var mapOptions = {
 				zoom: 14,
-				center: new google.maps.LatLng(48.870587, 2.318943),
+				center: new google.maps.LatLng(17.772812, 102.194968),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 				mapTypeControl: false,

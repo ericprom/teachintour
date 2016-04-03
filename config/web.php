@@ -79,8 +79,8 @@ $config = [
                 '' => 'site/index',
                 'location/<id:\d+>' => 'location',
                 'blog/<id:\d+>' => 'blog',
-                '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                // '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
+                // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
         ],
 

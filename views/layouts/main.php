@@ -97,7 +97,9 @@ AppAsset::register($this);
       <div id="top_line">
         <div class="container">
           <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>+66 88 066 6933</strong></div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <i class="icon-phone"></i><strong><?=Yii::$app->params['contact_number'];?></strong>
+            </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
               <ul id="top_links">
                 <li>
@@ -205,8 +207,8 @@ AppAsset::register($this);
         <div class="row">
           <div class="col-md-4 col-sm-3">
             <h3>Need help?</h3>
-            <a href="tel://66880666933" id="phone">+66 88 066 6933</a>
-            <a href="mailto:info@teachintour.com" id="email_footer">info@teachintour.com</a>
+            <a href="tel://<?=Yii::$app->params['contact_number'];?>" id="phone"><?=Yii::$app->params['contact_number'];?></a>
+            <a href="mailto:<?=Yii::$app->params['contact_email'];?>" id="email_footer"><?=Yii::$app->params['contact_email'];?></a>
             <strong>Secure payments with</strong>
             <p><img src="img/payments.png" width="231" height="30" alt="" data-retina="true" class="img-responsive"></p>
           </div>

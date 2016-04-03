@@ -87,7 +87,7 @@ $this->title = 'contact';
         <span class="tape"></span>
         <h4>Address <span><i class="icon-pin pull-right"></i></span></h4>
         <p>
-          45/140 The tree Privata, Bangsue, Bangkok 10800, Thailand.
+          <?=Yii::$app->params['contact_address'];?>
         </p>
         <hr>
         <h4>Other way <span><i class="icon-help pull-right"></i></span></h4>
@@ -95,14 +95,14 @@ $this->title = 'contact';
           Feel free to contact us for mor information or visit us at the office near you.
         </p>
         <ul id="contact-info">
-          <li><i class="icon_set_1_icon-55"></i> +66 88 066 6933</li>
-          <li><i class="icon_set_1_icon-84"></i> info@teachintour.com</li>
+          <li><i class="icon_set_1_icon-55"></i> <?=Yii::$app->params['contact_number'];?></li>
+          <li><i class="icon_set_1_icon-84"></i> <?=Yii::$app->params['contact_email'];?></li>
         </ul>
       </div>
       <div class="box_style_4">
         <i class="icon_set_1_icon-57"></i>
         <h4>Need <span>Help?</span></h4>
-        <a href="tel://66880666933" class="phone">+66 88 066 6933</a>
+        <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
         <small>Monday to Friday 9.00am - 6.00pm</small>
       </div>
     </div><!-- End col-md-4 -->
