@@ -94,52 +94,6 @@ AppAsset::register($this);
 
     <!-- Header================================================== -->
     <header>
-      <div id="top_line">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-              <i class="icon-phone"></i><strong><?=Yii::$app->params['contact_number'];?></strong>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-              <ul id="top_links">
-                <li>
-                  <div class="dropdown dropdown-access">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Sign in</a>
-                    <div class="dropdown-menu">
-                      <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                          <a href="#" class="bt_facebook">
-                            <i class="icon-facebook"></i>Facebook
-                          </a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                          <a href="#" class="bt_paypal">
-                            <i class="icon-paypal"></i>Paypal
-                          </a>
-                        </div>
-                      </div>
-                      <div class="login-or">
-                        <hr class="hr-or">
-                        <span class="span-or">or</span>
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                      </div>
-                      <a id="forgot_pw" href="#">Forgot password?</a>
-                      <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
-                      <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
-                    </div>
-                  </div><!-- End Dropdown access -->
-                </li>
-              </ul>
-            </div>
-          </div><!-- End row -->
-        </div><!-- End container-->
-      </div><!-- End top line-->
-
       <div class="container">
         <div class="row">
           <div class="col-md-3 col-sm-3 col-xs-3">
@@ -179,21 +133,10 @@ AppAsset::register($this);
               </div><!-- End main-menu -->
               <ul id="top_tools">
                 <li>
-                  <div class="dropdown dropdown-search">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
-                    <div class="dropdown-menu">
-                      <form>
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search...">
-                          <span class="input-group-btn">
-                          <button class="btn btn-default" type="button" style="margin-left:0;">
-                          <i class="icon-search"></i>
-                          </button>
-                          </span>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+                  <a href="#"><i class="icon-user"></i> Sign up</a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-login"></i> Login</a>
                 </li>
             </ul>
           </nav>
@@ -206,14 +149,14 @@ AppAsset::register($this);
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-3">
-            <h3>Need help?</h3>
+            <h3>Support</h3>
             <a href="tel://<?=Yii::$app->params['contact_number'];?>" id="phone"><?=Yii::$app->params['contact_number'];?></a>
             <a href="mailto:<?=Yii::$app->params['contact_email'];?>" id="email_footer"><?=Yii::$app->params['contact_email'];?></a>
             <strong>Secure payments with</strong>
             <p><img src="img/payments.png" width="231" height="30" alt="" data-retina="true" class="img-responsive"></p>
           </div>
           <div class="col-md-3 col-sm-3">
-            <h3>About</h3>
+            <h3>Company</h3>
             <ul>
               <li>
                 <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
@@ -234,74 +177,46 @@ AppAsset::register($this);
               </li>
             </ul>
           </div>
-          <div class="col-md-3 col-sm-3"  id="newsletter">
-            <h3>Newsletter</h3>
-            <p>Join our newsletter to keep be informed about offers and news.</p>
-            <div id="message-newsletter_2"></div>
-            <form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
-              <div class="form-group">
-                <input name="email_newsletter_2" id="email_newsletter_2"  type="email" value=""  placeholder="Your mail" class="form-control">
-              </div>
-              <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
-            </form>
-          </div>
-          <div class="col-md-2 col-sm-3">
-            <h3>Settings</h3>
-            <div class="styled-select">
-              <select class="form-control" name="lang" id="lang">
-                <option value="English" selected>English</option>
-                <option value="French">French</option>
-                <option value="Spanish">Spanish</option>
-                <option value="Russian">Russian</option>
-              </select>
-            </div>
-            <div class="styled-select">
-              <select class="form-control" name="currency" id="currency">
-                <option value="USD" selected>USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="RUB">RUB</option>
-              </select>
-            </div>
-          </div>
-        </div><!-- End row -->
-        <div class="row">
-          <div class="col-md-12">
-            <div id="social_footer">
-              <ul>
+          <div class="col-md-3 col-sm-3">
+            <h3>Follow us</h3>
+            <ul>
                 <li>
                   <a href="https://www.facebook.com/TeachinTour/" target="_blank">
-                  <i class="icon-facebook"></i>
+                  <i class="icon-facebook"></i> Facebook
                 </a>
                 </li>
                 <li>
                   <a href="https://twitter.com/teachintour" target="_blank">
-                  <i class="icon-twitter"></i>
+                  <i class="icon-twitter"></i> Twitter
                 </a>
                 </li>
                 <li>
                   <a href="https://www.instagram.com/teachintour/" target="_blank">
-                  <i class="icon-instagram"></i>
+                  <i class="icon-instagram"></i> Instagram
                 </a>
                 </li>
                 <li>
                   <a href="https://www.pinterest.com/teachintour/" target="_blank">
-                  <i class="icon-pinterest"></i>
+                  <i class="icon-pinterest"></i> Pinterest
                 </a>
                 </li>
                 <li>
                   <a href="https://www.youtube.com/channel/UC7JJcy9L-3dlfmV-q2DtN7g" target="_blank">
-                  <i class="icon-youtube-play"></i>
+                  <i class="icon-youtube-play"></i> YouTube
                 </a>
                 </li>
                 <li>
                   <a href="https://www.linkedin.com/in/teachintour" target="_blank">
-                  <i class="icon-linkedin"></i>
+                  <i class="icon-linkedin"></i> LinkedIn
                 </a>
                 </li>
               </ul>
-              <p>© Teachin' Tour Co., Ltd. 2015</p>
-            </div>
+          </div>
+          <div class="col-md-2 col-sm-3">
+            <h3><?=Yii::$app->params['company_name'];?></h3>
+            <?=Yii::$app->params['contact_address'];?>
+            <br>
+            <p>© <?=Yii::$app->params['company_name'];?> 2015</p>
           </div>
         </div><!-- End row -->
       </div><!-- End container -->

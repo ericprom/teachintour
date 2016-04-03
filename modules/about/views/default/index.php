@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'about';
+$this->title = 'About | '.Yii::$app->params["company_name"].'';
 ?>
 <section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
   <div class="parallax-content-1">
@@ -40,7 +40,7 @@ $this->title = 'about';
         <img src="img/staffs/eric.jpg" alt="" class="img-circle">
         <h4>Eric Prom: Co-founder</h4>
         <p>
-            "From someone that used to hate English so much, turn to the one that love English all of his heart. After came back from the United States, Eric noticed that the language barrier that sit between Thai people and English native speaker is so thick. He and his co-founder start a company called "teachin' tour" just to help breaking the ice."
+            "From someone that used to hate English so much, turn to the one that love English all of his heart. After came back from the United States, Eric noticed that the language barrier that sit between Thai people and English native speaker is so thick. He and his co-founder start a company called "teachin' tour" just to help breaking it down."
         </p>
       </div><!-- End review strip -->
     </div>

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'contact';
+$this->title = 'Contact | '.Yii::$app->params["company_name"].'';
 ?>
 <section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">

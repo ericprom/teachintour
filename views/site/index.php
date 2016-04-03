@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-$this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local people';
+$this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and discovering the local people';
 ?>
 <section class="header-video">
   <div id="hero_video">

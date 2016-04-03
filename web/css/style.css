@@ -688,7 +688,7 @@ a#phone:before, a#email_footer:before{
 }
 a#phone:before{
   font-size:30px;
-  content: "\79";
+  content: "\7a";
   left:0;
   top:0;
 }
