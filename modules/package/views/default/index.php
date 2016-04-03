@@ -24,9 +24,9 @@ $this->title = 'packages';
 
 <div class="container margin_60">
   <div class="main_title">
-    <h2><span>Affordable </span>packages for travellers</h2>
+    <h2><span>Affordable </span>packages for volunteers</h2>
     <p>
-      For more specific program information please contact us.
+      For more specific program information please <?=Html::a('contact us', ['/contact/'],['data' => ['method' => 'post']]);?>.
     </p>
   </div>
   <hr>
@@ -264,7 +264,7 @@ $this->title = 'packages';
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Membership FAQ</h3>
+                    <h3>Volunteer FAQ</h3>
                 </div>
             </div><!-- end row -->
 
@@ -272,27 +272,27 @@ $this->title = 'packages';
 
                 <div class="col-md-4">
                     <div class="question_box">
-                        <h3>No sit debitis meliore postulant, per ex prompta alterum sanctus?</h3>
+                        <h3>What else do I have to pay?</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.
+                            All transportation to your project location, vaccinations, travel and health insurance, food and other personal expenses.
                         </p>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="question_box">
-                        <h3>Autem putent singulis usu ea, bonorum suscipit eum?</h3>
+                        <h3>How long is the process?</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.
+                            Typically, the application process may takes up to two or three weeks. If there is a need, we can speeded up the process. When you have build and complete your profile, we will send you a complete document for your visa process.
                         </p>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="question_box">
-                        <h3>Pro moderatius philosophia ad, ad mea mupercipitur?</h3>
+                        <h3>How can I pay for the package?</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.
+                            There are multiple way that you can pay for the package. You can pay via credit card or PayPal. Bank transfer also available.
                         </p>
                     </div>
                 </div>

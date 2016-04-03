@@ -2,13 +2,14 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local people';
 ?>
 <section class="header-video">
   <div id="hero_video">
     <div class="intro_title">
-      <h1 class="animated fadeInDown"><strong id="js-rotating"> Teaching, Learning, Discovering</strong> Local People</h1>
-      <p class="animated fadeInDown">Teaching / Learning / Discovering</p>
+      <h1 class="animated fadeInDown"><strong id="js-rotating"> Teaching, Learning, Discovering, Helping</strong> Local People</h1>
+      <p class="animated fadeInDown">Teaching / Learning / Discovering / Helping</p>
       <a href="#" class="animated fadeInUp button_intro">Signup Now</a>
       <a href="#" class="animated fadeInUp button_intro outline">View Detail</a>
     </div>
@@ -54,168 +55,107 @@ $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local pe
       </div>
     </div>
   </div>
-  <hr>
-  <div class="main_title">
-    <h2>Our <span>Top</span> Programs</h2>
-    <p>You can pick the program that suit your style for remarkable experiences</p>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-      <div class="hotel_container">
-        <div class="img_container">
-          <a href="single_hotel.html">
-          <img src="img/hotel_1.jpg" width="800" height="533" class="img-responsive" alt="">
-          <div class="ribbon top_rated"></div>
-                        <div class="score"><span>7.5</span>Good</div>
-          <div class="short_info hotel">
-            From/Per night<span class="price"><sup>$</sup>59</span>
-          </div>
-          </a>
-        </div>
-        <div class="hotel_title">
-          <h3><strong>Park Hyatt</strong> Hotel</h3>
-          <div class="rating">
-            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-          </div><!-- end rating -->
-          <div class="wishlist">
-            <a class="tooltip_flip tooltip-effect-1" href="#">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-          </div><!-- End wish list-->
-        </div>
-      </div><!-- End box -->
-    </div><!-- End col-md-4 -->
-    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-      <div class="hotel_container">
-        <div class="img_container">
-          <a href="single_hotel.html">
-          <img src="img/hotel_2.jpg"  width="800" height="533" class="img-responsive" alt="">
-          <div class="ribbon top_rated"></div>
-          <div class="score"><span>9.0</span>Superb</div>
-          <div class="short_info hotel">
-            From/Per night<span class="price"><sup>$</sup>45</span>
-          </div>
-          </a>
-        </div>
-        <div class="hotel_title">
-          <h3><strong>Mariott</strong> Hotel</h3>
-          <div class="rating">
-            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-          </div><!-- end rating -->
-          <div class="wishlist">
-            <a class="tooltip_flip tooltip-effect-1" href="#">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-          </div><!-- End wish list-->
-        </div>
-      </div><!-- End box -->
-    </div><!-- End col-md-4 -->
-    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-      <div class="hotel_container">
-        <div class="img_container">
-          <a href="single_hotel.html">
-          <img src="img/hotel_3.jpg"  width="800" height="533" class="img-responsive" alt="">
-          <div class="ribbon top_rated"></div>
-                        <div class="score"><span>9.5</span>Superb</div>
-          <div class="short_info hotel">
-            From/Per night<span class="price"><sup>$</sup>39</span>
-          </div>
-          </a>
-        </div>
-        <div class="hotel_title">
-          <h3><strong>Lumiere</strong> Hotel</h3>
-          <div class="rating">
-            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-          </div><!-- end rating -->
-          <div class="wishlist">
-            <a class="tooltip_flip tooltip-effect-1" href="#">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-          </div><!-- End wish list-->
-        </div>
-      </div><!-- End box -->
-    </div><!-- End col-md-4 -->
-  </div><!-- End row -->
-  <div class="banner colored">
-    <h4>Discover our Top programs <span>from $450</span></h4>
-    <p>
-        What are you waiting for? They are waiting for you help.
-    </p>
-    <a href="single_tour.html" class="btn_1 white">Read more</a>
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-sm-6 text-center">
-      <p>
-          <a href="#"><img src="img/bus.jpg" alt="Pic" class="img-responsive"></a>
-      </p>
-      <h4><span>Sightseen tour</span> booking</h4>
-      <p>
-          Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-      </p>
-    </div>
-    <div class="col-md-3 col-sm-6 text-center">
-      <p>
-          <a href="#"><img src="img/transfer.jpg" alt="Pic" class="img-responsive"></a>
-      </p>
-      <h4><span>Transfer</span> booking</h4>
-      <p>
-          Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-      </p>
-    </div>
-    <div class="col-md-3 col-sm-6 text-center">
-      <p>
-          <a href="#"><img src="img/guide.jpg" alt="Pic" class="img-responsive"></a>
-      </p>
-      <h4><span>Tour guide</span> booking</h4>
-      <p>
-          Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-      </p>
-    </div>
-    <div class="col-md-3 col-sm-6 text-center">
-      <p>
-          <a href="#"><img src="img/hotel.jpg" alt="Pic" class="img-responsive"></a>
-      </p>
-      <h4><span>Hotel</span> booking</h4>
-      <p>
-          Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-      </p>
-    </div>
-  </div><!-- End row -->
 </div><!-- End container -->
 
 <div class="white_bg">
   <div class="container margin_60">
     <div class="main_title">
-      <h2>Other <span>Popular</span> Programs</h2>
-      <p>
-        You can select other programs while you are here, in order to go to different part of Thailand and still be able to travel.
-      </p>
+      <h2>Our <span>Top</span> Packages</h2>
+      <p>You can pick the package that suit your style for remarkable experiences</p>
     </div>
-    <div class="row add_bottom_45">
-      <div class="col-md-4 other_tours">
-        <ul>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-        </ul>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="hotel_container">
+          <div class="img_container">
+            <a href="single_hotel.html">
+            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
+            <div class="ribbon top_rated"></div>
+            <div class="short_info hotel">
+              Cost<span class="price"><sup>$</sup>400</span>
+            </div>
+            </a>
+          </div>
+          <div class="hotel_title">
+            <h3><i class="icon_set_1_icon-53"></i> <strong>2 Weeks</strong></h3>
+          </div>
+        </div><!-- End box -->
+      </div><!-- End col-md-4 -->
+      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="hotel_container">
+          <div class="img_container">
+            <a href="single_hotel.html">
+            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
+            <div class="ribbon top_rated"></div>
+            <div class="short_info hotel">
+              Cost<span class="price"><sup>$</sup>600</span>
+            </div>
+            </a>
+          </div>
+          <div class="hotel_title">
+            <h3><i class="icon_set_1_icon-53"></i> <strong>4 Weeks</strong></h3>
+          </div>
+        </div><!-- End box -->
+      </div><!-- End col-md-4 -->
+      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="hotel_container">
+          <div class="img_container">
+            <a href="single_hotel.html">
+            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
+            <div class="ribbon top_rated"></div>
+            <div class="short_info hotel">
+              Cost<span class="price"><sup>$</sup>1000</span>
+            </div>
+            </a>
+          </div>
+          <div class="hotel_title">
+            <h3><i class="icon_set_1_icon-53"></i> <strong>8 Weeks</strong></h3>
+          </div>
+        </div><!-- End box -->
+      </div><!-- End col-md-4 -->
+    </div><!-- End row -->
+    <div class="banner colored">
+      <h4>Discover our other package <span>from $300</span></h4>
+      <p>
+          What are you waiting for? They are waiting for your help.
+      </p>
+      <?=Html::a('See more', ['/package/'],['data' => ['method' => 'post'],'class'=>'btn_1 white']);?>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 text-center">
+        <p>
+            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
+        </p>
+        <h4><span>Teaching</span> Local</h4>
+        <p>
+            Teaching is the core of our program. You will get to teach many kind of student even "monks".
+        </p>
       </div>
-      <div class="col-md-4 other_tours">
-        <ul>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-        </ul>
+      <div class="col-md-3 col-sm-6 text-center">
+        <p>
+            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
+        </p>
+        <h4><span>Learning</span> Local</h4>
+        <p>
+            While you are in the teaching program, you will get to learn about our culture.
+        </p>
       </div>
-      <div class="col-md-4 other_tours">
-        <ul>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-          <li><a href="#"><i class="icon_set_1_icon-3"></i>Tutoring<span class="other_tours_price">$200</span></a></li>
-        </ul>
+      <div class="col-md-3 col-sm-6 text-center">
+        <p>
+            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
+        </p>
+        <h4><span>Discovering</span> Local</h4>
+        <p>
+            Teachin' Tour is the new way of traveling. You will get to teach and tour at the same time to discover the most remarkable experience.
+        </p>
+      </div>
+      <div class="col-md-3 col-sm-6 text-center">
+        <p>
+            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
+        </p>
+        <h4><span>Helping</span> Local</h4>
+        <p>
+            You can help other while you are traveling. Is that cool? Help us break the language barrier.
+        </p>
       </div>
     </div><!-- End row -->
   </div><!-- End container -->

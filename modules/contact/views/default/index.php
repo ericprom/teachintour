@@ -25,7 +25,7 @@ $this->title = 'contact';
   <div class="row">
     <div class="col-md-8 col-sm-8">
       <div class="form_title">
-        <h3><strong><i class="icon-pencil"></i></strong>Fill the form below</h3>
+        <h3><strong><i class="icon-pencil"></i></strong>What'd you like to say?</h3>
         <p>
           We want to hear from you.
         </p>
@@ -90,13 +90,13 @@ $this->title = 'contact';
           45/140 The tree Privata, Bangsue, Bangkok 10800, Thailand.
         </p>
         <hr>
-        <h4>Help center <span><i class="icon-help pull-right"></i></span></h4>
+        <h4>Other way <span><i class="icon-help pull-right"></i></span></h4>
         <p>
           Feel free to contact us for mor information or visit us at the office near you.
         </p>
         <ul id="contact-info">
-          <li>+66 88 066 6933</li>
-          <li><a href="#">info@teachintour.com</a></li>
+          <li><i class="icon_set_1_icon-55"></i> +66 88 066 6933</li>
+          <li><i class="icon_set_1_icon-84"></i> info@teachintour.com</li>
         </ul>
       </div>
       <div class="box_style_4">
