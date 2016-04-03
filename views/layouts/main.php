@@ -56,6 +56,7 @@ AppAsset::register($this);
     <link href="<?=Yii::$app->request->baseUrl; ?>/css/base.css" rel="stylesheet">
     <link href="<?=Yii::$app->request->baseUrl; ?>/css/jquery.switch.css" rel="stylesheet">
     <link href="<?=Yii::$app->request->baseUrl; ?>/css/date_time_picker.css" rel="stylesheet">
+    <link href="<?=Yii::$app->request->baseUrl; ?>/css/blog.css" rel="stylesheet">
 
      <!-- Google web fonts -->
    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -218,13 +219,17 @@ AppAsset::register($this);
               <li>
                 <?=Html::a('FAQs', ['/faq/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li><a href="#">Blog</a></li>
+              <li>
+                <?=Html::a('Blog', ['/blog/'],['data' => ['method' => 'post']]);?>
+              </li>
               <li>
                 <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
               </li>
               <li><a href="#">Login</a></li>
               <li><a href="#">Register</a></li>
-              <li><a href="#">Terms and condition</a></li>
+              <li>
+              <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'post']]);?>
+              </li>
             </ul>
           </div>
           <div class="col-md-3 col-sm-3"  id="newsletter">

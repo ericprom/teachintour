@@ -31,6 +31,12 @@ $config = [
         'faq' => [
             'class' => 'app\modules\faq\faqModules',
         ],
+        'blog' => [
+            'class' => 'app\modules\blog\blogModules',
+        ],
+        'terms' => [
+            'class' => 'app\modules\terms\termsModules',
+        ],
     ],
     'components' => [
         'request' => [
@@ -72,6 +78,7 @@ $config = [
             'rules' => [
                 '' => 'site/index',
                 'location/<id:\d+>' => 'location',
+                'blog/<id:\d+>' => 'blog',
                 // '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
                 // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
