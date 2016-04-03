@@ -8,13 +8,13 @@ $this->title = 'confirmation';
 <section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-        <h1>Place your order</h1>
+        <h1>Selected 2 Weeks Package</h1>
             <div class="bs-wizard">
 
                 <div class="col-xs-4 bs-wizard-step complete">
-                  <div class="text-center bs-wizard-stepnum">Booking</div>
+                  <div class="text-center bs-wizard-stepnum">Package</div>
                   <div class="progress"><div class="progress-bar"></div></div>
-                  <?=Html::a('',['/booking/'],['class'=>'bs-wizard-dot']);?>
+                  <?=Html::a('',['/package/'],['class'=>'bs-wizard-dot']);?>
                 </div>
 
                 <div class="col-xs-4 bs-wizard-step complete">
@@ -36,9 +36,8 @@ $this->title = 'confirmation';
     <div id="position">
       <div class="container">
                   <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li>Page active</li>
+                    <li><a href="<?=Yii::$app->homeUrl;?>">Home</a></li>
+                    <li>confirmation</li>
                     </ul>
         </div>
     </div><!-- End position -->
@@ -50,19 +49,19 @@ $this->title = 'confirmation';
       <div class="form_title">
         <h3><strong><i class="icon-ok"></i></strong>Thank you!</h3>
         <p>
-          Mussum ipsum cacilds, vidis litro abertis.
+          Hope to see you soon.
         </p>
       </div>
       <div class="step">
         <p>
-          Lorem ipsum dolor sit amet, nostrud nominati vis ex, essent conceptam eam ad. Cu etiam comprehensam nec. Cibo delicata mei an, eum porro legere no. Te usu decore omnium, quem brute vis at, ius esse officiis legendos cu. Dicunt voluptatum at cum. Vel et facete equidem deterruisset, mei graeco cetero labores et. Accusamus inciderint eu mea.
+          You payment is completed. Please allow up to two to three weeks for the process to be done. We can speeded up the process If there is a need. All the paper work will be sending to your email as listed in your profile.
         </p>
       </div><!--End step -->
 
       <div class="form_title">
         <h3><strong><i class="icon-tag-1"></i></strong>Booking summary</h3>
         <p>
-          Mussum ipsum cacilds, vidis litro abertis.
+          Here are your booking summary.
         </p>
       </div>
       <div class="step">
@@ -70,22 +69,14 @@ $this->title = 'confirmation';
         <thead>
         <tr>
           <th colspan="2">
-            Item 1
+            2 Weeks package
           </th>
         </tr>
         </thead>
         <tbody>
         <tr>
           <td>
-            <strong>Louvre musuem tickets</strong>
-          </td>
-          <td>
-            2x
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Date</strong>
+            <strong>Desire Date</strong>
           </td>
           <td>
             25 Febraury 2015
@@ -93,53 +84,18 @@ $this->title = 'confirmation';
         </tr>
         <tr>
           <td>
-            <strong>To</strong>
+            <strong>Adult</strong>
           </td>
           <td>
-            Jhon Doe
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Payment type</strong>
-          </td>
-          <td>
-            Credit card
-          </td>
-        </tr>
-        </tbody>
-        </table>
-        <table class="table confirm">
-        <thead>
-        <tr>
-          <th colspan="2">
-            Item 2
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>
-            <strong>Senna river tour</strong>
-          </td>
-          <td>
-            2x
+            1
           </td>
         </tr>
         <tr>
           <td>
-            <strong>Date</strong>
+            <strong>Children</strong>
           </td>
           <td>
-            27 Febraury 2015
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>To</strong>
-          </td>
-          <td>
-            Jhon Doe
+            1
           </td>
         </tr>
         <tr>
@@ -159,7 +115,7 @@ $this->title = 'confirmation';
     <div class="box_style_1">
       <h3 class="inner">Thank you!</h3>
       <p>
-        Nihil inimicus ex nam, in ipsum dignissim duo. Tale principes interpretaris vim ei, has posidonium definitiones ut. Duis harum fuisset ut his, duo an dolor epicuri appareat.
+        Thanks you for joining us. We are appreciate you help. Together we can break the language barrier. Together we can build a better community. Hoping to see you soon. God bless you.
       </p>
       <hr>
       <a class="btn_full_outline" href="invoice.html" target="_blank">View your invoice</a>
@@ -167,8 +123,8 @@ $this->title = 'confirmation';
     <div class="box_style_4">
       <i class="icon_set_1_icon-89"></i>
       <h4>Have <span>questions?</span></h4>
-      <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-      <small>Monday to Friday 9.00am - 7.30pm</small>
+      <a href="tel://66880666933" class="phone">+66 88 0666 6933</a>
+      <small>Monday to Friday 9.00am - 6.00pm</small>
     </div>
     </aside>
 

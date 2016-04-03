@@ -43,7 +43,7 @@ $this->title = 'packages';
                         <li><strong>3 months</strong> valid</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                    <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                     </p>
                 </div> <!-- End col-md-4 -->
 
@@ -58,7 +58,7 @@ $this->title = 'packages';
                         <li><strong>6 months</strong> valid</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1 green']);?>
+                    <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1 green']);?>
                     </p>
                 </div><!-- End col-md-4 -->
 
@@ -73,7 +73,7 @@ $this->title = 'packages';
                          <li><strong>Travel guide</strong> included</li>
                     </ul>
                     <p class=" col-md-8 col-md-offset-2 text-center">
-                    <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                    <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                     </p>
                 </div><!-- End col-md-4 -->
 
@@ -104,7 +104,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -125,7 +125,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -146,7 +146,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -167,7 +167,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -191,7 +191,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -212,7 +212,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -232,7 +232,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->
@@ -253,7 +253,7 @@ $this->title = 'packages';
                       </div>
 
                       <div class="pricing-table-sign-up">
-                        <?=Html::a('Book now', ['/booking/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
+                        <?=Html::a('Book now', ['/payment/'],['data' => ['method' => 'post'],'class'=>'btn_1']);?>
                       </div>
 
                   </div><!-- End pricing-table-->

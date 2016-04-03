@@ -13,9 +13,6 @@ $config = [
         'package' => [
             'class' => 'app\modules\package\packageModules',
         ],
-        'booking' => [
-            'class' => 'app\modules\booking\bookingModules',
-        ],
         'payment' => [
             'class' => 'app\modules\payment\paymentModules',
         ],

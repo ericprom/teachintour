@@ -55,6 +55,7 @@ AppAsset::register($this);
     <!-- CSS -->
     <link href="css/base.css" rel="stylesheet">
     <link href="css/jquery.switch.css" rel="stylesheet">
+    <link href="css/date_time_picker.css" rel="stylesheet">
 
      <!-- Google web fonts -->
    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -160,10 +161,13 @@ AppAsset::register($this);
                     <a href="<?=Yii::$app->homeUrl;?>" class="show-submenu">Home</a>
                   </li>
                   <li class="submenu">
-                    <?=Html::a('Packages', ['/package/'],['data' => ['method' => 'post']]);?>
+                    <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
                   </li>
                   <li class="submenu">
-                    <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
+                    <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+                  </li>
+                  <li class="submenu">
+                    <?=Html::a('Packages', ['/package/'],['data' => ['method' => 'post']]);?>
                   </li>
                   <li class="submenu">
                     <?=Html::a('Contact us', ['/contact/'],['data' => ['method' => 'post']]);?>
@@ -338,6 +342,11 @@ AppAsset::register($this);
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="js/map_contact.js"></script>
     <script src="js/infobox.js"></script>
+
+
+    <!-- Date and time pickers -->
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/datepicker_advanced.js"></script>
 
     <!-- Fixed sidebar -->
     <script src="js/theia-sticky-sidebar.js"></script>

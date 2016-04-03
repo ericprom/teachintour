@@ -8,8 +8,8 @@ $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local pe
 <section class="header-video">
   <div id="hero_video">
     <div class="intro_title">
-      <h1 class="animated fadeInDown"><strong id="js-rotating"> Teaching, Learning, Discovering, Helping</strong> Local People</h1>
-      <p class="animated fadeInDown">Teaching / Learning / Discovering / Helping</p>
+      <h1 class="animated fadeInDown"><strong id="js-rotating"> Teaching, Learning, Discovering</strong> Local People</h1>
+      <p class="animated fadeInDown">Teaching / Learning / Discovering</p>
       <a href="#" class="animated fadeInUp button_intro">Signup Now</a>
       <a href="#" class="animated fadeInUp button_intro outline">View Detail</a>
     </div>
