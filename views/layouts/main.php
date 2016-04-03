@@ -99,10 +99,10 @@ AppAsset::register($this);
           <div class="col-md-3 col-sm-3 col-xs-3">
             <div id="logo">
               <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_normal">
+                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo.png" height="34" alt="City tours" data-retina="true" class="logo_normal">
               </a>
               <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_sticky">
+                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" height="34" alt="City tours" data-retina="true" class="logo_sticky">
               </a>
             </div>
           </div>
