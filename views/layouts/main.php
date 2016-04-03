@@ -53,9 +53,9 @@ AppAsset::register($this);
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
 
     <!-- CSS -->
-    <link href="css/base.css" rel="stylesheet">
-    <link href="css/jquery.switch.css" rel="stylesheet">
-    <link href="css/date_time_picker.css" rel="stylesheet">
+    <link href="<?=Yii::$app->request->baseUrl; ?>/css/base.css" rel="stylesheet">
+    <link href="<?=Yii::$app->request->baseUrl; ?>/css/jquery.switch.css" rel="stylesheet">
+    <link href="<?=Yii::$app->request->baseUrl; ?>/css/date_time_picker.css" rel="stylesheet">
 
      <!-- Google web fonts -->
    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -142,10 +142,10 @@ AppAsset::register($this);
           <div class="col-md-3 col-sm-3 col-xs-3">
             <div id="logo">
               <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="img/logo.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_normal">
+                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_normal">
               </a>
               <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_sticky">
+                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true" class="logo_sticky">
               </a>
             </div>
           </div>
@@ -153,7 +153,7 @@ AppAsset::register($this);
             <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
               <div class="main-menu">
                 <div id="header_menu">
-                    <img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
+                    <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
                 </div>
                 <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                 <ul>
@@ -303,13 +303,13 @@ AppAsset::register($this);
     <div id="toTop"></div><!-- Back to top button -->
 
     <!-- Jquery -->
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/common_scripts_min.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/jquery-1.11.2.min.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/common_scripts_min.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/functions.js"></script>
 
     <!-- video header -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/video_header.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/modernizr.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/video_header.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -325,7 +325,7 @@ AppAsset::register($this);
     </script>
 
     <!-- Text rotate -->
-    <script src="js/morphext.min.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/morphext.min.js"></script>
     <script>
     $("#js-rotating").Morphext({
         animation: "fadeIn", // Overrides default "bounceIn"
@@ -338,18 +338,17 @@ AppAsset::register($this);
     </script>
 
     <!-- Google Map -->
-    <script src="assets/validate.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script src="js/map_contact.js"></script>
-    <script src="js/infobox.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/map_contact.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/infobox.js"></script>
 
 
     <!-- Date and time pickers -->
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/datepicker_advanced.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/bootstrap-datepicker.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/datepicker_advanced.js"></script>
 
     <!-- Fixed sidebar -->
-    <script src="js/theia-sticky-sidebar.js"></script>
+    <script src="<?=Yii::$app->request->baseUrl; ?>/js/theia-sticky-sidebar.js"></script>
     <script>
         jQuery('#sidebar').theiaStickySidebar({
           additionalMarginTop: 80
@@ -373,6 +372,7 @@ AppAsset::register($this);
 
     });
     </script>
+
   </body>
 </html>
 <?php $this->endPage() ?>

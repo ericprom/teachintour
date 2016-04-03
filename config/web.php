@@ -10,6 +10,12 @@ $config = [
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
+        'about' => [
+            'class' => 'app\modules\about\aboutModules',
+        ],
+        'location' => [
+            'class' => 'app\modules\location\locationModules',
+        ],
         'package' => [
             'class' => 'app\modules\package\packageModules',
         ],
@@ -18,9 +24,6 @@ $config = [
         ],
         'confirmation' => [
             'class' => 'app\modules\confirmation\confirmationModules',
-        ],
-        'about' => [
-            'class' => 'app\modules\about\aboutModules',
         ],
         'contact' => [
             'class' => 'app\modules\contact\contactModules',
@@ -68,8 +71,9 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
-                '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                'location/<id:\d+>' => 'location',
+                // '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
+                // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
         ],
 
