@@ -40,6 +40,13 @@ $config = [
         'register' => [
             'class' => 'app\modules\register\registerModules',
         ],
+        'user' => [
+          'class' => 'dektrium\user\Module',
+          'enableUnconfirmedLogin' => true,
+          'confirmWithin' => 21600,
+          'cost' => 12,
+          'admins' => ['admin']
+        ],
     ],
     'components' => [
         'request' => [
@@ -49,10 +56,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
+        // 'user' => [
+        //     'identityClass' => 'app\models\User',
+        //     'enableAutoLogin' => true,
+        // ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
