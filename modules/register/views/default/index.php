@@ -26,7 +26,7 @@ $this->title = 'Register | '.Yii::$app->params["company_name"].'';
             <input type="password" class=" form-control" id="password1" placeholder="Password">
           </div>
           <hr>
-          By clicking Register, you agree to the Teachin' Tour's Terms and Conditions set out by this site, including our Cookie Use.
+          By clicking <span class="label label-success">Register</span>, you agree to the Teachin' Tour's <?=Html::a('Terms and Conditions', ['/terms/'],['data' => ['method' => 'post']]);?> set out by this site, including our Cookie Use.
           <div id="pass-info" class="clearfix"></div>
           <button class="btn_full">Register</button>
         </form>
