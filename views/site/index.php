@@ -29,7 +29,6 @@ $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local pe
         <p>
              There are more than a hunred schools are waitting for you help.
         </p>
-        <a href="about.html" class="btn_1 outline">Read more</a>
       </div>
     </div>
 
@@ -40,7 +39,6 @@ $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local pe
         <p>
              Right now, a thousand plus teachers from all over the world are joining and helping.
         </p>
-        <a href="about.html" class="btn_1 outline">Read more</a>
       </div>
     </div>
 
@@ -51,7 +49,6 @@ $this->title = 'teachin tour - teachin\' learnin\' and discoverin\' the local pe
         <p>
              One hunred thousand local students get to learn and be able to speak English.
         </p>
-        <a href="about.html" class="btn_1 outline">Read more</a>
       </div>
     </div>
   </div>
