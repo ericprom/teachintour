@@ -144,7 +144,13 @@ $user = Yii::$app->user->identity;
                 <?php }else{?>
                   <li>
                     <div class="dropdown dropdown-search">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $user->username ?></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <?= Html::img($user->profile->getAvatarUrl(24), [
+                              'class' => 'img-rounded',
+                              'alt'   => $user->username,
+                          ]) ?>
+                          <?= $user->username ?>
+                        </a>
                         <div class="dropdown-menu">
                           <ul>
                             <li>
