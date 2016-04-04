@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif ?>
         <hr>
           By clicking <span class="label label-success">Register</span>, you agree to the Teachin' Tour's <?=Html::a('Terms and Conditions', ['/terms/'],['data' => ['method' => 'post']]);?> set out by this site, including our Cookie Use.
-        <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block']) ?>
+        <?= Html::submitButton(Yii::t('user', 'Register'), ['class' => 'btn btn-success btn-block']) ?>
 
         <?php ActiveForm::end(); ?>
         </div>
