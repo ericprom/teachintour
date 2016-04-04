@@ -142,22 +142,20 @@ $user = Yii::$app->user->identity;
                   <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <?php }else{?>
-                  <li class="submenu">
-                      <a href="javascript:void(0);" class="show-submenu">
-                      <?= Html::img($user->profile->getAvatarUrl(24), [
-                          'class' => 'img-rounded',
-                          'alt'   => $user->username,
-                      ]) ?>
-                      <?= $user->username ?>
-                      </a>
-                      <ul>
-                          <li>
-                          <?=Html::a('<i class="icon-cog"></i> Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
-                          </li>
-                          <li>
-                          <?=Html::a('<i class="icon-logout"></i> Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
-                          </li>
-                      </ul>
+                  <li>
+                    <div class="dropdown dropdown-search">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $user->username ?></a>
+                        <div class="dropdown-menu">
+                          <ul>
+                            <li>
+                            <?=Html::a('<i class="icon-cog"></i> Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
+                            </li>
+                            <li>
+                            <?=Html::a('<i class="icon-logout"></i> Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
                   </li>
                 <?php }?>
             </ul>
