@@ -132,12 +132,16 @@ AppAsset::register($this);
                 </ul>
               </div><!-- End main-menu -->
               <ul id="top_tools">
+              <?php if(Yii::$app->user->isGuest){?>
                 <li>
                   <?=Html::a('<i class="icon-user"></i> Register', ['/register/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
                   <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
+              <?php }else{?>
+                Hello
+              <?php }?>
             </ul>
           </nav>
         </div>
