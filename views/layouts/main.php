@@ -47,6 +47,8 @@ $user = Yii::$app->user->identity;
     <meta name="msapplication-TileImage" content="<?=Yii::$app->request->baseUrl; ?>/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <?= Html::csrfMetaTags() ?>
+
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
