@@ -21,34 +21,34 @@ use yii\widgets\ActiveForm;
 $this->title = Yii::t('user', 'Sign up');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
-            </div>
-            <div class="panel-body">
-                <?php $form = ActiveForm::begin([
-                    'id'                     => 'registration-form',
-                    'enableAjaxValidation'   => true,
-                    'enableClientValidation' => false,
-                ]); ?>
 
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'username') ?>
-
-                <?php if ($module->enableGeneratingPassword == false): ?>
-                    <?= $form->field($model, 'password')->passwordInput() ?>
-                <?php endif ?>
-
-                <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block']) ?>
-
-                <?php ActiveForm::end(); ?>
-            </div>
+<section id="hero" class="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div id="login">
+        <div class="text-center"><img src="img/logo_sticky.png" alt="" data-retina="true" ></div>
+        <hr>
+        <form>
+          <div class="form-group">
+            <label>Fullname</label>
+            <input type="text" class=" form-control"  placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class=" form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class=" form-control" id="password1" placeholder="Password">
+          </div>
+          <hr>
+          By clicking <span class="label label-success">Register</span>, you agree to the Teachin' Tour's <?=Html::a('Terms and Conditions', ['/terms/'],['data' => ['method' => 'post']]);?> set out by this site, including our Cookie Use.
+          <div id="pass-info" class="clearfix"></div>
+          <button class="btn_full">Register</button>
+        </form>
         </div>
-        <p class="text-center">
-            <?= Html::a(Yii::t('user', 'Already registered? Sign in!'), ['/user/security/login']) ?>
-        </p>
+      </div>
     </div>
-</div>
+  </div>
+</section>

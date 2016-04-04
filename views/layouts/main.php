@@ -133,10 +133,10 @@ AppAsset::register($this);
               </div><!-- End main-menu -->
               <ul id="top_tools">
                 <li>
-                  <?=Html::a('<i class="icon-user"></i> Register', ['/register/'],['data' => ['method' => 'post']]);?>
+                  <?=Html::a('<i class="icon-user"></i> Register', ['/user/register/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
-                  <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
+                  <?=Html::a('<i class="icon-login"></i> Log in', ['/user/login/'],['data' => ['method' => 'post']]);?>
                 </li>
             </ul>
           </nav>
