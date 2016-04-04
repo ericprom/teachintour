@@ -37,9 +37,6 @@ $config = [
         'terms' => [
             'class' => 'app\modules\terms\termsModules',
         ],
-        'register' => [
-            'class' => 'app\modules\register\registerModules',
-        ],
         'user' => [
           'class' => 'dektrium\user\Module',
           'enableUnconfirmedLogin' => true,
@@ -89,6 +86,9 @@ $config = [
                 '' => 'site/index',
                 'location/<id:\d+>' => 'location',
                 'blog/<id:\d+>' => 'blog',
+                'login' => 'user/security/login',
+                'logout' => 'user/security/logout',
+                'register' => 'user/registration/register',
                 // '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
                 // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
