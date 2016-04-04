@@ -89,8 +89,8 @@ $config = [
                 'login' => 'user/security/login',
                 'logout' => 'user/security/logout',
                 'register' => 'user/registration/register',
-                // '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                'resend' => '/user/registration/resend',
+                'request' => 'user/request',
             ],
         ],
 
