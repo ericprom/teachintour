@@ -90,7 +90,7 @@ $config = [
                 'logout' => 'user/security/logout',
                 'register' => 'user/registration/register',
                 'resend' => '/user/registration/resend',
-                'request' => 'user/request',
+                'request' => '/user/recovery/request',
             ],
         ],
 
