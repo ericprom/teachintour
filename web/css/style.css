@@ -454,26 +454,9 @@ header#colored.sticky{background-color:#e04f67;padding-bottom:0; border-bottom:2
 header#colored.sticky ul#top_tools a {color:#fff;}
 
 /* Drop down cart / login / search  */
-.dropdown.dropdown-profile,.dropdown.dropdown-search, .dropdown.dropdown-cart{
+.dropdown.dropdown-search, .dropdown.dropdown-cart{
 	float:right;
 	font-size:13px !important;
-}
-.dropdown-profile{
-  border: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  float: right;
-  left: auto;
-  min-width: 0;
-  padding: 15px;
-  right: 0;
-  top:100%;
-  font-size:12px;
-  font-weight: normal;
-    text-shadow:none;
-  text-transform:none !important;
-  border-top: 2px solid #e04f67;
 }
 .dropdown-cart .dropdown-menu, .dropdown-access .dropdown-menu, .dropdown-search .dropdown-menu {
   border: none;
@@ -485,7 +468,7 @@ header#colored.sticky ul#top_tools a {color:#fff;}
   min-width: 0;
   padding: 15px;
   right: 0;
-  width: 250px;
+  // width: 250px;
   top:100%;
   font-size:12px;
   font-weight: normal;
@@ -494,7 +477,7 @@ header#colored.sticky ul#top_tools a {color:#fff;}
 	border-top: 2px solid #e04f67;
 }
 
-.dropdown-profile .dropdown-menu:before,.dropdown-cart .dropdown-menu:before, .dropdown-access .dropdown-menu:before, .dropdown-search .dropdown-menu:before {
+.dropdown-cart .dropdown-menu:before, .dropdown-access .dropdown-menu:before, .dropdown-search .dropdown-menu:before {
 	bottom: 100%;
 	right: 10%;
 	border: solid transparent;
@@ -618,10 +601,7 @@ a#forgot_pw{
   a#forgot_pw:hover{
 	color:#333 !important;
   }
-.dropdown-profile .dropdown-menu{
-  margin-top:15px;
-  right:-25px;
-}
+
 .dropdown-search .dropdown-menu{
 	margin-top:15px;
 	right:-25px;

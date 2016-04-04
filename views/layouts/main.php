@@ -143,7 +143,7 @@ $user = Yii::$app->user->identity;
                 </li>
                 <?php }else{?>
                   <li>
-                    <div class="dropdown dropdown-profile">
+                    <div class="dropdown dropdown-search">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $user->username ?></a>
                         <div class="dropdown-menu">
                           <ul>
