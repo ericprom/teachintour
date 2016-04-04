@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+$user = Yii::$app->user->identity;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -140,7 +142,11 @@ AppAsset::register($this);
                   <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
               <?php }else{?>
-                Hello
+                <?= Html::img($user->profile->getAvatarUrl(24), [
+                    'class' => 'img-rounded',
+                    'alt'   => $user->username,
+                ]) ?>
+                <?= $user->username ?>
               <?php }?>
             </ul>
           </nav>
