@@ -134,20 +134,32 @@ $user = Yii::$app->user->identity;
                 </ul>
               </div><!-- End main-menu -->
               <ul id="top_tools">
-              <?php if(Yii::$app->user->isGuest){?>
+                <?php if(Yii::$app->user->isGuest){?>
                 <li>
                   <?=Html::a('<i class="icon-user"></i> Register', ['/register/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
                   <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
-              <?php }else{?>
-                <?= Html::img($user->profile->getAvatarUrl(24), [
-                    'class' => 'img-rounded',
-                    'alt'   => $user->username,
-                ]) ?>
-                <?= $user->username ?>
-              <?php }?>
+                <?php }else{?>
+                  <li class="submenu">
+                      <a href="javascript:void(0);" class="show-submenu">
+                      <?= Html::img($user->profile->getAvatarUrl(24), [
+                          'class' => 'img-rounded',
+                          'alt'   => $user->username,
+                      ]) ?>
+                      <?= $user->username ?>
+                      </a>
+                      <ul>
+                          <li>
+                          <?=Html::a('<i class="icon-cog"></i> Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
+                          </li>
+                          <li>
+                          <?=Html::a('<i class="icon-logout"></i> Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
+                          </li>
+                      </ul>
+                  </li>
+                <?php }?>
             </ul>
           </nav>
         </div>
