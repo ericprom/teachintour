@@ -86,11 +86,14 @@ $config = [
                 '' => 'site/index',
                 'location/<id:\d+>' => 'location',
                 'blog/<id:\d+>' => 'blog',
+                'account'=>'user/settings/account'
+                'profile'=>'user/settings/profile'
+                'networks'=>'user/settings/networks'
                 'login' => 'user/security/login',
                 'logout' => 'user/security/logout',
                 'register' => 'user/registration/register',
-                'resend' => '/user/registration/resend',
-                'request' => '/user/recovery/request',
+                'resend' => 'user/registration/resend',
+                'request' => 'user/recovery/request',
             ],
         ],
 
