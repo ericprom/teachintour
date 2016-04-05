@@ -28,7 +28,7 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
     <div class="col-md-6">
       <div class="review_strip">
         <img src="img/staffs/pumpoui.jpg" alt="" class="img-circle">
-        <h4>PuMpoui Chankul: Founder</h4>
+        <h4>PuMpoui Chankul: Co-Founder</h4>
         <p>
             "Pumpoui, a young talented girl from Chicago, has always thinking and trying to find a way to help local student be able to speak English. English has always been her favorite language. And she would like other to like it as she does, too. She invited Eric to join her adventure and start a "teachin' tour" company hoping to give students a better life."
         </p>
@@ -38,7 +38,7 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
     <div class="col-md-6">
       <div class="review_strip">
         <img src="img/staffs/eric.jpg" alt="" class="img-circle">
-        <h4>Eric Prom: Co-founder</h4>
+        <h4>Eric Prom: Co-Founder</h4>
         <p>
             "From someone that used to hate English so much, turn to the one that love English all of his heart. After came back from the United States, Eric noticed that the language barrier that sit between Thai people and English native speaker is so thick. He and his co-founder start a company called "teachin' tour" just to help breaking it down."
         </p>
