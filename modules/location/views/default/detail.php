@@ -10,8 +10,8 @@ $this->title = 'location';
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    <h1>Bella Napoli</h1>
-                    <span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>
+                    <h1>Namsom</h1>
+                    <span>Udonthani, TH</span>
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div id="price_single_main">
