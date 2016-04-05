@@ -21,7 +21,7 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
 </div><!-- End Position -->
 <div class="container margin_60">
   <div class="main_title">
-      <h2>Our <span>Teams </span></h2>
+      <h2>Our <span>Co-Founders </span></h2>
       <p>The language barrier breaking team</p>
   </div>
   <div class="row">
