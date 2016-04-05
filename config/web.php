@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name'=>'Teachin\' Tour',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log','gii'],
     'modules' => [
@@ -45,10 +46,10 @@ $config = [
             'admins' => ['admin'],
             'mailer' => [
                 'sender'                => 'no-reply@teachintour.com',
-                'welcomeSubject'        => 'Welcome subject',
-                'confirmationSubject'   => 'Confirmation subject',
-                'reconfirmationSubject' => 'Email change subject',
-                'recoverySubject'       => 'Recovery subject',
+                'welcomeSubject'        => 'Welcome To Teachin\' Tour',
+                'confirmationSubject'   => 'Please verify your Teachin\' Tour account',
+                'reconfirmationSubject' => 'Please comfirm your Teachin\' Tour email',
+                'recoverySubject'       => 'Recovery Teachin\' Tour account',
             ],
         ],
     ],
