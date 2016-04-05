@@ -37,7 +37,7 @@ $this->title = 'Location | '.Yii::$app->params["company_name"].'';
           <div class="col-lg-8 col-md-8 col-sm-8">
             <div class="tour_list_desc">
               <a href="<?=Yii::$app->request->baseUrl; ?>/location/1">
-              <h3><strong>King food</strong> restaurant</h3>
+              <h3><strong>Namsom</strong> Udonthani, TH</h3>
               </a>
               <p>Lorem ipsum dolor sit amet, quem convenire interesset ut vix, ad dicat sanctus detracto vis. Eos modus dolorum ex, qui adipisci maiestatis inciderint no, eos in elit dicat.....</p>
               <ul class="add_info">
