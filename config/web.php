@@ -38,11 +38,18 @@ $config = [
             'class' => 'app\modules\terms\termsModules',
         ],
         'user' => [
-          'class' => 'dektrium\user\Module',
-          'enableUnconfirmedLogin' => false,
-          'confirmWithin' => 21600,
-          'cost' => 12,
-          'admins' => ['admin']
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => false,
+            'confirmWithin' => 21600,
+            'cost' => 12,
+            'admins' => ['admin'],
+            'mailer' => [
+                'sender'                => 'no-reply@teachintour.com',
+                'welcomeSubject'        => 'Welcome subject',
+                'confirmationSubject'   => 'Confirmation subject',
+                'reconfirmationSubject' => 'Email change subject',
+                'recoverySubject'       => 'Recovery subject',
+            ],
         ],
     ],
     'components' => [
