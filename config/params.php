@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'adminEmail' => 'support@teachintour.com',
+    'company' => 'Teachin\' Tour',
     'company_name' => 'Teachin\' Tour',
     'contact_email' => 'support@teachintour.com',
     'contact_number'=>'+669-5449-2245',
