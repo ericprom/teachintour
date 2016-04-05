@@ -179,7 +179,7 @@ $user = Yii::$app->user->identity;
             <a href="tel://<?=Yii::$app->params['contact_number'];?>" id="phone"><?=Yii::$app->params['contact_number'];?></a>
             <a href="mailto:<?=Yii::$app->params['contact_email'];?>" id="email_footer"><?=Yii::$app->params['contact_email'];?></a>
             <strong>Secure payments with</strong>
-            <p><img src="img/payments.png" width="231" height="30" alt="" data-retina="true" class="img-responsive"></p>
+            <p><img src="<?=Yii::$app->request->baseUrl; ?>/img/payments.png" width="231" height="30" alt="" data-retina="true" class="img-responsive"></p>
           </div>
           <div class="col-md-3 col-sm-3">
             <h3>Company</h3>
