@@ -2,102 +2,64 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
-$this->title = 'Location | '.Yii::$app->params["company_name"].'';
+$this->title = 'Locations | '.Yii::$app->params["company_name"].'';
 ?>
-<section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
-  <div class="parallax-content-1">
-    <div class="animated fadeInDown">
-      <h1>Location</h1>
-    </div>
+<!-- Page Title
+============================================= -->
+<section id="page-title">
+
+  <div class="container clearfix">
+    <h1>Locations</h1>
   </div>
-</section><!-- End Section -->
-<div id="position">
-  <div class="container">
-    <ul>
-      <li><a href="<?=Yii::$app->homeUrl;?>">Home</a></li>
-      <li>location</li>
-    </ul>
-  </div>
-</div><!-- Position -->
-<div  class="container margin_60">
-  <div class="row">
-    <div class="col-lg-9 col-md-9">
-      <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4">
-            <div class="img_list">
-              <a href="<?=Yii::$app->request->baseUrl; ?>/location/1">
-                <img src="http://lorempixel.com/800/533/" alt="">
-                <div class="short_info"><i class=" icon_set_1_icon-41"></i> School</div>
-              </a>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+  <div class="content-wrap">
+
+    <div class="container clearfix">
+
+      <!-- Posts
+      ============================================= -->
+      <div id="posts">
+        <div class="entry clearfix">
+          <div class="entry-image clearfix">
+            <div class="portfolio-single-image masonry-thumbs col-6" data-big="3" data-lightbox="gallery">
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/2.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/3.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/3.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/6-1.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/6-1.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/6-2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/6-2.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/12.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/12.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/12-1.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/12-1.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/13.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/13.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/18.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/18.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/19.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/19.jpg" alt=""></a>
             </div>
           </div>
-          <div class="clearfix visible-xs-block"></div>
-          <div class="col-lg-8 col-md-8 col-sm-8">
-            <div class="tour_list_desc">
-              <a href="<?=Yii::$app->request->baseUrl; ?>/location/1">
-              <h3><strong>Namsom</strong> Udonthani, TH</h3>
+          <div class="entry-title">
+            <h2>
+              <a href="<?=Url::to(['/location'])?>/1"  ng-show="get.thumb!=''">
+                Namsom, Udonthaini
               </a>
-              <p>Lorem ipsum dolor sit amet, quem convenire interesset ut vix, ad dicat sanctus detracto vis. Eos modus dolorum ex, qui adipisci maiestatis inciderint no, eos in elit dicat.....</p>
-              <ul class="add_info">
-                <li>
-                  <div class="tooltip_styled tooltip-effect-4">
-                    <span class="tooltip-item"><i class="icon_set_1_icon-13"></i></span>
-                    <div class="tooltip-content"><h4>Disabled</h4>
-                          Usu in novum nostrud disputando, ei quo aperiri omittam vidit fastidii.<br>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="tooltip_styled tooltip-effect-4">
-                    <span class="tooltip-item"><i class="icon_set_1_icon-47"></i></span>
-                        <div class="tooltip-content"><h4>No smoking area</h4>
-                            Usu in novum nostrud disputando, ei quo aperiri omittam vidit fastidii.<br>
-                      </div>
-                    </div>
-                </li>
-                <li>
-                  <div class="tooltip_styled tooltip-effect-4">
-                    <span class="tooltip-item"><i class="icon_set_1_icon-27"></i></span>
-                    <div class="tooltip-content"><h4>Parking</h4>
-                          Usu in novum nostrud disputando, ei quo aperiri omittam vidit fastidii.<br>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="tooltip_styled tooltip-effect-4">
-                    <span class="tooltip-item"><i class="icon_set_1_icon-25"></i></span>
-                    <div class="tooltip-content"><h4>Transport</h4>
-                          Usu in novum nostrud disputando, ei quo aperiri omittam vidit fastidii.<br>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            </h2>
+          </div>
+          <ul class="entry-meta clearfix">
+            <li><i class="icon-folder-open"></i> Teachin' English</li>
+          </ul>
+          <div class="entry-content">
+            <p>Namsom was picked as the first location to launch the "Teachin' Tour" Project, because the two co-founders are both from Namsom. They have the same passion and desire to make their home town a better place. Teaching is the core of Teachin' Tour program. You will get to teach many kinds of student even "monks". You can help other while you are traveling. Is that cool? Help us break the language barrier. And make Namsom a better place.</p>
+            <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
           </div>
         </div>
-      </div><!--End strip -->
-      <hr>
-      <div class="text-center">
-          <ul class="pagination">
-              <li><a href="#">Prev</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">Next</a></li>
-          </ul>
-      </div><!-- end pagination-->
-    </div><!-- End col lg-9 -->
-    <aside class="col-lg-3 col-md-3">
-      <div class="box_style_2">
-        <i class="icon_set_1_icon-57"></i>
-        <h4>Need <span>Help?</span></h4>
-        <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
-        <small>Monday to Friday 9.00am - 7.30pm</small>
-      </div>
-    </aside><!--End aside -->
-  </div><!-- End row -->
-</div><!-- End container -->
+
+      </div><!-- #posts end -->
+    </div>
+
+  </div>
+
+</section><!-- #content end -->

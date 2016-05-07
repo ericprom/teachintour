@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   'enableAjaxValidation'   => true,
                   'enableClientValidation' => false,
               ]); ?>
-              <h3>Request activation code</h3>
+              <h3>Request Reset Link</h3>
               <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
               <?= Html::submitButton(Yii::t('user', 'Continue'), ['class' => 'btn btn-primary btn-block']) ?><br>

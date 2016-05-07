@@ -2,10 +2,19 @@
 
 namespace app\modules\contact;
 
+/**
+ * contact module definition class
+ */
 class contactModules extends \yii\base\Module
 {
+    /**
+     * @inheritdoc
+     */
     public $controllerNamespace = 'app\modules\contact\controllers';
 
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         parent::init();

@@ -2,118 +2,84 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
-$this->title = 'location';
+$this->title = 'Location Detail | '.Yii::$app->params["company_name"].'';
 ?>
-<section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
-    <div class="parallax-content-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-8">
-                    <h1>Namsom</h1>
-                    <span>Udonthani, TH</span>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div id="price_single_main">
-                        from/per person <span><sup>$</sup>52</span>
-                    </div>
-                </div>
-            </div>
+<!-- Page Title
+    ============================================= -->
+<section id="page-title">
+
+  <div class="container clearfix">
+    <h1>Namsom, Udonthani</h1>
+  </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+  <div class="content-wrap">
+    <div class="container clearfix">
+      <!-- Portfolio Single Gallery Thumbs
+      ============================================= -->
+      <div class="col_two_third portfolio-single-image nobottommargin">
+        <div class="masonry-thumbs col-3" data-big="3" data-lightbox="gallery">
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/1.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/1.jpg" alt="Gallery Thumb 1"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/2.jpg" alt="Gallery Thumb 2"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/3.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/3.jpg" alt="Gallery Thumb 3"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/4.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/4.jpg" alt="Gallery Thumb 4"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/5.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/5.jpg" alt="Gallery Thumb 5"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/6.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/6.jpg" alt="Gallery Thumb 6"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/7.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/7.jpg" alt="Gallery Thumb 7"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/8.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/8.jpg" alt="Gallery Thumb 8"></a>
+          <a href="<?=Yii::$app->request->baseUrl;?>/images/portfolio/full/9.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/portfolio/3/9.jpg" alt="Gallery Thumb 9"></a>
         </div>
+      </div><!-- .portfolio-single-image end -->
+
+      <!-- Portfolio Single Content
+      ============================================= -->
+      <div class="col_one_third portfolio-single-content col_last nobottommargin">
+
+        <!-- Portfolio Single - Description
+        ============================================= -->
+        <div class="fancy-title title-bottom-border">
+          <h2>Location Info:</h2>
+        </div>
+        <p>Namsom was picked as the first location to launch the "Teachin' Tour" Project, because the two co-founders are both from Namsom. They have the same passion and desire to make their home town a better place. Teaching is the core of Teachin' Tour program. You will get to teach many kinds of student even "monks". You can help other while you are traveling. Is that cool? Help us break the language barrier. And make Namsom a better place.</p>
+        <!-- Portfolio Single - Description End -->
+
+        <div class="divider"><i class="icon-star3"></i></div>
+        <h3>At a glance</h3>
+        <!-- Portfolio Single - Meta
+        ============================================= -->
+        <ul class="portfolio-meta bottommargin">
+          <li><i class="icon-check"></i> Available year-round</li>
+          <li><i class="icon-check"></i> Homestay</li>
+          <li><i class="icon-check"></i> Aairport pick-up</li>
+          <li><i class="icon-check"></i> Orientation</li>
+          <li><i class="icon-check"></i> Accommodation</li>
+          <li><i class="icon-check"></i> 3 Meals/Day</li>
+          <li><i class="icon-check"></i> Program fees from $300 for 1 week</li>
+          <li><i class="icon-check"></i> A special 1 week volunteer program is available</li>
+
+        </ul>
+        <!-- Portfolio Single - Meta End -->
+
+        <div class="divider"><i class="icon-star3"></i></div>
+
+        <!-- Portfolio Single - Share End -->
+      </div><!-- .portfolio-single-content end -->
+      <div class="clear"></div>
     </div>
-    </section><!-- End section -->
-
-    <div id="position">
-            <div class="container">
-                        <ul>
-                        <li><a href="<?=Yii::$app->homeUrl;?>">Home</a></li>
-                        <li>Location detail</li>
-                        </ul>
-            </div>
-    </div><!-- End Position -->
-
-
-     <div class="collapse" id="collapseMap">
-        <div id="map" class="map"></div>
-    </div><!-- End Map -->
-
-    <div class="container margin_60">
-    <div class="row">
-        <div class="col-md-8" id="single_tour_desc">
-            <div id="single_tour_feat">
-                <ul>
-          <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
-          <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-          <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-          <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-          <li><i class="icon_set_1_icon-27"></i>Parking</li>
-                    <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
-        </ul>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Description</h3>
-                </div>
-                <div class="col-md-9">
-                    <h4>About us</h4>
-          <p>
-            Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi. Eu ponderum mediocrem has, vitae adolescens in pro. Mea liber ridens inermis ei, mei legendos vulputate an, labitur tibique te qui.
-          </p>
-          <h4>Menu and dishes</h4>
-          <p>
-            Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-          </p>
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <ul class="list_ok">
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>No scripta electram necessitatibus sit</li>
-                <li>Quidam percipitur instructior an eum</li>
-                <li>Ut est saepe munere ceteros</li>
-                <li>No scripta electram necessitatibus sit</li>
-                <li>Quidam percipitur instructior an eum</li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <ul class="list_ok">
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>No scripta electram necessitatibus sit</li>
-                <li>Quidam percipitur instructior an eum</li>
-                <li>No scripta electram necessitatibus sit</li>
-              </ul>
-                        </div>
-                    </div>
-                    <!-- End row  -->
-                </div>
-            </div>
-            <hr>
-        </div><!--End  single_tour_desc-->
-
-        <aside class="col-md-4">
-      <div class="box_style_1">
-        <span class="tape"></span>
-        <h4>Address <span><i class="icon-pin pull-right"></i></span></h4>
-        <p>
-          45/140 The tree Privata, Bangsue, Bangkok 10800, Thailand.
-        </p>
-        <hr>
-        <h4>Other way <span><i class="icon-help pull-right"></i></span></h4>
-        <p>
-          Feel free to contact us for mor information or visit us at the office near you.
-        </p>
-        <ul id="contact-info">
-          <li><i class="icon_set_1_icon-55"></i> +66 88 066 6933</li>
-          <li><i class="icon_set_1_icon-84"></i> info@teachintour.com</li>
-        </ul>
+    <div class="section topmargin-sm footer-stick">
+      <div class="heading-block center">
+        <h3><span>Ready</span> to get started?</h3>
+        <span>Feel free to contact us for more information or visit us at the office near you.</span>
       </div>
-      <div class="box_style_4">
-        <i class="icon_set_1_icon-57"></i>
-        <h4>Need <span>Help?</span></h4>
-        <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
-        <small>Monday to Friday 9.00am - 6.00pm</small>
+      <div class="center">
+      <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
       </div>
-
-        </aside>
-    </div><!--End row -->
-    </div><!--End container -->
-
+    </div>
+  </div>
+</section><!-- #content end -->

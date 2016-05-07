@@ -2,128 +2,137 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 $this->title = 'Contact | '.Yii::$app->params["company_name"].'';
 ?>
-<section class="parallax-window" data-parallax="scroll" data-image-src="http://lorempixel.com/1400/470/" data-natural-width="1400" data-natural-height="470">
-        <div class="parallax-content-1">
-            <div class="animated fadeInDown">
-            <h1>Contact us</h1>
-            </div>
-        </div>
-    </section><!-- End Section -->
+<!-- Page Sub Menu
+============================================= -->
+<div id="page-menu">
 
-    <div id="position">
-      <div class="container">
-                  <ul>
-                    <li><a href="<?=Yii::$app->homeUrl;?>">Home</a></li>
-                    <li>Contact us</li>
-                    </ul>
-        </div>
-    </div><!-- End Position -->
+  <div id="page-menu-wrap">
 
-<div class="container margin_60">
-  <div class="row">
-    <div class="col-md-8 col-sm-8">
-      <div class="form_title">
-        <h3><strong><i class="icon-pencil"></i></strong>What'd you like to say?</h3>
-        <p>
-          We want to hear from you.
-        </p>
-      </div>
-      <div class="step">
+    <div class="container clearfix">
 
-        <div id="message-contact"></div>
-        <form method="post" action="assets/contact.php" id="contactform">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Enter Name">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Enter Last Name">
-              </div>
-            </div>
-          </div>
-          <!-- End row -->
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Enter Email">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <div class="form-group">
-                <label>Phone</label>
-                <input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Enter Phone number">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Message</label>
-                <textarea rows="5" id="message_contact" name="message_contact" class="form-control" placeholder="Write your message" style="height:200px;"></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>Human verification</label>
-              <input type="text" id="verify_contact" class=" form-control add_bottom_30" placeholder="Are you human? 3 + 1 =">
-              <input type="submit" value="Submit" class="btn_1" id="submit-contact">
-            </div>
-          </div>
-        </form>
-      </div>
-    </div><!-- End col-md-8 -->
-
-    <div class="col-md-4 col-sm-4">
-      <div class="box_style_1">
-        <span class="tape"></span>
-        <h4>Address <span><i class="icon-pin pull-right"></i></span></h4>
-        <p>
-          <?=Yii::$app->params['contact_address'];?>
-        </p>
-        <hr>
-        <h4>Other way <span><i class="icon-help pull-right"></i></span></h4>
-        <p>
-          Feel free to contact us for mor information or visit us at the office near you.
-        </p>
-        <ul id="contact-info">
-          <li><i class="icon_set_1_icon-55"></i> <?=Yii::$app->params['contact_number'];?></li>
-          <li><i class="icon_set_1_icon-84"></i> <?=Yii::$app->params['contact_email'];?></li>
-        </ul>
-      </div>
-      <div class="box_style_4">
-        <i class="icon_set_1_icon-57"></i>
-        <h4>Need <span>Help?</span></h4>
-        <a href="tel://<?=Yii::$app->params['contact_number'];?>" class="phone"><?=Yii::$app->params['contact_number'];?></a>
-        <small>Monday to Friday 9.00am - 6.00pm</small>
-      </div>
-    </div><!-- End col-md-4 -->
-  </div><!-- End row -->
-</div><!-- End container -->
-
-<div id="map_contact"></div><!-- end map-->
-<div id="directions">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-       <form action="http://maps.google.com/maps" method="get" target="_blank">
-        <div class="input-group">
-          <input type="text" name="saddr" placeholder="Enter your starting point" class="form-control style-2" />
-          <input type="hidden" name="daddr" value="New York, NY 11430"/><!-- Write here your end point -->
-          <span class="input-group-btn">
-          <button class="btn" type="submit" value="Get directions" style="margin-left:0;">GET DIRECTIONS</button>
-          </span>
-        </div><!-- /input-group -->
-      </form>
-          </div>
-        </div>
+      <div class="menu-title">Contact <span>Teachin' Tour</span></div>
     </div>
-  </div><!-- end directions-->
+
+  </div>
+
+</div><!-- #page-menu end -->
+
+<!-- Contact Form & Map Overlay Section
+============================================= -->
+<section id="map-overlay">
+
+  <div class="container clearfix">
+
+    <!-- Contact Form Overlay
+    ============================================= -->
+    <div id="contact-form-overlay-mini" class="clearfix">
+
+      <div class="fancy-title title-dotted-border">
+        <h3>Send us an Email</h3>
+      </div>
+
+      <div class="contact-widget">
+
+        <div class="contact-form-result"></div>
+
+        <!-- Contact Form
+        ============================================= -->
+        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail-recaptcha.php" method="post">
+
+          <div class="col_full">
+            <label for="template-contactform-name">Name <small>*</small></label>
+            <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+          </div>
+
+          <div class="col_full">
+            <label for="template-contactform-email">Email <small>*</small></label>
+            <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+          </div>
+
+          <div class="clear"></div>
+
+          <div class="col_full">
+            <label for="template-contactform-phone">Phone</label>
+            <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+          </div>
+          <div class="clear"></div>
+
+          <div class="col_full">
+            <label for="template-contactform-subject">Subject <small>*</small></label>
+            <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control" />
+          </div>
+
+          <div class="col_full">
+            <label for="template-contactform-message">Message <small>*</small></label>
+            <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+          </div>
+
+          <div class="col_full hidden">
+            <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+          </div>
+
+          <div class="col_full">
+
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            <div class="g-recaptcha" data-sitekey="6LenTh8TAAAAABt_9IkVP4mizk-x73hLg3qWU5SW"></div>
+
+          </div>
+
+          <div class="col_full">
+            <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div><!-- Contact Form Overlay End -->
+
+  </div>
+
+  <!-- Google Map
+  ============================================= -->
+  <section id="google-map" class="gmap"></section>
+
+</section><!-- Contact Form & Map Overlay Section End -->
+
+<script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+<script type="text/javascript" src="<?=Yii::$app->request->baseUrl; ?>/js/jquery.gmap.js"></script>
+
+  <script type="text/javascript">
+
+    $('#google-map').gMap({
+      latitude:17.772840,
+      longitude:102.194974,
+      maptype: 'ROADMAP',
+      zoom: 14,
+      markers: [
+        {
+          latitude:17.772840,
+          longitude:102.194974,
+          html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Teachin\' Tour</span></h4><p class="nobottommargin">Our mission is to breaking the language barrier and open the world to local people.</p></div>',
+          icon: {
+            image: "images/icons/map-icon-red.png",
+            iconsize: [32, 39],
+            iconanchor: [13,39]
+          }
+        }
+      ],
+      doubleclickzoom: false,
+      controls: {
+        panControl: true,
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: false,
+        streetViewControl: false,
+        overviewMapControl: false
+      }
+    });
+
+
+  </script>

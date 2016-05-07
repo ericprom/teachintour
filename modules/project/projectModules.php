@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\location;
+namespace app\modules\project;
 
 /**
- * location module definition class
+ * project module definition class
  */
-class locationModules extends \yii\base\Module
+class projectModules extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\location\controllers';
+    public $controllerNamespace = 'app\modules\project\controllers';
 
     /**
      * @inheritdoc

@@ -22,9 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?= $this->render('/_alert', ['module' => Yii::$app->getModule('user')]) ?>
-<section id="hero" class="login">
-  <div class="container">
-    <div class="row">
+<section id="content">
+  <div class="content-wrap">
+    <div class="container clearfix">
+      <div class="row">
         <div class="col-md-3">
             <?= $this->render('_menu') ?>
         </div>
@@ -68,6 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
+      </div>
     </div>
   </div>
 </section>

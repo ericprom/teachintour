@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\contact\controllers;
+namespace app\modules\project\controllers;
 
 use yii\web\Controller;
 
 /**
- * Default controller for the `contact` module
+ * Default controller for the `project` module
  */
 class DefaultController extends Controller
 {

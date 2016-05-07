@@ -13,7 +13,6 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
       <div class="slider-caption slider-caption-center">
         <h2 data-animate="fadeInUp">Can you Teach?</h2>
         <p data-animate="fadeInUp" data-delay="200">Get the remarkable experience in Thailand through teaching a local students.</p>
-        <a data-animate="fadeInUp" data-delay="400" href="#" class="button button-border button-light button-rounded button-large noleftmargin nobottommargin" style="margin-top: 30px;">Learn More</a>
         <a data-animate="fadeInUp" data-delay="600" href="#" class="button button-3d button-teal button-large nobottommargin" style="margin: 30px 0 0 10px;">Apply Now</a>
       </div>
     </div>
@@ -42,7 +41,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
             <div class="slider-wrap">
               <div class="slide">
                 <div class="testi-image">
-                  <a href="#"><img src="images/testimonials/eric.png" alt="Customer Testimonails"></a>
+                  <a href="#"><img src="images/team/eric.png" alt="Customer Testimonails"></a>
                 </div>
                 <div class="testi-content">
                   <p>Teachin' Tour Project is one of the project that can change the world.</p>
@@ -53,7 +52,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
               </div>
               <div class="slide">
                 <div class="testi-image">
-                  <a href="#"><img src="images/testimonials/pumpoui.png" alt="Customer Testimonails"></a>
+                  <a href="#"><img src="images/team/pumpoui.jpg" alt="Customer Testimonails"></a>
                 </div>
                 <div class="testi-content">
                   <p>Teachin' Tour Project give me my teachin' experience while traveling.</p>
@@ -77,35 +76,36 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
         <div class="col_one_third bottommargin-lg">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+              <a href="#"><img class="image_fade" src="images/project/teachin.png" alt="Image"></a>
             </div>
             <div class="fbox-desc">
-              <h3>Teachin'</h3>
-              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+              <h3>Teachin' English</h3>
             </div>
           </div>
         </div>
         <div class="col_one_third bottommargin-lg">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+              <a href="#"><img class="image_fade" src="images/project/camp.png" alt="Image"></a>
             </div>
             <div class="fbox-desc">
-              <h3>Campin'</h3>
-              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+              <h3>English Camp</h3>
             </div>
           </div>
         </div>
         <div class="col_one_third bottommargin-lg col_last">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+              <a href="#"><img class="image_fade" src="images/project/care.png" alt="Image"></a>
             </div>
             <div class="fbox-desc">
-              <h3>Other</h3>
-              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+              <h3>Childcare</h3>
             </div>
           </div>
+        </div>
+
+        <div class="center">
+        <?=Html::a('More projects', ['/project/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
         <span>We are a language barrier breaking platform where you can part of a team and find a new way of travelling to discover an unseen thailand through the local.</span>
       </div>
       <div class="center">
-      <a data-delay="400" href="#" class="button button-border button-light button-rounded button-large" style="margin-top: 30px;">Learn more about us</a>
+      <?=Html::a('Learn more about us', ['/about/'],['data' => ['method' => 'post'],'class'=>'button button-border button-light button-rounded button-large']);?>
       </div>
     </div>
   </div>

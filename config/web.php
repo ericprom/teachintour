@@ -11,32 +11,26 @@ $config = [
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
-        'about' => [
-            'class' => 'app\modules\about\aboutModules',
-        ],
         'location' => [
             'class' => 'app\modules\location\locationModules',
         ],
-        'package' => [
-            'class' => 'app\modules\package\packageModules',
+        'project' => [
+            'class' => 'app\modules\project\projectModules',
         ],
-        'payment' => [
-            'class' => 'app\modules\payment\paymentModules',
+        'fees' => [
+            'class' => 'app\modules\fees\feesModules',
         ],
-        'confirmation' => [
-            'class' => 'app\modules\confirmation\confirmationModules',
+        'about' => [
+            'class' => 'app\modules\about\aboutModules',
         ],
-        'contact' => [
-            'class' => 'app\modules\contact\contactModules',
-        ],
-        'faq' => [
-            'class' => 'app\modules\faq\faqModules',
-        ],
-        'blog' => [
-            'class' => 'app\modules\blog\blogModules',
+        'team' => [
+            'class' => 'app\modules\team\teamModules',
         ],
         'terms' => [
             'class' => 'app\modules\terms\termsModules',
+        ],
+        'contact' => [
+            'class' => 'app\modules\contact\contactModules',
         ],
         'user' => [
             'class' => 'dektrium\user\Module',
@@ -99,7 +93,6 @@ $config = [
             'rules' => [
                 '' => 'site/index',
                 'location/<id:\d+>' => 'location',
-                'blog/<id:\d+>' => 'blog',
                 'account'=>'user/settings/account',
                 'profile'=>'user/settings/profile',
                 'networks'=>'user/settings/networks',

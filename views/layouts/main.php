@@ -78,13 +78,17 @@ $user = Yii::$app->user->identity;
       $controller = Yii::$app->controller;
       $default_controller = Yii::$app->defaultRoute;
       $isFrontpage = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
-      $menu = $this->context->action->id;
-      $match = 'request,reset,connect,register,resend,login,account,networks,profile,confirm';
-      $transparentHeader = 'class="transparent-header dark full-header"';
-      if (preg_match('/'.$menu.'/',$match)){
-        $transparentHeader = '';
+      //$menu = $this->context->action->id;
+      $menu = $this->context->module->id;
+      $transparentHeader = '';
+      if ($isFrontpage){
+        $transparentHeader = 'class="transparent-header dark full-header"';
       }
-      $homeActive='';($menu=='index')?$homeActive='class="current"':'';
+      $homeActive='';($menu=='basic')?$homeActive='class="current"':'';
+      $locationActive='';($menu=='location')?$locationActive='class="current"':'';
+      $projectActive='';($menu=='project')?$projectActive='class="current"':'';
+      $feeActive='';($menu=='fees')?$feeActive='class="current"':'';
+      $aboutActive='';($menu=='about'||$menu=='team')?$aboutActive='class="current"':'';
       $loginActive='';($menu=='login')?$loginActive='class="current"':'';
       $registerActive='';($menu=='register')?$registerActive='class="current"':'';
     ?>
@@ -101,36 +105,35 @@ $user = Yii::$app->user->identity;
           <?php if(Yii::$app->user->isGuest){?>
           <h4>Teachin' Tour</h4>
           <?php }else{?>
-            <h4><?=$user->username;?></h4>
+            <?php if(!Yii::$app->user->isGuest){?>
+            <h4><?=Html::a($user->username, ['/profile/'],['data' => ['method' => 'post']]);?></h4>
+            <?php }?>
           <?php }?>
           <nav class="nav-tree nobottommargin">
             <ul>
+              <li class="visible-xs">
+                <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li class="visible-xs">
+                <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li class="visible-xs">
+                <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li class="visible-xs">
+                <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li class="visible-xs">
+                <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+              </li>
               <?php if(Yii::$app->user->isGuest){?>
-              <li class="visible-xs">
-                <?=Html::a('Home', ['/login/'],['data' => ['method' => 'post']]);?>
-              </li>
-              <li class="visible-xs">
-                <?=Html::a('Locations', ['/login/'],['data' => ['method' => 'post']]);?>
-              </li>
-              <li class="visible-xs">
-                <?=Html::a('Projects', ['/login/'],['data' => ['method' => 'post']]);?>
-              </li>
-              <li class="visible-xs">
-                <?=Html::a('Fees', ['/login/'],['data' => ['method' => 'post']]);?>
-              </li>
-              <li class="visible-xs">
-                <?=Html::a('About Us', ['/login/'],['data' => ['method' => 'post']]);?>
-              </li>
-              <li <?=$registerActive?>>
+              <li>
                 <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li <?=$loginActive?>>
+              <li>
                 <?=Html::a('Log in', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
               <?php }else{?>
-              <li>
-                <?=Html::a('Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
-              </li>
               <li>
                 <?=Html::a('Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
               </li>
@@ -181,19 +184,19 @@ $user = Yii::$app->user->identity;
             <nav id="primary-menu" class="style-4">
               <ul>
                 <li <?=$homeActive?>>
-                  <?=Html::a('Home', ['/login/'],['data' => ['method' => 'post']]);?>
+                  <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
                 </li>
-                <li>
-                  <?=Html::a('Locations', ['/login/'],['data' => ['method' => 'post']]);?>
+                <li <?=$locationActive;?>>
+                  <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
                 </li>
-                <li>
-                  <?=Html::a('Projects', ['/login/'],['data' => ['method' => 'post']]);?>
+                <li <?=$projectActive;?>>
+                  <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
                 </li>
-                <li>
-                  <?=Html::a('Fees', ['/login/'],['data' => ['method' => 'post']]);?>
+                <li <?=$feeActive;?>>
+                  <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
                 </li>
-                <li>
-                  <?=Html::a('About Us', ['/login/'],['data' => ['method' => 'post']]);?>
+                <li <?=$aboutActive?>>
+                  <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
                 </li>
               </ul>
               <div id="side-panel-trigger" class="side-panel-trigger">
@@ -216,44 +219,24 @@ $user = Yii::$app->user->identity;
           <!-- Footer Widgets
           ============================================= -->
           <div class="footer-widgets-wrap clearfix">
-
-            <div class="col_two_third">
-
-              <div class="col_one_third">
-
-                <div class="widget clearfix">
-
-                  <img src="<?=Yii::$app->request->baseUrl;?>/images/footer-widget-logo.png" alt="" class="footer-logo">
-
-                  <p>Breaking <strong>Language</strong> Barrier</p>
-
-                  <div style="background: url('<?=Yii::$app->request->baseUrl;?>/images/world-map.png') no-repeat center center; background-size: 100%;">
-                    <address>
-                      <strong><?=Yii::$app->params['company_name'];?> Headquarters:</strong><br>
-                      <?=Yii::$app->params['contact_address'];?>
-                    </address>
-                    <abbr title="Phone Number"><strong>Phone:</strong></abbr>
-                    <?=Yii::$app->params['contact_number'];?><br>
-                    <abbr title="Email Address"><strong>Email:</strong></abbr>
-                    <?=Yii::$app->params['contact_email'];?>
-                  </div>
-
-                </div>
-
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <h4>Support</h4>
+                <abbr title="Phone Number"><strong>Phone:</strong></abbr>
+                <?=Yii::$app->params['contact_number'];?>
+                <br>
+                <abbr title="Email Address"><strong>Email:</strong></abbr>
+                <?=Yii::$app->params['contact_email'];?>
               </div>
-
-              <div class="col_one_third">
+              <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="widget widget_links clearfix">
-                  <h4>Site map</h4>
+                  <h4>Company</h4>
                   <ul>
                     <li>
                       <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
                     </li>
                     <li>
-                      <?=Html::a('FAQs', ['/faq/'],['data' => ['method' => 'post']]);?>
-                    </li>
-                    <li>
-                      <?=Html::a('Blog', ['/blog/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
                     </li>
                     <li>
                       <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
@@ -267,7 +250,7 @@ $user = Yii::$app->user->identity;
                   </ul>
                 </div>
               </div>
-              <div class="col_one_third col_last">
+              <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="widget widget_links clearfix">
                   <h4>Follow us</h4>
                   <ul>
@@ -292,102 +275,18 @@ $user = Yii::$app->user->identity;
                   </ul>
                 </div>
               </div>
-            </div>
+              <div class="col-md-3 col-sm-12 col-xs-12">
+              <h4><?=Yii::$app->params['company_name'];?> Headquarter:</h4>
+                <address>
+                  <?=Yii::$app->params['contact_address'];?>
+                </address>
 
-            <div class="col_one_third col_last">
-              <div class="widget subscribe-widget clearfix">
-                <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                <div class="widget-subscribe-form-result"></div>
-                <form id="widget-subscribe-form" action="<?=Yii::$app->request->baseUrl;?>/include/subscribe.php" role="form" method="post" class="nobottommargin">
-                  <div class="input-group divcenter">
-                    <span class="input-group-addon"><i class="icon-email2"></i></span>
-                    <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                    <span class="input-group-btn">
-                      <button class="btn btn-success" type="submit">Subscribe</button>
-                    </span>
-                  </div>
-                </form>
-
+                © <?=Yii::$app->params['company_name'];?> 2016
               </div>
-
-              <div class="widget clearfix" style="margin-bottom: -20px;">
-
-                <div class="row">
-
-                  <div class="col-md-6 clearfix bottommargin-sm">
-                    <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-                      <i class="icon-facebook"></i>
-                      <i class="icon-facebook"></i>
-                    </a>
-                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-                  </div>
-                  <div class="col-md-6 clearfix">
-                    <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-                      <i class="icon-rss"></i>
-                      <i class="icon-rss"></i>
-                    </a>
-                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-                  </div>
-
-                </div>
-
-              </div>
-
             </div>
-
           </div><!-- .footer-widgets-wrap end -->
 
         </div>
-
-        <!-- Copyrights
-        ============================================= -->
-        <div id="copyrights">
-
-          <div class="container clearfix">
-
-            <div class="col_half">
-              Copyrights &copy; 2016 All Rights Reserved by <?=Yii::$app->params['company_name'];?>
-            </div>
-
-            <div class="col_half col_last tright">
-              <div class="fright clearfix">
-                <a href="https://www.facebook.com/TeachinTour/" class="social-icon si-small si-borderless si-facebook">
-                  <i class="icon-facebook"></i>
-                  <i class="icon-facebook"></i>
-                </a>
-
-                <a href="https://twitter.com/teachintour" class="social-icon si-small si-borderless si-twitter">
-                  <i class="icon-twitter"></i>
-                  <i class="icon-twitter"></i>
-                </a>
-
-                <a href="https://www.instagram.com/teachintour/" class="social-icon si-small si-borderless si-instagram">
-                  <i class="icon-instagram"></i>
-                  <i class="icon-instagram"></i>
-                </a>
-
-                <a href="https://www.pinterest.com/teachintour/" class="social-icon si-small si-borderless si-pinterest">
-                  <i class="icon-pinterest"></i>
-                  <i class="icon-pinterest"></i>
-                </a>
-
-                <a href="https://www.youtube.com/channel/UC7JJcy9L-3dlfmV-q2DtN7g" class="social-icon si-small si-borderless si-youtube">
-                  <i class="icon-youtube"></i>
-                  <i class="icon-youtube"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/teachintour" class="social-icon si-small si-borderless si-linkedin">
-                  <i class="icon-linkedin"></i>
-                  <i class="icon-linkedin"></i>
-                </a>
-              </div>
-
-              <div class="clear"></div>
-            </div>
-
-          </div>
-
-        </div><!-- #copyrights end -->
-
       </footer><!-- #footer end -->
 
     </div><!-- #wrapper end -->

@@ -1020,9 +1020,9 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 
 #footer.dark,
 .dark #footer {
-	background-color: #333;
+	background-color: #173346;
 	color: #CCC;
-	border-top-color: rgba(0,0,0,0.2);
+	border-top-color: rgba(230,126,34,1);
 }
 
 .dark #copyrights {
