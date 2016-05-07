@@ -24,47 +24,61 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?= $this->render('/_alert', ['module' => Yii::$app->getModule('user')]) ?>
+<section id="content">
+  <div class="content-wrap nopadding">
+    <div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #444;"></div>
+    <div class="section full-screen nopadding nomargin">
+      <div class="container vertical-middle divcenter clearfix">
+        <div class="row">
+          <div class="col-md-4 col-sm-12 col-xs-12"></div>
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="well">
+            <?php $form = ActiveForm::begin([
+                'id'                     => 'login-form',
+                'enableAjaxValidation'   => true,
+                'enableClientValidation' => false,
+                'validateOnBlur'         => false,
+                'validateOnType'         => false,
+                'validateOnChange'       => false,
+            ]) ?>
+              <h3>Login to your Account</h3>
 
-<section id="hero" class="login">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-        <div id="login">
-          <div class="text-center"><img src="img/logo_sticky.png" alt="" data-retina="true" ></div>
-          <hr>
-          <?php $form = ActiveForm::begin([
-              'id'                     => 'login-form',
-              'enableAjaxValidation'   => true,
-              'enableClientValidation' => false,
-              'validateOnBlur'         => false,
-              'validateOnType'         => false,
-              'validateOnChange'       => false,
-          ]) ?>
+              <div class="col_full">
+              <?= $form->field($model, 'login', ['inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control not-dark', 'tabindex' => '1']]) ?>
+              </div>
 
-          <?= $form->field($model, 'login', ['inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1']]) ?>
+              <div class="col_full">
+                <?= $form->field($model, 'password', ['inputOptions' => ['class' => 'form-control', 'tabindex' => '2']])->passwordInput()->label(Yii::t('user', 'Password') . ($module->enablePasswordRecovery ? ' (' . Html::a(Yii::t('user', 'Forgot password?'), ['/request/'], ['tabindex' => '5']) . ')' : '')) ?>
+              </div>
 
-          <?= $form->field($model, 'password', ['inputOptions' => ['class' => 'form-control', 'tabindex' => '2']])->passwordInput()->label(Yii::t('user', 'Password') . ($module->enablePasswordRecovery ? ' (' . Html::a(Yii::t('user', 'Forgot password?'), ['/request/'], ['tabindex' => '5']) . ')' : '')) ?>
+              <div class="col_full nobottommargin">
+                <?= Html::submitButton(Yii::t('user', 'Sign in'), ['class' => 'btn btn-primary btn-block', 'tabindex' => '3']) ?>
+              </div>
+            <?php ActiveForm::end(); ?>
 
-          <?= $form->field($model, 'rememberMe')->checkbox(['tabindex' => '4']) ?>
+            <div class="line line-sm"></div>
 
-          <?= Html::submitButton(Yii::t('user', 'Sign in'), ['class' => 'btn btn-primary btn-block', 'tabindex' => '3']) ?>
-
-          <?php ActiveForm::end(); ?>
+            <div class="center">
+              <?php if ($module->enableConfirmation): ?>
+                  <div>
+                      <?= Html::a(Yii::t('user', 'Didn\'t receive confirmation message?'), ['/resend/']) ?>
+                  </div>
+              <?php endif ?>
+              <?php if ($module->enableRegistration): ?>
+                  <div>
+                      <?= Html::a(Yii::t('user', 'Don\'t have an account? Register!'), ['/register/']) ?>
+                  </div>
+              <?php endif ?>
+              <?= Connect::widget([
+                  'baseAuthUrl' => ['/user/security/auth'],
+              ]) ?>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12"></div>
         </div>
       </div>
     </div>
-    <?php if ($module->enableConfirmation): ?>
-        <p class="text-center">
-            <?= Html::a(Yii::t('user', 'Didn\'t receive confirmation message?'), ['/resend/']) ?>
-        </p>
-    <?php endif ?>
-    <?php if ($module->enableRegistration): ?>
-        <p class="text-center">
-            <?= Html::a(Yii::t('user', 'Don\'t have an account? Register!'), ['/register/']) ?>
-        </p>
-    <?php endif ?>
-    <?= Connect::widget([
-        'baseAuthUrl' => ['/user/security/auth'],
-    ]) ?>
   </div>
-</section>
+</section><!-- #content end -->
+

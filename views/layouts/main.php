@@ -26,7 +26,6 @@ $user = Yii::$app->user->identity;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="teachin, tour, teachin tour, travel, teach, local, thailand" />
     <meta name="description" content="teachin tour - A new way of touring that can help other.">
-    <title><?= Html::encode($this->title) ?></title>
 
     <!-- Favicon Generator -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?=Yii::$app->request->baseUrl; ?>/favicon/apple-icon-57x57.png">
@@ -54,273 +53,357 @@ $user = Yii::$app->user->identity;
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
 
-    <!-- CSS -->
-    <link href="<?=Yii::$app->request->baseUrl; ?>/css/base.css" rel="stylesheet">
-    <link href="<?=Yii::$app->request->baseUrl; ?>/css/jquery.switch.css" rel="stylesheet">
-    <link href="<?=Yii::$app->request->baseUrl; ?>/css/date_time_picker.css" rel="stylesheet">
-    <link href="<?=Yii::$app->request->baseUrl; ?>/css/blog.css" rel="stylesheet">
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/magnific-popup.css" type="text/css" />
 
-     <!-- Google web fonts -->
-   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
-    <script>paceOptions = {ajax: {trackMethods: ['GET', 'POST']}};</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/orange/pace-theme-minimal.css" rel="stylesheet" />
+    <!-- Document Title
+    ============================================= -->
+    <title><?= Html::encode($this->title) ?></title>
 
+    <?php
+      $controller = Yii::$app->controller;
+      $default_controller = Yii::$app->defaultRoute;
+      $isFrontpage = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
+      $menu = $this->context->action->id;
+      $match = 'request,reset,connect,register,resend,login,account,networks,profile,confirm';
+      $transparentHeader = 'class="transparent-header dark full-header"';
+      if (preg_match('/'.$menu.'/',$match)){
+        $transparentHeader = '';
+      }
+      $homeActive='';($menu=='index')?$homeActive='class="current"':'';
+      $loginActive='';($menu=='login')?$loginActive='class="current"':'';
+      $registerActive='';($menu=='register')?$registerActive='class="current"':'';
+    ?>
   </head>
-  <body>
-    <!--[if lte IE 8]>
-      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-    <![endif]-->
 
-    <!-- <div id="preloader">
-      <div class="sk-spinner sk-spinner-wave">
-        <div class="sk-rect1"></div>
-        <div class="sk-rect2"></div>
-        <div class="sk-rect3"></div>
-        <div class="sk-rect4"></div>
-        <div class="sk-rect5"></div>
+  <body class="stretched side-panel-left">
+    <div class="body-overlay"></div>
+    <div id="side-panel" class="dark">
+      <div id="side-panel-trigger-close" class="side-panel-trigger">
+        <a href="#"><i class="icon-line-cross"></i></a>
       </div>
-    </div> -->
-    <!-- End Preload -->
-
-    <div class="layer"></div>
-    <!-- Mobile menu overlay mask -->
-
-    <!-- Header================================================== -->
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-3">
-            <div id="logo">
-              <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo.png" height="34" alt="City tours" data-retina="true" class="logo_normal">
-              </a>
-              <a href="<?=Yii::$app->homeUrl;?>">
-                <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" height="34" alt="City tours" data-retina="true" class="logo_sticky">
-              </a>
-            </div>
-          </div>
-          <nav class="col-md-9 col-sm-9 col-xs-9">
-            <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-              <div class="main-menu">
-                <div id="header_menu">
-                    <img src="<?=Yii::$app->request->baseUrl; ?>/img/logo_sticky.png" height="34" alt="City tours" data-retina="true">
-                </div>
-                <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
-                <ul>
-                  <li class="submenu">
-                    <a href="<?=Yii::$app->homeUrl;?>" class="show-submenu">Home</a>
-                  </li>
-                  <li class="submenu">
-                    <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
-                  </li>
-                  <li class="submenu">
-                    <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
-                  </li>
-                  <li class="submenu">
-                    <?=Html::a('Packages', ['/package/'],['data' => ['method' => 'post']]);?>
-                  </li>
-                  <li class="submenu">
-                    <?=Html::a('Contact us', ['/contact/'],['data' => ['method' => 'post']]);?>
-                  </li>
-                </ul>
-              </div><!-- End main-menu -->
-              <ul id="top_tools">
-                <?php if(Yii::$app->user->isGuest){?>
-                <li>
-                  <?=Html::a('<i class="icon-user"></i> Register', ['/register/'],['data' => ['method' => 'post']]);?>
-                </li>
-                <li>
-                  <?=Html::a('<i class="icon-login"></i> Log in', ['/login/'],['data' => ['method' => 'post']]);?>
-                </li>
-                <?php }else{?>
-                  <li>
-                    <div class="dropdown dropdown-search">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <?= Html::img($user->profile->getAvatarUrl(24), [
-                              'class' => 'img-rounded',
-                              'alt'   => $user->username,
-                          ]) ?>
-                          <?= $user->username ?>
-                        </a>
-                        <div class="dropdown-menu">
-                          <ul>
-                            <li>
-                            <?=Html::a('<i class="icon-cog"></i> Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
-                            </li>
-                            <li>
-                            <?=Html::a('<i class="icon-logout"></i> Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
-                            </li>
-                          </ul>
-                        </div>
-                    </div>
-                  </li>
-                <?php }?>
-            </ul>
-          </nav>
-        </div>
-      </div><!-- container -->
-    </header><!-- End Header -->
-
-    <?= $content ?>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-3">
-            <h3>Support</h3>
-            <a href="tel://<?=Yii::$app->params['contact_number'];?>" id="phone"><?=Yii::$app->params['contact_number'];?></a>
-            <a href="mailto:<?=Yii::$app->params['contact_email'];?>" id="email_footer"><?=Yii::$app->params['contact_email'];?></a>
-            <strong>Secure payments with</strong>
-            <p><img src="<?=Yii::$app->request->baseUrl; ?>/img/payments.png" width="231" height="30" alt="" data-retina="true" class="img-responsive"></p>
-          </div>
-          <div class="col-md-3 col-sm-3">
-            <h3>Company</h3>
+      <div class="side-panel-wrap">
+        <div class="widget clearfix">
+          <?php if(Yii::$app->user->isGuest){?>
+          <h4>Teachin' Tour</h4>
+          <?php }else{?>
+            <h4><?=$user->username;?></h4>
+          <?php }?>
+          <nav class="nav-tree nobottommargin">
             <ul>
-              <li>
-                <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
+              <?php if(Yii::$app->user->isGuest){?>
+              <li class="visible-xs">
+                <?=Html::a('Home', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li>
-                <?=Html::a('FAQs', ['/faq/'],['data' => ['method' => 'post']]);?>
+              <li class="visible-xs">
+                <?=Html::a('Locations', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li>
-                <?=Html::a('Blog', ['/blog/'],['data' => ['method' => 'post']]);?>
+              <li class="visible-xs">
+                <?=Html::a('Projects', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li>
-                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+              <li class="visible-xs">
+                <?=Html::a('Fees', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li>
+              <li class="visible-xs">
+                <?=Html::a('About Us', ['/login/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li <?=$registerActive?>>
                 <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
               </li>
-              <li>
-              <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'post']]);?>
+              <li <?=$loginActive?>>
+                <?=Html::a('Log in', ['/login/'],['data' => ['method' => 'post']]);?>
               </li>
+              <?php }else{?>
+              <li>
+                <?=Html::a('Edit Profile', ['/profile/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li>
+                <?=Html::a('Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <?php }?>
             </ul>
-          </div>
-          <div class="col-md-3 col-sm-3">
-            <h3>Follow us</h3>
-            <ul>
-                <li>
-                  <a href="https://www.facebook.com/TeachinTour/" target="_blank">
-                  <i class="icon-facebook"></i> Facebook
-                </a>
+          </nav>
+
+        </div>
+
+        <div class="widget quick-contact-widget clearfix">
+
+          <h4>Contact Us</h4>
+          <div class="quick-contact-form-result"></div>
+          <form id="quick-contact-form" name="quick-contact-form" action="<?=Yii::$app->request->baseUrl;?>/include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
+            <div class="form-process"></div>
+            <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
+            <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
+            <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+            <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
+            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button button-small button-3d nomargin" value="submit">Send Email</button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Document Wrapper
+  ============================================= -->
+    <div id="wrapper" class="clearfix">
+
+      <!-- Header
+      ============================================= -->
+      <header id="header" <?=$transparentHeader?> data-sticky-class="not-dark">
+
+        <div id="header-wrap">
+
+          <div class="container clearfix">
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+              <a href="<?=Yii::$app->homeUrl;?>" class="standard-logo" data-dark-logo="<?=Yii::$app->request->baseUrl;?>/images/logo-dark.png"><img src="<?=Yii::$app->request->baseUrl;?>/images/logo.png" alt="Teachin' Tour"></a>
+              <a href="<?=Yii::$app->homeUrl;?>" class="retina-logo" data-dark-logo="<?=Yii::$app->request->baseUrl;?>/images/logo-dark@2x.png"><img src="<?=Yii::$app->request->baseUrl;?>/images/logo@2x.png" alt="Teachin' Tour"></a>
+            </div><!-- #logo end -->
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="style-4">
+              <ul>
+                <li <?=$homeActive?>>
+                  <?=Html::a('Home', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
-                  <a href="https://twitter.com/teachintour" target="_blank">
-                  <i class="icon-twitter"></i> Twitter
-                </a>
+                  <?=Html::a('Locations', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/teachintour/" target="_blank">
-                  <i class="icon-instagram"></i> Instagram
-                </a>
+                  <?=Html::a('Projects', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
-                  <a href="https://www.pinterest.com/teachintour/" target="_blank">
-                  <i class="icon-pinterest"></i> Pinterest
-                </a>
+                  <?=Html::a('Fees', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/channel/UC7JJcy9L-3dlfmV-q2DtN7g" target="_blank">
-                  <i class="icon-youtube-play"></i> YouTube
-                </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/teachintour" target="_blank">
-                  <i class="icon-linkedin"></i> LinkedIn
-                </a>
+                  <?=Html::a('About Us', ['/login/'],['data' => ['method' => 'post']]);?>
                 </li>
               </ul>
+              <div id="side-panel-trigger" class="side-panel-trigger">
+                <a href="#"><i class="icon-reorder"></i></a>
+              </div>
+            </nav><!-- #primary-menu end -->
+
           </div>
-          <div class="col-md-2 col-sm-3">
-            <h3><?=Yii::$app->params['company_name'];?></h3>
-            <?=Yii::$app->params['contact_address'];?>
-            <br>
-            <p>© <?=Yii::$app->params['company_name'];?> 2015</p>
+
+        </div>
+
+      </header><!-- #header end -->
+      <?= $content ?>
+      <!-- Footer
+      ============================================= -->
+      <footer id="footer" class="dark">
+
+        <div class="container">
+
+          <!-- Footer Widgets
+          ============================================= -->
+          <div class="footer-widgets-wrap clearfix">
+
+            <div class="col_two_third">
+
+              <div class="col_one_third">
+
+                <div class="widget clearfix">
+
+                  <img src="<?=Yii::$app->request->baseUrl;?>/images/footer-widget-logo.png" alt="" class="footer-logo">
+
+                  <p>Breaking <strong>Language</strong> Barrier</p>
+
+                  <div style="background: url('<?=Yii::$app->request->baseUrl;?>/images/world-map.png') no-repeat center center; background-size: 100%;">
+                    <address>
+                      <strong><?=Yii::$app->params['company_name'];?> Headquarters:</strong><br>
+                      <?=Yii::$app->params['contact_address'];?>
+                    </address>
+                    <abbr title="Phone Number"><strong>Phone:</strong></abbr>
+                    <?=Yii::$app->params['contact_number'];?><br>
+                    <abbr title="Email Address"><strong>Email:</strong></abbr>
+                    <?=Yii::$app->params['contact_email'];?>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col_one_third">
+                <div class="widget widget_links clearfix">
+                  <h4>Site map</h4>
+                  <ul>
+                    <li>
+                      <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('FAQs', ['/faq/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('Blog', ['/blog/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                    <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col_one_third col_last">
+                <div class="widget widget_links clearfix">
+                  <h4>Follow us</h4>
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/TeachinTour/" target="_blank">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/teachintour" target="_blank">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/teachintour/" target="_blank">Instagram</a>
+                    </li>
+                    <li>
+                      <a href="https://www.pinterest.com/teachintour/" target="_blank">Pinterest</a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/channel/UC7JJcy9L-3dlfmV-q2DtN7g" target="_blank">YouTube</a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/teachintour" target="_blank">LinkedIn</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col_one_third col_last">
+              <div class="widget subscribe-widget clearfix">
+                <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+                <div class="widget-subscribe-form-result"></div>
+                <form id="widget-subscribe-form" action="<?=Yii::$app->request->baseUrl;?>/include/subscribe.php" role="form" method="post" class="nobottommargin">
+                  <div class="input-group divcenter">
+                    <span class="input-group-addon"><i class="icon-email2"></i></span>
+                    <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                    <span class="input-group-btn">
+                      <button class="btn btn-success" type="submit">Subscribe</button>
+                    </span>
+                  </div>
+                </form>
+
+              </div>
+
+              <div class="widget clearfix" style="margin-bottom: -20px;">
+
+                <div class="row">
+
+                  <div class="col-md-6 clearfix bottommargin-sm">
+                    <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
+                      <i class="icon-facebook"></i>
+                      <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+                  </div>
+                  <div class="col-md-6 clearfix">
+                    <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
+                      <i class="icon-rss"></i>
+                      <i class="icon-rss"></i>
+                    </a>
+                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div><!-- .footer-widgets-wrap end -->
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+          <div class="container clearfix">
+
+            <div class="col_half">
+              Copyrights &copy; 2016 All Rights Reserved by <?=Yii::$app->params['company_name'];?>
+            </div>
+
+            <div class="col_half col_last tright">
+              <div class="fright clearfix">
+                <a href="https://www.facebook.com/TeachinTour/" class="social-icon si-small si-borderless si-facebook">
+                  <i class="icon-facebook"></i>
+                  <i class="icon-facebook"></i>
+                </a>
+
+                <a href="https://twitter.com/teachintour" class="social-icon si-small si-borderless si-twitter">
+                  <i class="icon-twitter"></i>
+                  <i class="icon-twitter"></i>
+                </a>
+
+                <a href="https://www.instagram.com/teachintour/" class="social-icon si-small si-borderless si-instagram">
+                  <i class="icon-instagram"></i>
+                  <i class="icon-instagram"></i>
+                </a>
+
+                <a href="https://www.pinterest.com/teachintour/" class="social-icon si-small si-borderless si-pinterest">
+                  <i class="icon-pinterest"></i>
+                  <i class="icon-pinterest"></i>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UC7JJcy9L-3dlfmV-q2DtN7g" class="social-icon si-small si-borderless si-youtube">
+                  <i class="icon-youtube"></i>
+                  <i class="icon-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/teachintour" class="social-icon si-small si-borderless si-linkedin">
+                  <i class="icon-linkedin"></i>
+                  <i class="icon-linkedin"></i>
+                </a>
+              </div>
+
+              <div class="clear"></div>
+            </div>
+
           </div>
-        </div><!-- End row -->
-      </div><!-- End container -->
-    </footer><!-- End footer -->
 
-    <div id="toTop"></div><!-- Back to top button -->
+        </div><!-- #copyrights end -->
 
-    <!-- Jquery -->
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/jquery-1.11.2.min.js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/common_scripts_min.js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/functions.js"></script>
+      </footer><!-- #footer end -->
 
-    <!-- video header -->
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/modernizr.js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/video_header.js"></script>
+    </div><!-- #wrapper end -->
 
-    <script>
-    $(document).ready(function() {
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
 
-       HeaderVideo.init({
-          container: $('.header-video'),
-          header: $('.header-video--media'),
-          videoTrigger: $("#video-trigger"),
-          autoPlayVideo: false
-        });
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.js"></script>
+    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/plugins.js"></script>
 
-    });
-    </script>
-
-    <!-- Text rotate -->
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/morphext.min.js"></script>
-    <script>
-    $("#js-rotating").Morphext({
-        animation: "fadeIn", // Overrides default "bounceIn"
-        separator: ",", // Overrides default ","
-        speed: 2000, // Overrides default 2000
-        complete: function () {
-            // Overrides default empty function
-        }
-    });
-    </script>
-
-    <!-- Google Map -->
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/map_contact.js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/infobox.js"></script>
-
-
-    <!-- Date and time pickers -->
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/bootstrap-datepicker.js"></script>
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/datepicker_advanced.js"></script>
-
-    <!-- Fixed sidebar -->
-    <script src="<?=Yii::$app->request->baseUrl; ?>/js/theia-sticky-sidebar.js"></script>
-    <script>
-        jQuery('#sidebar').theiaStickySidebar({
-          additionalMarginTop: 80
-        });
-    </script>
-    <script>
-    $(document).ready(function() {
-      'use strict';
-      $('#faq_box a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top - 120
-            }, 500);
-            return false;
-          }
-        }
-      });
-
-    });
-    </script>
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/functions.js"></script>
 
   </body>
 </html>

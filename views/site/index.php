@@ -5,185 +5,119 @@
 use yii\helpers\Html;
 $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and discovering the local people';
 ?>
-<section class="header-video">
-  <div id="hero_video">
-    <div class="intro_title">
-      <h1 class="animated fadeInDown"><strong id="js-rotating"> Teaching, Learning, Discovering</strong> Local People</h1>
-      <p class="animated fadeInDown">Teaching / Learning / Discovering</p>
-      <a href="#" class="animated fadeInUp button_intro">Signup Now</a>
-      <a href="#" class="animated fadeInUp button_intro outline">View Detail</a>
-    </div>
-  </div>
-  <img src=""  alt="" class="header-video--media" data-video-src=""  data-teaser-source="video/thailand" data-provider="Youtube" data-video-width="854" data-video-height="480">
-</section><!-- End Header video -->
-<div class="container margin_60">
-  <div class="main_title">
-    <h2>Breaking <span>Language</span> Barrier</h2>
-    <p>Help local connect to the world by teaching them English</p>
-  </div>
-  <div class="row">
-    <div class="col-md-4 wow zoomIn" data-wow-delay="0.2s">
-      <div class="feature_home">
-        <i class="icon_set_1_icon-41"></i>
-        <h3><span>+100</span> Schools</h3>
-        <p>
-             There are more than a hunred schools are waitting for you help.
-        </p>
+<section id="slider" class="force-full-screen full-screen">
+
+  <div class="force-full-screen full-screen dark section nopadding nomargin noborder ohidden">
+
+    <div class="container clearfix">
+      <div class="slider-caption slider-caption-center">
+        <h2 data-animate="fadeInUp">Can you Teach?</h2>
+        <p data-animate="fadeInUp" data-delay="200">Get the remarkable experience in Thailand through teaching a local students.</p>
+        <a data-animate="fadeInUp" data-delay="400" href="#" class="button button-border button-light button-rounded button-large noleftmargin nobottommargin" style="margin-top: 30px;">Learn More</a>
+        <a data-animate="fadeInUp" data-delay="600" href="#" class="button button-3d button-teal button-large nobottommargin" style="margin: 30px 0 0 10px;">Apply Now</a>
       </div>
+    </div>
+    <div class="video-wrap">
+      <video poster="images/videos/explore.jpg" preload="auto" loop autoplay muted>
+        <source src='images/videos/explore.mp4' type='video/mp4' />
+        <source src='images/videos/explore.webm' type='video/webm' />
+      </video>
+      <div class="video-overlay" style="background-color: rgba(0,0,0,0.45);"></div>
     </div>
 
-    <div class="col-md-4 wow zoomIn" data-wow-delay="0.4s">
-      <div class="feature_home">
-        <i class="icon_set_1_icon-30"></i>
-        <h3><span>+1000</span> Teacher</h3>
-        <p>
-             Right now, a thousand plus teachers from all over the world are joining and helping.
-        </p>
+  </div>
+
+</section>
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+  <div class="content-wrap">
+    <div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
+      <div class="container clearfix">
+        <h3 class="center">What <span>Volunteers</span> say?</h3>
+        <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
+          <div class="flexslider">
+            <div class="slider-wrap">
+              <div class="slide">
+                <div class="testi-image">
+                  <a href="#"><img src="images/testimonials/eric.png" alt="Customer Testimonails"></a>
+                </div>
+                <div class="testi-content">
+                  <p>Teachin' Tour Project is one of the project that can change the world.</p>
+                  <div class="testi-meta">
+                    Eric Prom
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="testi-image">
+                  <a href="#"><img src="images/testimonials/pumpoui.png" alt="Customer Testimonails"></a>
+                </div>
+                <div class="testi-content">
+                  <p>Teachin' Tour Project give me my teachin' experience while traveling.</p>
+                  <div class="testi-meta">
+                    PuMpoui Chankul
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="container clearfix">
+      <div class="heading-block center">
+        <h3><span>Teachin' Tour</span> Projects</h3>
+        <span>You can pick the roject that suit your style for remarkable experiences!</span>
+      </div>
 
-    <div class="col-md-4 wow zoomIn" data-wow-delay="0.6s">
-      <div class="feature_home">
-        <i class="icon_set_1_icon-85"></i>
-        <h3><span>+100K </span> Learn</h3>
-        <p>
-             One hunred thousand local students get to learn and be able to speak English.
-        </p>
+      <div class="container clearfix">
+        <div class="col_one_third bottommargin-lg">
+          <div class="feature-box center media-box fbox-bg">
+            <div class="fbox-media">
+              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+            </div>
+            <div class="fbox-desc">
+              <h3>Teachin'</h3>
+              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col_one_third bottommargin-lg">
+          <div class="feature-box center media-box fbox-bg">
+            <div class="fbox-media">
+              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+            </div>
+            <div class="fbox-desc">
+              <h3>Campin'</h3>
+              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col_one_third bottommargin-lg col_last">
+          <div class="feature-box center media-box fbox-bg">
+            <div class="fbox-media">
+              <img class="image_fade" src="images/shop/banners/10.jpg" alt="Image">
+            </div>
+            <div class="fbox-desc">
+              <h3>Other</h3>
+              <p><a href="#" class="btn btn-default">Apply Now</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section topmargin-sm footer-stick">
+      <div class="heading-block center">
+        <h3>What's <span>Teachin' Tour</span>?</h3>
+        <span>We are a language barrier breaking platform where you can part of a team and find a new way of travelling to discover an unseen thailand through the local.</span>
+      </div>
+      <div class="center">
+      <a data-delay="400" href="#" class="button button-border button-light button-rounded button-large" style="margin-top: 30px;">Learn more about us</a>
       </div>
     </div>
   </div>
-</div><!-- End container -->
 
-<div class="white_bg">
-  <div class="container margin_60">
-    <div class="main_title">
-      <h2>Our <span>Top</span> Packages</h2>
-      <p>You can pick the package that suit your style for remarkable experiences</p>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-        <div class="hotel_container">
-          <div class="img_container">
-            <a href="single_hotel.html">
-            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
-            <div class="ribbon top_rated"></div>
-            <div class="short_info hotel">
-              Cost<span class="price"><sup>$</sup>400</span>
-            </div>
-            </a>
-          </div>
-          <div class="hotel_title">
-            <h3><i class="icon_set_1_icon-53"></i> <strong>2 Weeks</strong></h3>
-          </div>
-        </div><!-- End box -->
-      </div><!-- End col-md-4 -->
-      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-        <div class="hotel_container">
-          <div class="img_container">
-            <a href="single_hotel.html">
-            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
-            <div class="ribbon top_rated"></div>
-            <div class="short_info hotel">
-              Cost<span class="price"><sup>$</sup>600</span>
-            </div>
-            </a>
-          </div>
-          <div class="hotel_title">
-            <h3><i class="icon_set_1_icon-53"></i> <strong>4 Weeks</strong></h3>
-          </div>
-        </div><!-- End box -->
-      </div><!-- End col-md-4 -->
-      <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-        <div class="hotel_container">
-          <div class="img_container">
-            <a href="single_hotel.html">
-            <img src="http://lorempixel.com/800/533/" width="800" height="533" class="img-responsive" alt="">
-            <div class="ribbon top_rated"></div>
-            <div class="short_info hotel">
-              Cost<span class="price"><sup>$</sup>1000</span>
-            </div>
-            </a>
-          </div>
-          <div class="hotel_title">
-            <h3><i class="icon_set_1_icon-53"></i> <strong>8 Weeks</strong></h3>
-          </div>
-        </div><!-- End box -->
-      </div><!-- End col-md-4 -->
-    </div><!-- End row -->
-    <div class="banner colored">
-      <h4>Discover our other package <span>from $300</span></h4>
-      <p>
-          What are you waiting for? They are waiting for your help.
-      </p>
-      <?=Html::a('See more', ['/package/'],['data' => ['method' => 'post'],'class'=>'btn_1 white']);?>
-    </div>
-    <div class="row">
-      <div class="col-md-3 col-sm-6 text-center">
-        <p>
-            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
-        </p>
-        <h4><span>Teaching</span> Local</h4>
-        <p>
-            Teaching is the core of our program. You will get to teach many kind of student even "monks".
-        </p>
-      </div>
-      <div class="col-md-3 col-sm-6 text-center">
-        <p>
-            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
-        </p>
-        <h4><span>Learning</span> Local</h4>
-        <p>
-            While you are in the teaching program, you will get to learn about our culture.
-        </p>
-      </div>
-      <div class="col-md-3 col-sm-6 text-center">
-        <p>
-            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
-        </p>
-        <h4><span>Discovering</span> Local</h4>
-        <p>
-            Teachin' Tour is the new way of traveling. You will get to teach and tour at the same time to discover the most remarkable experience.
-        </p>
-      </div>
-      <div class="col-md-3 col-sm-6 text-center">
-        <p>
-            <img src="http://lorempixel.com/800/450/" alt="Pic" class="img-responsive">
-        </p>
-        <h4><span>Helping</span> Local</h4>
-        <p>
-            You can help other while you are traveling. Is that cool? Help us break the language barrier.
-        </p>
-      </div>
-    </div><!-- End row -->
-  </div><!-- End container -->
-</div><!-- End white_bg -->
-<section class="promo_full">
-  <div class="promo_full_wp magnific">
-    <div>
-        <h3>TEACHIN EXPERIENCE</h3>
-        <p>
-            Get the remarkable experience in Thailand through teaching a local students.
-        </p>
-        <a href="https://www.youtube.com/watch?v=kYX5GfkXvmQ" class="video"><i class="icon-play-circled2-1"></i></a>
-    </div>
-  </div>
-</section><!-- End section -->
-<div class="container margin_60">
-  <div class="row">
-    <div class="col-md-8 col-sm-6 hidden-xs">
-      <img src="img/laptop.png" alt="Laptop" class="img-responsive laptop">
-    </div>
-    <div class="col-md-4 col-sm-6">
-      <h3><span>Steps</span> to start helping</h3>
-      <p>
-         We are the place where you can help breaking the language barrier and find a new way of travelling to discover an unseen thailand through the local.
-      </p>
-      <ul class="list_order">
-          <li><span>1</span>Select prefer package</li>
-          <li><span>2</span>Build your profile</li>
-          <li><span>3</span>Come to thailand</li>
-      </ul>
-      <a href="all_tour_list.html" class="btn_1">Start now</a>
-    </div>
-  </div><!-- End row -->
-</div><!-- End container -->
+</section><!-- #content end -->
