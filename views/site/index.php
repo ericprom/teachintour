@@ -70,7 +70,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
     <div class="container clearfix">
       <div class="heading-block center">
         <h3><span>Teachin' Tour</span> Projects</h3>
-        <span>You can pick the roject that suit your style for remarkable experiences!</span>
+        <span>You can pick the project that suit your style for remarkable experiences!</span>
       </div>
 
       <div class="container clearfix">

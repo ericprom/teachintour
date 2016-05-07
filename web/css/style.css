@@ -1134,7 +1134,7 @@ body.stretched #header.full-header .container {
   font-weight: bold;
   font-size: 13px;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   -webkit-transition: margin .4s ease, padding .4s ease;
   -o-transition: margin .4s ease, padding .4s ease;
@@ -2954,7 +2954,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 .slider-caption h2 {
   font-size: 64px;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 30px;
@@ -7118,7 +7118,7 @@ body:not(.device-touch) .button.button-full strong {
 .feature-box h3 {
   font-size: 16px;
   font-weight: 700;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0;
   color: #333;
@@ -11515,7 +11515,7 @@ button.toast-close-button {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 .sidebar-widgets-wrap .widget > h4 { letter-spacing: 1px; }
@@ -11779,7 +11779,7 @@ body:not(.device-touch) .tagcloud a {
   display: block;
   padding: 8px 0;
   color: #333;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
