@@ -115,7 +115,7 @@ $this->title = 'Contact | '.Yii::$app->params["company_name"].'';
         {
           latitude:17.772840,
           longitude:102.194974,
-          html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Teachin\' Tour</span></h4><p class="nobottommargin">Our mission is to break the language barrier and open the world to local people.</p></div>',
+          html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Welcome to <span>Teachin\' Tour</span></h4><p class="nobottommargin">Our mission is to break the language barrier and open the world to local people.<br><br>Address: 71/1 Srisamran, Namsom district, Udonthani 41210, Thailand.<br><br>Tel: +669-5449-2245</p></div>',
           icon: {
             image: "images/icons/map-icon-red.png",
             iconsize: [32, 39],
