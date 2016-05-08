@@ -2,8 +2,8 @@
 
 require_once 'campaign-monitor/csrest_subscribers.php';
 
-$apiKey = ''; // Your MailChimp API Key
-$listId = ''; // Your MailChimp List ID
+$apiKey = Yii::$app->params['mailchimp_api_key']; // Your MailChimp API Key
+$listId = Yii::$app->params['mailchimp_list_id']; // Your MailChimp List ID
 
 if( isset( $_GET['list'] ) AND $_GET['list'] != '' ) {
 	$listId = $_GET['list'];

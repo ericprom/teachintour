@@ -40,10 +40,10 @@ $this->title = 'Contact | '.Yii::$app->params["company_name"].'';
 
         <!-- Contact Form
         ============================================= -->
-        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail-recaptcha.php" method="post">
+        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="<?=Yii::$app->request->baseUrl; ?>/include/sendemail-autoresponder.php" method="post">
 
           <div class="col_full">
-            <label for="template-contactform-name">Name <small>*</small></label>
+            <label for="template-contactform-name">Fullname <small>*</small></label>
             <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
           </div>
 

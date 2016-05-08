@@ -5,8 +5,8 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'username@website.com', // Your Email Address
-				'name' => 'Your Name' // Your Name
+				'email' => Yii::$app->params['send_to_email'], // Your Email Address
+        'name' => Yii::$app->params['send_to_name'] // Your Name
 			);
 
 // Form Processing Messages

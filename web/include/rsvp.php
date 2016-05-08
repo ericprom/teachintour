@@ -5,15 +5,15 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'username@website.com', // Your Email Address
-				'name' => 'Your Name' // Your Name
+				'email' => Yii::$app->params['send_to_email'], // Your Email Address
+        'name' => Yii::$app->params['send_to_name'] // Your Name
 			);
 
 // Form Processing Messages
 $message_success = 'Thank you for Confirming your RSVP.';
 
 // Add this only if you use reCaptcha with your Contact Forms
-$recaptcha_secret = 'your-recaptcha-secret-key'; // Your reCaptcha Secret
+$recaptcha_secret = Yii::$app->params['recaptcha_secret']; // Your reCaptcha Secret
 
 $mail = new PHPMailer();
 

@@ -2,21 +2,21 @@
 
 require_once('phpmailer/PHPMailerAutoload.php');
 
-$apiKey = ''; // Your MailChimp API Key
-$listId = ''; // Your MailChimp List ID
+$apiKey = Yii::$app->params['mailchimp_api_key']; // Your MailChimp API Key
+$listId = Yii::$app->params['mailchimp_list_id']; // Your MailChimp List ID
 
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'username@website.com', // Your Email Address
-				'name' => 'Your Name' // Your Name
+				'email' => Yii::$app->params['send_to_email'], // Your Email Address
+        'name' => Yii::$app->params['send_to_name'] // Your Name
 			);
 
 // Form Processing Messages
 $message_success = 'We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.';
 
 // Add this only if you use reCaptcha with your Contact Forms
-$recaptcha_secret = 'your-recaptcha-secret-key'; // Your reCaptcha Secret
+$recaptcha_secret = Yii::$app->params['recaptcha_secret']; // Your reCaptcha Secret
 
 $mail = new PHPMailer();
 
