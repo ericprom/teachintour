@@ -82,6 +82,7 @@ $user = Yii::$app->user->identity;
       $projectActive='';($menu=='project')?$projectActive='class="current"':'';
       $feeActive='';($menu=='fees')?$feeActive='class="current"':'';
       $aboutActive='';($menu=='about'||$menu=='team')?$aboutActive='class="current"':'';
+      $contactActive='';($menu=='contact')?$contactActive='class="current"':'';
       $loginActive='';($menu=='login')?$loginActive='class="current"':'';
       $registerActive='';($menu=='register')?$registerActive='class="current"':'';
     ?>
@@ -108,6 +109,9 @@ $user = Yii::$app->user->identity;
                 <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
+                <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <li class="visible-xs">
                 <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
@@ -117,7 +121,7 @@ $user = Yii::$app->user->identity;
                 <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
               </li>
               <?php if(Yii::$app->user->isGuest){?>
               <li>
@@ -179,6 +183,9 @@ $user = Yii::$app->user->identity;
                 <li <?=$homeActive?>>
                   <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
                 </li>
+                <li <?=$aboutActive?>>
+                  <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+                </li>
                 <li <?=$locationActive;?>>
                   <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
                 </li>
@@ -188,8 +195,8 @@ $user = Yii::$app->user->identity;
                 <li <?=$feeActive;?>>
                   <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
                 </li>
-                <li <?=$aboutActive?>>
-                  <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+                <li <?=$contactActive?>>
+                  <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
                 </li>
               </ul>
               <div id="side-panel-trigger" class="side-panel-trigger">
