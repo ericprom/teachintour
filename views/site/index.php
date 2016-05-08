@@ -89,7 +89,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
               <a href="#"><img class="image_fade" src="images/project/camp.png" alt="Image"></a>
             </div>
             <div class="fbox-desc">
-              <h3>English Camp</h3>
+              <h3>Restoration Camp</h3>
             </div>
           </div>
         </div>
