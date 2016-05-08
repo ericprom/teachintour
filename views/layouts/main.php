@@ -109,7 +109,7 @@ $user = Yii::$app->user->identity;
                 <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
                 <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
@@ -184,7 +184,7 @@ $user = Yii::$app->user->identity;
                   <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li <?=$aboutActive?>>
-                  <?=Html::a('About Us', ['/about/'],['data' => ['method' => 'post']]);?>
+                  <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li <?=$locationActive;?>>
                   <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
@@ -233,7 +233,13 @@ $user = Yii::$app->user->identity;
                   <h4>Company</h4>
                   <ul>
                     <li>
-                      <?=Html::a('About us', ['/about/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+                    </li>
+                    <li>
+                      <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
                     </li>
                     <li>
                       <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
