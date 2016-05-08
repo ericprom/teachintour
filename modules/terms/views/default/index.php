@@ -15,7 +15,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
 <section id="content" style="margin: 10px;">
     <div class="container clearfix">
           <div>
-            The terms and conditions are agreement between you and Teachin’ Tour. We recommended you to read them carefully. By using our site, you confirm that you accept these terms of use and that you agree to comply with them. If you have any further question or concern please feel free to contact us.
+            The terms and conditions are agreement between you and teachin' tour. We recommended you to read them carefully. By using our site, you confirm that you accept these terms of use and that you agree to comply with them. If you have any further question or concern please feel free to contact us.
           </div>
           <div style="margin-top: 10px;">
             <div><strong>APPLICATION/CONTACT</strong></div>
@@ -26,7 +26,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           <div style="margin-top: 10px;">
             <div><strong>SUPPORTS AND SERVICES</strong></div>
             <div>
-              <div style="text-indent: 20px;">After confirmed, you will be a volunteer of Teachin’ Tour program.</div>
+              <div style="text-indent: 20px;">After confirmed, you will be a volunteer of teachin' tour program.</div>
               <div style="text-indent: 20px;">We provided accommodations as the following:</div>
               <div style="margin-left: 20px;text-indent: 20px;">A. Free home stay, you may be required to share bedroom and bathroom.</div>
               <div style="margin-left: 20px;text-indent: 20px;">B. Free breakfast, lunch and some dinner (Local meal standard).  It may difference from your country.</div>
@@ -52,7 +52,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           </div>
           <div style="margin-top: 10px;">
             <div><strong>START AND CHANGE DATE</strong></div>
-            <div style="text-indent: 20px;">After confirmed participate Teachin’ Tour program. You may change date of your placement by up to 1- 3 months from the original date, if you wish to do so please kindly email us about the reason and give us the prefer of alternative date .For the first changing date, there is no additional cost.  But if there is change is the second time we will require you to pay an administration USD30 for each change.</div>
+            <div style="text-indent: 20px;">After confirmed participate teachin' tour program. You may change date of your placement by up to 1- 3 months from the original date, if you wish to do so please kindly email us about the reason and give us the prefer of alternative date .For the first changing date, there is no additional cost.  But if there is change is the second time we will require you to pay an administration USD30 for each change.</div>
           </div>
           <div style="margin-top: 10px;">
             <div><strong>TRAVEL and SURCHARGE</strong></div>
@@ -61,7 +61,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
             <div style="text-indent: 20px;">If you come directly from your country or SUVANABUMI IAIRPORT (BKK Airport) you will be landed at UDINTHANI INTERNATIONAL AIRPORT. We will pick you up at the local/international UDONTHANI AIRPORT.</div>
             <div style="text-indent: 20px;">If you live in Thailand we will provided you the itinerary and detail of journey to you via email but if you required us to pick up please email or call to inform us.</div>
             <div style="text-indent: 20px;">The applicant/volunteer supposed to carry all necessary document when you travelling abroad.</div>
-            <div style="text-indent: 20px;">Teachin’ Tour is not responsible for any supporting document necessary for the applicant’s travel need or other purpose.</div>
+            <div style="text-indent: 20px;">teachin' tour is not responsible for any supporting document necessary for the applicant’s travel need or other purpose.</div>
             <div style="text-indent: 20px;">Applicants are responsible for ensuring their travel documents are up to date and valid date.</div>
 
           </div>
@@ -83,18 +83,18 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           </div>
           <div style="margin-top: 10px;">
             <div><strong>DRUG USE</strong></div>
-            <div style="text-indent: 20px;">Drug use (Unless prescribed by a doctor) is strictly prohibited and will result in instant dismissal from the program with no reasonable. Teachin’ Tour reserves the right to refuse acceptance to any applicant.</div>
+            <div style="text-indent: 20px;">Drug use (Unless prescribed by a doctor) is strictly prohibited and will result in instant dismissal from the program with no reasonable. teachin' tour reserves the right to refuse acceptance to any applicant.</div>
           </div>
           <div style="margin-top: 10px;">
             <div><strong>INSURANCE</strong></div>
-            <div style="text-indent: 20px;">All applicant/volunteer on Teachin’ Tour program are expected to arrange their own comprehensive travel insurance. </div>
+            <div style="text-indent: 20px;">All applicant/volunteer on teachin' tour program are expected to arrange their own comprehensive travel insurance. </div>
             <div style="text-indent: 20px;">We do not provide the applicant/volunteer with any kind of insurance.</div>
           </div>
           <div style="margin-top: 10px;">
             <div><strong>PASSPORT/VISA</strong></div>
             <div style="text-indent: 20px;">You must ensure that your passport should be valid for at least 6 months beyond your date of entry into Thailand.</div>
             <div style="text-indent: 20px;">You must ensure that all travel documents are valid. We cannot accept any responsibility if entry to Thailand is denied.</div>
-            <div style="text-indent: 20px;">Teachin’ Tour advice volunteers to enter on tourist visa. You are not permitted to work on tourist visas, because you are not getting paid.</div>
+            <div style="text-indent: 20px;">teachin' tour advice volunteers to enter on tourist visa. You are not permitted to work on tourist visas, because you are not getting paid.</div>
           </div>
           <!-- <div style="margin-top: 10px;">
             <div><strong>GENERAL</strong></div>

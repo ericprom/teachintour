@@ -52,7 +52,7 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
             <li><i class="icon-folder-open"></i> Teachin' English</li>
           </ul>
           <div class="entry-content">
-            <p>Namsom was picked as the first location to launch the "Teachin' Tour" Project, because the two co-founders are both from Namsom. They have the same passion and desire to make their home town a better place. Teachin' English is the core of Teachin' Tour program. You will get to teach many kinds of student even "monks". You can help other while you are traveling. Is that cool? Help us break the language barrier. And make Namsom a better place.</p>
+            <p>Namsom was picked as the first location to launch the "teachin' tour" Project, because the two co-founders are both from Namsom. They have the same passion and desire to make their home town a better place. Teachin' English is the core of teachin' tour program. You will get to teach many kinds of student even "monks". You can help other while you are traveling. Is that cool? Help us break the language barrier. And make Namsom a better place.</p>
             <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
           </div>
         </div>

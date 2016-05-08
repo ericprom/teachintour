@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'company_name' => 'Teachin\' Tour',
+    'company_name' => 'teachin\' tour',
     'send_to_email' => 'surasak@promrat.com',
     'send_to_name' => 'Eric Prom',
     'recaptcha_secret'=>'6LenTh8TAAAAAB_5OTRO4LT-MV7A1sqL7_c_DeQ-',
