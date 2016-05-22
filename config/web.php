@@ -46,8 +46,14 @@ $config = [
                 'recoverySubject'       => 'Recovery Teachin\' Tour account',
             ],
         ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
+        ],
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'ri,iy9oN0yomiNd6]',
@@ -92,7 +98,14 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
-                'location/<id:\d+>' => 'location',
+
+                //program URL Management
+                '<module:\w+>/<id:\d+>' => '<module>',
+                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                // '<controller:\w+>/<action:\w+>' => '<controller>/view',
+
+                //user settings URL Management
                 'account'=>'user/settings/account',
                 'profile'=>'user/settings/profile',
                 'networks'=>'user/settings/networks',
@@ -101,6 +114,10 @@ $config = [
                 'register' => 'user/registration/register',
                 'resend' => 'user/registration/resend',
                 'request' => 'user/recovery/request',
+                'admin' => 'user/admin/index',
+
+                //api URL Management
+                'api/<module:\w+>/<controller:\w+>/<action:\w+>' => 'api/<module>/<controller>/<action>',
             ],
         ],
 

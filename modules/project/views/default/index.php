@@ -6,9 +6,7 @@ use yii\helpers\Html;
 $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
 ?>
 <section id="content">
-
     <div class="content-wrap">
-
       <div class="container clearfix">
         <div class="heading-block">
           <h2>Volunteer Abroad Projects</h2>

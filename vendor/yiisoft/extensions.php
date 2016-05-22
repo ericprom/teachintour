@@ -85,4 +85,32 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii',
     ),
   ),
+  'kartik-v/yii2-krajee-base' => 
+  array (
+    'name' => 'kartik-v/yii2-krajee-base',
+    'version' => '1.8.5.0',
+    'alias' => 
+    array (
+      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
+    ),
+  ),
+  'kartik-v/yii2-widget-select2' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-select2',
+    'version' => '2.0.8.0',
+    'alias' => 
+    array (
+      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
+    ),
+  ),
+  'dektrium/yii2-rbac' => 
+  array (
+    'name' => 'dektrium/yii2-rbac',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@dektrium/rbac' => $vendorDir . '/dektrium/yii2-rbac',
+    ),
+    'bootstrap' => 'dektrium\\rbac\\Bootstrap',
+  ),
 );

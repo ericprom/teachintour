@@ -16,7 +16,6 @@ use yii\helpers\Html;
 use yii\jui\DatePicker;
 use yii\web\View;
 use yii\widgets\Pjax;
-
 /**
  * @var View $this
  * @var ActiveDataProvider $dataProvider
@@ -26,20 +25,22 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('user', 'Manage users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<section id="content">
+  <div class="content-wrap">
+    <div class="container clearfix">
+    <?= $this->render('/_alert', [
+      'module' => Yii::$app->getModule('user'),
+    ]) ?>
 
-<?= $this->render('/_alert', [
-    'module' => Yii::$app->getModule('user'),
-]) ?>
+    <?= $this->render('/admin/_menu') ?>
 
-<?= $this->render('/admin/_menu') ?>
+    <?php Pjax::begin() ?>
 
-<?php Pjax::begin() ?>
-
-<?= GridView::widget([
-    'dataProvider' 	=> $dataProvider,
-    'filterModel'  	=> $searchModel,
-    'layout'  		=> "{items}\n{pager}",
-    'columns' => [
+    <?= GridView::widget([
+      'dataProvider' 	=> $dataProvider,
+      'filterModel'  	=> $searchModel,
+      'layout'  		=> "{items}\n{pager}",
+      'columns' => [
         'username',
         'email:email',
         [
@@ -107,8 +108,32 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {delete}',
+            'buttons' => [
+              'update' => function ($url) {
+                  return Html::a(
+                      '<i class="icon-edit"></i>',
+                      $url,
+                      [
+                          'title' => 'Update',
+                          'data-pjax' => '0',
+                      ]
+                  );
+              },
+              'delete' => function ($url) {
+                  return Html::a(
+                      '<i class="icon-trash"></i>',
+                      $url,
+                      [
+                          'title' => 'Delete',
+                          'data-pjax' => '0',
+                      ]
+                  );
+              },
+            ],
         ],
-    ],
-]); ?>
-
-<?php Pjax::end() ?>
+      ],
+    ]); ?>
+    <?php Pjax::end() ?>
+    </div>
+  </div>
+</section>

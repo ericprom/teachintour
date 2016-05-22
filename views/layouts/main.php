@@ -123,6 +123,16 @@ $user = Yii::$app->user->identity;
               <li class="visible-xs">
                 <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
               </li>
+              <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin){?>
+              <li>
+                <?=Html::a('Admin Area', ['/admin/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <?php }?>
+              <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin || !Yii::$app->user->isGuest && Yii::$app->user->can('Manage')){?>
+              <li>
+                <?=Html::a('Manage', ['/manage/'],['data' => ['method' => 'post']]);?>
+              </li>
+              <?php }?>
               <?php if(Yii::$app->user->isGuest){?>
               <li>
                 <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
@@ -139,7 +149,7 @@ $user = Yii::$app->user->identity;
           </nav>
 
         </div>
-
+<!--
         <div class="widget quick-contact-widget clearfix">
 
           <h4>Contact Us</h4>
@@ -154,7 +164,7 @@ $user = Yii::$app->user->identity;
           </form>
 
         </div>
-
+ -->
       </div>
 
     </div>
