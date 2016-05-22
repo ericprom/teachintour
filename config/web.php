@@ -11,6 +11,9 @@ $config = [
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
+        'manage' => [
+            'class' => 'app\modules\manage\manageModules',
+        ],
         'location' => [
             'class' => 'app\modules\location\locationModules',
         ],
@@ -75,8 +78,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.mailgun.org',
-                'username' => 'postmaster@sandbox8eb938f1ba424a3a93b0bed8a9e2596a.mailgun.org',
-                'password' => 'c56cf17e52993bf288b2a7061a01b6b4',
+                'username' => 'postmaster@sandbox9fc12c0a66d0405aabd88723ea8edd75.mailgun.org',
+                'password' => '9da0a1647a4e5f4537fda529827a6e5b',
                 'port' => '587',
                 'encryption' => 'tls',
             ],
@@ -101,6 +104,8 @@ $config = [
 
                 //program URL Management
                 '<module:\w+>/<id:\d+>' => '<module>',
+                '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
+                '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
                 '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 // '<controller:\w+>/<action:\w+>' => '<controller>/view',

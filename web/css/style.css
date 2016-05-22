@@ -4752,7 +4752,7 @@ body.device-touch.device-xxs .portfolio-notitle .portfolio-overlay { display: no
   margin: 0;
   font-size: 24px;
   font-weight: 600;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: 1px;
 }
 
