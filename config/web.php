@@ -102,23 +102,24 @@ $config = [
             'rules' => [
                 '' => 'site/index',
 
+                //user settings URL Management
+                'account'=>'user/<controller>/<action>',
+                'profile'=>'user/<controller>/<action>',
+                'networks'=>'user/<controller>/<action>',
+                'login' => 'user/<controller>/<action>',
+                'logout' => 'user/<controller>/<action>',
+                'register' => 'user/<controller>/<action>',
+                'resend' => 'user/<controller>/<action>',
+                'request' => 'user/<controller>/<action>',
+                'user/<controller:\w+>/<action:\w+>' => 'user/<controller>/<action>',
+                'rbac/<controller:\w+>/<action:\w+>' => 'rbac/<controller>/<action>',
+
                 //program URL Management
                 '<module:\w+>/<id:\d+>' => '<module>',
                 '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
                 '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
                 '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
                 '<module:\w+>/<action:\w+>/<page:\w+>/<id:\d+>' => '<module>/default/<action>',
-
-                //user settings URL Management
-                'account'=>'user/settings/account',
-                'profile'=>'user/settings/profile',
-                'networks'=>'user/settings/networks',
-                'login' => 'user/security/login',
-                'logout' => 'user/security/logout',
-                'register' => 'user/registration/register',
-                'resend' => 'user/registration/resend',
-                'request' => 'user/recovery/request',
-                'admin' => 'user/admin/index',
 
                 //api URL Management
                 'api/<module:\w+>/<controller:\w+>/<action:\w+>' => 'api/<module>/<controller>/<action>',

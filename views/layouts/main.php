@@ -113,7 +113,7 @@ $user = Yii::$app->user->identity;
               </li>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin){?>
               <li>
-                <?=Html::a('Admin Area', ['/admin/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Admin Area', ['/user/admin/index/'],['data' => ['method' => 'post']]);?>
               </li>
               <?php }?>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin || !Yii::$app->user->isGuest && Yii::$app->user->can('Manage')){?>
