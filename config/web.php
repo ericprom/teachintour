@@ -105,9 +105,9 @@ $config = [
                 //program URL Management
                 '<module:\w+>/<id:\d+>' => '<module>',
                 '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
-                // '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
-                // '<module:\w+>/<action:\w+>/<page:\w+>/<id:\d+>' => '<module>/default/<action>',
+                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
+                '<module:\w+>/<action:\w+>/<page:\w+>/<id:\d+>' => '<module>/default/<action>',
 
                 //user settings URL Management
                 'account'=>'user/settings/account',
