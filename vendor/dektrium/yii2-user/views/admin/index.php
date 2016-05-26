@@ -25,6 +25,8 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('user', 'Manage users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?= Html::csrfMetaTags() ?>
 <section id="content">
   <div class="content-wrap">
     <div class="container clearfix">
@@ -108,28 +110,6 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {delete}',
-            'buttons' => [
-              'update' => function ($url) {
-                  return Html::a(
-                      '<i class="icon-edit"></i>',
-                      $url,
-                      [
-                          'title' => 'Update',
-                          'data-pjax' => '0',
-                      ]
-                  );
-              },
-              'delete' => function ($url) {
-                  return Html::a(
-                      '<i class="icon-trash"></i>',
-                      $url,
-                      [
-                          'title' => 'Delete',
-                          'data-pjax' => '0',
-                      ]
-                  );
-              },
-            ],
         ],
       ],
     ]); ?>

@@ -20,8 +20,8 @@ $config = [
         'project' => [
             'class' => 'app\modules\project\projectModules',
         ],
-        'fees' => [
-            'class' => 'app\modules\fees\feesModules',
+        'fee' => [
+            'class' => 'app\modules\fee\feeModules',
         ],
         'about' => [
             'class' => 'app\modules\about\aboutModules',
@@ -105,10 +105,9 @@ $config = [
                 //program URL Management
                 '<module:\w+>/<id:\d+>' => '<module>',
                 '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
-                // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                // '<controller:\w+>/<action:\w+>' => '<controller>/view',
+                // '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
+                // '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
+                // '<module:\w+>/<action:\w+>/<page:\w+>/<id:\d+>' => '<module>/default/<action>',
 
                 //user settings URL Management
                 'account'=>'user/settings/account',
@@ -132,10 +131,10 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-    ];
+    // $config['bootstrap'][] = 'debug';
+    // $config['modules']['debug'] = [
+    //     'class' => 'yii\debug\Module',
+    // ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [

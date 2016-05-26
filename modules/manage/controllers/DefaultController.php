@@ -44,12 +44,18 @@ class DefaultController extends Controller
     public function actionProject()
     {
         $request = Yii::$app->request;
+        $id = $request->get('id');
         $page = $request->get('page');
         if($page){
           return $this->render($page);
         }
         else{
-          return $this->render('project');
+          if($id){
+            return $this->render('detail');
+          }
+          else{
+            return $this->render('project');
+          }
         }
     }
 }

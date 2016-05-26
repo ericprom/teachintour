@@ -46,26 +46,13 @@ $user = Yii::$app->user->identity;
     <meta name="msapplication-TileImage" content="<?=Yii::$app->request->baseUrl; ?>/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Stylesheets
-    ============================================= -->
-
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/swiper.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/dark.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/magnific-popup.css" type="text/css" />
-
-    <link rel="stylesheet" href="<?=Yii::$app->request->baseUrl;?>/css/responsive.css" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lt IE 9]>
       <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
-    <!-- Document Title
-    ============================================= -->
     <title><?= Html::encode($this->title) ?></title>
+    <?= Html::csrfMetaTags() ?>
+    <?php $this->head() ?>
 
     <?php
       $controller = Yii::$app->controller;
@@ -89,6 +76,7 @@ $user = Yii::$app->user->identity;
   </head>
 
   <body class="stretched side-panel-left">
+  <?php $this->beginBody() ?>
     <div class="body-overlay"></div>
     <div id="side-panel" class="dark">
       <div id="side-panel-trigger-close" class="side-panel-trigger">
@@ -118,7 +106,7 @@ $user = Yii::$app->user->identity;
                 <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
               </li>
               <li class="visible-xs">
                 <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
@@ -149,24 +137,7 @@ $user = Yii::$app->user->identity;
           </nav>
 
         </div>
-<!--
-        <div class="widget quick-contact-widget clearfix">
-
-          <h4>Contact Us</h4>
-          <div class="quick-contact-form-result"></div>
-          <form id="quick-contact-form" name="quick-contact-form" action="<?=Yii::$app->request->baseUrl;?>/include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
-            <div class="form-process"></div>
-            <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-            <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-            <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-            <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button button-small button-3d nomargin" value="submit">Send Email</button>
-          </form>
-
-        </div>
- -->
       </div>
-
     </div>
     <!-- Document Wrapper
   ============================================= -->
@@ -252,7 +223,7 @@ $user = Yii::$app->user->identity;
                       <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
                     </li>
                     <li>
-                      <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
                     </li>
                     <li>
                       <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
@@ -312,16 +283,7 @@ $user = Yii::$app->user->identity;
     <!-- Go To Top
     ============================================= -->
     <div id="gotoTop" class="icon-angle-up"></div>
-
-    <!-- External JavaScripts
-    ============================================= -->
-    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.js"></script>
-    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/plugins.js"></script>
-
-    <!-- Footer Scripts
-    ============================================= -->
-    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/functions.js"></script>
-
+    <?php $this->endBody() ?>
   </body>
 </html>
 <?php $this->endPage() ?>

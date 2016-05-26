@@ -18,11 +18,26 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+      'css/bootstrap.css',
+      'css/style.css',
+      'css/swiper.css',
+      'css/dark.css',
+      'css/font-icons.css',
+      'css/animate.css',
+      'css/magnific-popup.css',
+      'css/responsive.css',
     ];
+
     public $js = [
+        'js/jquery.js',
+        'js/plugins.js',
+        'js/functions.js',
+        'js/apps.js',
+        'js/controllers.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        'app\assets\BowerAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
 }

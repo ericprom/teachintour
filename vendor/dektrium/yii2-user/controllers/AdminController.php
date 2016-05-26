@@ -140,7 +140,7 @@ class AdminController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    /** @inheritdoc */
+     /** @inheritdoc */
     public function behaviors()
     {
         return [

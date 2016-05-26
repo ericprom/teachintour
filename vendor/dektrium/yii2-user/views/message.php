@@ -17,7 +17,8 @@
 $this->title = $title;
 
 ?>
-
-<?= $this->render('/_alert', [
+<section class="container">
+  <?= $this->render('/_alert', [
     'module' => $module,
-]) ?>
+  ]) ?>
+</section>

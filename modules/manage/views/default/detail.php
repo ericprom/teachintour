@@ -25,7 +25,7 @@ $this->title = 'Manage Projects | '.Yii::$app->params["company_name"].'';
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="fancy-title title-border">
-        <h3>All Projects</h3>
+        <h3>Project Detail</h3>
       </div>
       <div id="posts" class="events small-thumbs">
         <div class="entry clearfix">

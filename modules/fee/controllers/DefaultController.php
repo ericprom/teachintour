@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\fees\controllers;
+namespace app\modules\fee\controllers;
 
 use yii\web\Controller;
 
