@@ -118,7 +118,7 @@ $user = Yii::$app->user->identity;
               <?php }?>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin || !Yii::$app->user->isGuest && Yii::$app->user->can('Manage')){?>
               <li>
-                <?=Html::a('Manage', ['/manage/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Settings', ['/setting/'],['data' => ['method' => 'post']]);?>
               </li>
               <?php }?>
               <?php if(Yii::$app->user->isGuest){?>

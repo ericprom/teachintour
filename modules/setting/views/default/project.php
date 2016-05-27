@@ -4,16 +4,18 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
-$this->title = 'Manage Projects | '.Yii::$app->params["company_name"].'';
+$this->title = 'All Projects | '.Yii::$app->params["company_name"].'';
 ?>
 <div id="page-menu">
   <div id="page-menu-wrap">
     <div class="container clearfix">
-      <div class="menu-title">Manage <span>Projects</span></div>
+      <div class="menu-title">All <span>Projects</span></div>
       <nav>
         <ul>
           <li class="current">
-            <?=Html::a('Create New Projrct', ['/manage/project/add'],['data' => ['method' => 'get']]);?>
+            <a href="<?=Url::to(['/setting/project/add'])?>">
+              Create New Projrct
+            </a>
           </li>
         </ul>
       </nav>
@@ -40,8 +42,8 @@ $this->title = 'Manage Projects | '.Yii::$app->params["company_name"].'';
               <li><span class="label label-success">Active</span></li>
             </ul>
             <div class="entry-content">
-              <a href="<?=Url::to(['/manage/project'])?>/1" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
-              <a href="<?=Url::to(['/manage/project/edit'])?>/1" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
+              <a href="<?=Url::to(['/setting/project'])?>/1" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
+              <a href="<?=Url::to(['/setting/project/edit'])?>/1" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
             </div>
           </div>
         </div>

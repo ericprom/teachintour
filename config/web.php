@@ -11,8 +11,8 @@ $config = [
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
-        'manage' => [
-            'class' => 'app\modules\manage\manageModules',
+        'setting' => [
+            'class' => 'app\modules\setting\settingModules',
         ],
         'location' => [
             'class' => 'app\modules\location\locationModules',
