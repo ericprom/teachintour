@@ -174,7 +174,7 @@ $user = Yii::$app->user->identity;
                   <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li <?=$feeActive;?>>
-                  <?=Html::a('Fees', ['/fees/'],['data' => ['method' => 'post']]);?>
+                  <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
                 </li>
                 <li <?=$contactActive?>>
                   <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
