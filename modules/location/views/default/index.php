@@ -44,7 +44,7 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
           <div class="entry-title">
             <h2>
               <a href="<?=Url::to(['/location'])?>/1"  ng-show="get.thumb!=''">
-                Namsom, Udonthaini
+                Namsom, Udonthani
               </a>
             </h2>
           </div>
