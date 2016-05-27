@@ -35,7 +35,7 @@ $this->title = 'Add New Projects | '.Yii::$app->params["company_name"].'';
           <div class="clear"></div>
 
           <div class="col_full nobottommargin">
-            <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Save Now</button>
+            <button class="button button-3d button-black nomargin">Save Now</button>
           </div>
       </div>
     </div>

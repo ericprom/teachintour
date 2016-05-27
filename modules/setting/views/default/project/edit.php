@@ -4,12 +4,12 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
-$this->title = 'Edit Project | '.Yii::$app->params["company_name"].'';
+$this->title = 'Update Project | '.Yii::$app->params["company_name"].'';
 ?>
 <div id="page-menu">
   <div id="page-menu-wrap">
     <div class="container clearfix">
-      <div class="menu-title">Edit <span>Project</span></div>
+      <div class="menu-title">Update <span>Project</span></div>
     </div>
   </div>
 </div>
@@ -17,7 +17,7 @@ $this->title = 'Edit Project | '.Yii::$app->params["company_name"].'';
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="fancy-title title-border">
-        <h3>Edit Project</h3>
+        <h3>Update Project</h3>
       </div>
       <div class="col_full nobottommargin">
         <p>Need to add more detail? Update a project to make it better.</p>
