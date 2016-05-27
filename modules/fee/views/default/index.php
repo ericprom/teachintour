@@ -18,7 +18,7 @@ $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
               <h3>1 Week</h3>
             </div>
             <div class="pricing-price">
-              <span class="price-unit">&dollar;</span>300
+              <span class="price-unit">&dollar;</span>250
             </div>
             <div class="pricing-features">
               <ul>
@@ -119,7 +119,7 @@ $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
         <tbody>
           <tr>
           <td>1 Week</td>
-          <td>$300</td>
+          <td>$250</td>
           </tr>
           <tr>
           <td>2 Weeks</td>
