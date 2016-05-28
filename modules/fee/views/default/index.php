@@ -4,7 +4,7 @@
 use yii\helpers\Html;
 $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
 ?>
-<section id="content">
+<section id="content" ng-controller="FeeController" ng-cloak>
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="heading-block center">
@@ -12,97 +12,28 @@ $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
         <span>We believe in Flexible Costing.</span>
       </div>
       <div class="pricing bottommargin clearfix">
-        <div class="col-md-3">
-          <div class="pricing-box">
+        <div class="col-md-3" ng-repeat="fee in Fees" ng-show="fee.shelf">
+          <div class="pricing-box" ng-class="(fee.popular)?'best-price':''">
             <div class="pricing-title">
-              <h3>1 Week</h3>
+              <h3>{{fee.title}}</h3>
+              <span ng-show="fee.popular">Most Popular</span>
             </div>
             <div class="pricing-price">
-              <span class="price-unit">&dollar;</span>250
+              <span class="price-unit">&dollar;</span>{{fee.price | number}}
             </div>
             <div class="pricing-features">
               <ul>
-                <li><strong>Home stay</strong></li>
-                <li>Airport <strong>Pick-up</strong></li>
-                <li><strong>3</strong> Meals a day</li>
-                <li><strong>Bike</strong></li>
-                <li><strong>Other</strong></li>
+                <li ng-repeat="detail in fee.detail"><strong>{{detail.title}}</strong></li>
+                <li ng-show="fee.popular">
+                  <i class="icon-star3"></i>
+                  <i class="icon-star3"></i>
+                  <i class="icon-star3"></i>
+                  <i class="icon-star3"></i>
+                  <i class="icon-star3"></i>
+                </li>
               </ul>
             </div>
           </div>
-
-        </div>
-
-        <div class="col-md-3">
-
-          <div class="pricing-box best-price">
-            <div class="pricing-title">
-              <h3>2 Weeks</h3>
-              <span>Most Popular</span>
-            </div>
-            <div class="pricing-price">
-              <span class="price-unit">&dollar;</span>450
-            </div>
-            <div class="pricing-features">
-              <ul>
-                <li><strong>Home stay</strong></li>
-                <li>Airport <strong>Pick-up</strong></li>
-                <li><strong>3</strong> Meals a day</li>
-                <li><strong>Bike</strong></li>
-                <li><strong>Other</strong></li>
-                <li><i class="icon-star3"></i>
-                <i class="icon-star3"></i>
-                <i class="icon-star3"></i>
-                <i class="icon-star3"></i>
-                <i class="icon-star3"></i></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-md-3">
-
-          <div class="pricing-box">
-            <div class="pricing-title">
-              <h3>4 Weeks</h3>
-            </div>
-            <div class="pricing-price">
-              <span class="price-unit">&dollar;</span>650
-            </div>
-            <div class="pricing-features">
-              <ul>
-                <li><strong>Home stay</strong></li>
-                <li>Airport <strong>Pick-up</strong></li>
-                <li><strong>3</strong> Meals a day</li>
-                <li><strong>Bike</strong></li>
-                <li><strong>Other</strong></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-md-3">
-
-          <div class="pricing-box">
-            <div class="pricing-title">
-              <h3>8 Weeks</h3>
-            </div>
-            <div class="pricing-price">
-              <span class="price-unit">&dollar;</span>1000
-            </div>
-            <div class="pricing-features">
-              <ul>
-                <li><strong>Home stay</strong></li>
-                <li>Airport <strong>Pick-up</strong></li>
-                <li><strong>3</strong> Meals a day</li>
-                <li><strong>Bike</strong></li>
-                <li><strong>Other</strong></li>
-              </ul>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -117,45 +48,9 @@ $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
           </tr>
         </thead>
         <tbody>
-          <tr>
-          <td>1 Week</td>
-          <td>$250</td>
-          </tr>
-          <tr>
-          <td>2 Weeks</td>
-          <td>$450</td>
-          </tr>
-          <tr>
-          <td>3 Weeks</td>
-          <td>$550</td>
-          </tr>
-          <tr>
-          <td>4 Weeks</td>
-          <td>$650</td>
-          </tr>
-          <tr>
-          <td>5 Weeks</td>
-          <td>$750</td>
-          </tr>
-          <tr>
-          <td>6 Weeks</td>
-          <td>$850</td>
-          </tr>
-          <tr>
-          <td>7 Weeks</td>
-          <td>$950</td>
-          </tr>
-          <tr>
-          <td>8 Weeks</td>
-          <td>$1,000</td>
-          </tr>
-          <tr>
-          <td>10 Weeks</td>
-          <td>$1,100</td>
-          </tr>
-          <tr>
-          <td>12 Weeks</td>
-          <td>$1,200</td>
+          <tr ng-repeat="fee in Fees">
+            <td>{{fee.title}}</td>
+            <td>${{fee.price | number}}</td>
           </tr>
         </tbody>
         </table>

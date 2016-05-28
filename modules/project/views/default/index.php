@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
 ?>
@@ -18,7 +19,9 @@ $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
         <div class="col_one_third bottommargin-lg">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/teachin.png" alt="Image"></a>
+              <a href="<?=Url::to(['/project'])?>/1">
+                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/teachin.png" alt="Image">
+              </a>
             </div>
             <div class="fbox-desc">
               <h3>Teachin' English</h3>
@@ -28,7 +31,9 @@ $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
         <div class="col_one_third bottommargin-lg">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/camp.png" alt="Image"></a>
+              <a href="<?=Url::to(['/project'])?>/1">
+                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/camp.png" alt="Image">
+              </a>
             </div>
             <div class="fbox-desc">
               <h3>Restoration Camp</h3>
@@ -38,7 +43,9 @@ $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
         <div class="col_one_third bottommargin-lg col_last">
           <div class="feature-box center media-box fbox-bg">
             <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/care.png" alt="Image"></a>
+              <a href="<?=Url::to(['/project'])?>/1">
+                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/care.png" alt="Image">
+              </a>
             </div>
             <div class="fbox-desc">
               <h3>Childcare</h3>

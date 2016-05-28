@@ -25,6 +25,7 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
 
             <ul class="tab-nav clearfix">
               <li><a href="#location-detail">Location Detail</a></li>
+              <li><a href="#location-glance">At a glance</a></li>
               <li><a href="#location-gallery">Location Gallery</a></li>
             </ul>
 
@@ -47,9 +48,38 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
                   <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Update Now</button>
                 </div>
               </div>
+              <div class="tab-content clearfix" id="location-glance">
+                <div>
+                  <input id="checkbox-10" class="checkbox-style" name="checkbox-10" type="checkbox" checked>
+                  <label for="checkbox-10" class="checkbox-style-3-label">Available year-round</label>
+                </div>
+                <div>
+                  <input id="checkbox-11" class="checkbox-style" name="checkbox-11" type="checkbox">
+                  <label for="checkbox-11" class="checkbox-style-3-label">Homestay</label>
+                </div>
+                <div>
+                  <input id="checkbox-12" class="checkbox-style" name="checkbox-12" type="checkbox">
+                  <label for="checkbox-12" class="checkbox-style-3-label">Airport pick-up</label>
+                </div>
+              </div>
               <div class="tab-content clearfix" id="location-gallery">
-                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-                Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.
+                <section>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      The recommended size for the image is [800x533] and in [.jpg,.png,.gif] format.
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <button class="btn btn-default pull-right"
+                        ng-click="cancelUpload()">
+                        X
+                      </button>
+                    </div>
+                  </div>
+                  <hr>
+                  <form id="my-cover-dropzone" action="<?=Yii::$app->request->baseUrl; ?>/api/v1/file/upload" class="dropzone" name="{{programID}}" tag="covers">
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                  </form>
+                </section>
               </div>
             </div>
 
@@ -58,3 +88,15 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function() {
+    Dropzone.options.myGalleryDropzone = {
+        acceptedFiles: "image/jpeg,image/png,image/gif",
+        init: function() {
+            this.on("processing", function(file) {
+                this.options.url = document.getElementById("my-gallery-dropzone").getAttribute("action")+"?tag=gallerys&folder="+document.getElementById("my-gallery-dropzone").name;
+            });
+        }
+    };
+});
+</script>

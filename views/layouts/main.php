@@ -18,9 +18,10 @@ $user = Yii::$app->user->identity;
   <!--[if IE 8]><html class="ie ie8"> <![endif]-->
   <!--[if IE 9]><html class="ie ie9"> <![endif]-->
   <!--[if gt IE 9]><!-->
-  <html lang="<?= Yii::$app->language ?>">
+  <html lang="<?= Yii::$app->language;?>" ng-app="app">
   <!--<![endif]-->
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,7 +68,7 @@ $user = Yii::$app->user->identity;
       $homeActive='';($menu=='basic')?$homeActive='class="current"':'';
       $locationActive='';($menu=='location')?$locationActive='class="current"':'';
       $projectActive='';($menu=='project')?$projectActive='class="current"':'';
-      $feeActive='';($menu=='fees')?$feeActive='class="current"':'';
+      $feeActive='';($menu=='fee')?$feeActive='class="current"':'';
       $aboutActive='';($menu=='about'||$menu=='team')?$aboutActive='class="current"':'';
       $contactActive='';($menu=='contact')?$contactActive='class="current"':'';
       $loginActive='';($menu=='login')?$loginActive='class="current"':'';
@@ -190,7 +191,9 @@ $user = Yii::$app->user->identity;
         </div>
 
       </header><!-- #header end -->
+      <!--  -->
       <?= $content ?>
+      <toaster-container></toaster-container>
       <!-- Footer
       ============================================= -->
       <footer id="footer" class="dark">

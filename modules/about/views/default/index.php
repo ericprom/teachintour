@@ -8,37 +8,23 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
 <!-- Page Sub Menu
 ============================================= -->
 <div id="page-menu">
-
   <div id="page-menu-wrap">
-
     <div class="container clearfix">
-
       <div class="menu-title">About<span> Teachin' Tour</span></div>
-
       <nav>
         <ul>
           <li class="current"><?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?></li>
           <li><?=Html::a('Teams', ['/team/'],['data' => ['method' => 'post']]);?></li>
         </ul>
       </nav>
-
     <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
-
     </div>
-
   </div>
-
-</div><!-- #page-menu end -->
-<!-- Content
-============================================= -->
+</div>
 <section id="content">
-
   <div class="content-wrap">
-
     <div class="container clearfix">
-
       <div class="col_full">
-
         <div class="heading-block nobottomborder">
           <h2>Breaking language barrier.</h2>
           <span>English is one of the most spoken language, but Thailand have their own language. The language spoken in the Central Plains of the Kingdom is the standard Thai taught in all schools, broadcast over radio and TV, and printed in publications. The difficult time comes when one has to communicate with the world. We believe that breaking the language barrier will open the world to local people.</span>
@@ -96,7 +82,14 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
         </div>
       </div>
     </div>
-
   </div>
-
-</section><!-- #content end -->
+  <div class="section topmargin-sm footer-stick">
+    <div class="heading-block center">
+      <h3><span>Ready</span> to get started?</h3>
+      <span>Feel free to contact us for more information or visit us at the office near you.</span>
+    </div>
+    <div class="center">
+    <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
+    </div>
+  </div>
+</section>

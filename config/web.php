@@ -8,6 +8,9 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log','gii'],
     'modules' => [
+        'api' => [
+            'class' => 'app\modules\api\Api',
+        ],
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
@@ -114,12 +117,17 @@ $config = [
                 'user/<controller:\w+>/<action:\w+>' => 'user/<controller>/<action>',
                 'rbac/<controller:\w+>/<action:\w+>' => 'rbac/<controller>/<action>',
 
-                //program URL Management
-                '<module:\w+>/<id:\d+>' => '<module>',
-                '<module:\w+>/<action:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<page:\w+>' => '<module>/default/<action>',
-                '<module:\w+>/<action:\w+>/<page:\w+>/<id:\d+>' => '<module>/default/<action>',
+                //Location URL Management
+                'location/<id:\d+>' => 'location',
+
+                //Project URL Management
+                'project/<id:\d+>' => 'project',
+
+                //Setting URL Management
+                'setting/<action:\w+>' => 'setting/default/<action>',
+                'setting/<action:\w+>/<id:\d+>' => 'setting/default/<action>',
+                'setting/<action:\w+>/<page:\w+>' => 'setting/default/<action>',
+                'setting/<action:\w+>/<page:\w+>/<id:\d+>' => 'setting/default/<action>',
 
                 //api URL Management
                 'api/<module:\w+>/<controller:\w+>/<action:\w+>' => 'api/<module>/<controller>/<action>',

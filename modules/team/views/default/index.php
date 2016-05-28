@@ -8,38 +8,24 @@ $this->title = 'Team | '.Yii::$app->params["company_name"].'';
 <!-- Page Sub Menu
 ============================================= -->
 <div id="page-menu">
-
   <div id="page-menu-wrap">
-
     <div class="container clearfix">
-
       <div class="menu-title">Team<span> Teachin' Tour</span></div>
-
       <nav>
         <ul>
           <li><?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?></li>
           <li class="current"><?=Html::a('Teams', ['/team/'],['data' => ['method' => 'post']]);?></li>
         </ul>
       </nav>
-
     <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
-
     </div>
-
   </div>
-
-</div><!-- #page-menu end -->
-<!-- Content
-============================================= -->
+</div>
 <section id="content">
-
   <div class="content-wrap">
-
     <div class="container clearfix">
           <div class="row">
-
             <div class="col-md-6 bottommargin">
-
               <div class="team team-list clearfix">
                 <div class="team-image">
                   <img src="images/team/teamPumpoui.png" alt="John Doe">
@@ -101,4 +87,13 @@ $this->title = 'Team | '.Yii::$app->params["company_name"].'';
 
   </div>
 
-</section><!-- #content end -->
+  <div class="section topmargin-sm footer-stick">
+    <div class="heading-block center">
+      <h3><span>Ready</span> to get started?</h3>
+      <span>Feel free to contact us for more information or visit us at the office near you.</span>
+    </div>
+    <div class="center">
+    <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
+    </div>
+  </div>
+</section>

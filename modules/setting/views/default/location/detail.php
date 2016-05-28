@@ -44,7 +44,7 @@ $this->title = 'Preview Location | '.Yii::$app->params["company_name"].'';
         <!-- Portfolio Single - Description
         ============================================= -->
         <div class="fancy-title title-bottom-border">
-          <h2>Location Info:</h2>
+          <h2>Volunteer in Namsom, Udonthani:</h2>
         </div>
         <p>Namsom was picked as the first location to launch the "Teachin' Tour" Project, because the two co-founders are both from Namsom. They have the same passion and desire to make their home town a better place. Teaching is the core of Teachin' Tour program. You will get to teach many kinds of student even "monks". You can help other while you are traveling. Is that cool? Help us break the language barrier. And make Namsom a better place.</p>
         <!-- Portfolio Single - Description End -->
@@ -71,15 +71,6 @@ $this->title = 'Preview Location | '.Yii::$app->params["company_name"].'';
         <!-- Portfolio Single - Share End -->
       </div><!-- .portfolio-single-content end -->
       <div class="clear"></div>
-    </div>
-    <div class="section topmargin-sm footer-stick">
-      <div class="heading-block center">
-        <h3><span>Ready</span> to get started?</h3>
-        <span>Feel free to contact us for more information or visit us at the office near you.</span>
-      </div>
-      <div class="center">
-      <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
-      </div>
     </div>
   </div>
 </section><!-- #content end -->

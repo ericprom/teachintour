@@ -75,13 +75,6 @@ $this->title = 'Contact | '.Yii::$app->params["company_name"].'';
           </div>
 
           <div class="col_full">
-
-            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            <div class="g-recaptcha" data-sitekey="6LenTh8TAAAAABt_9IkVP4mizk-x73hLg3qWU5SW"></div>
-
-          </div>
-
-          <div class="col_full">
             <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
           </div>
 

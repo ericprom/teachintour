@@ -23,27 +23,30 @@ $this->title = 'All Projects | '.Yii::$app->params["company_name"].'';
     </div>
   </div>
 </div>
-<section id="content">
+<section id="content" ng-controller="SettingProjectController" ng-cloak>
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="fancy-title title-border">
         <h3>All Projects</h3>
       </div>
       <div id="posts" class="events small-thumbs">
-        <div class="entry clearfix">
+        <div class="entry clearfix" ng-repeat="project in Projects">
           <div class="entry-image hidden-sm">
             <img src="../images/project/teachin.png" alt="">
           </div>
           <div class="entry-c">
             <div class="entry-title">
-              <h2>Teachin' English</h2>
+              <h2>{{project.title}}</h2>
             </div>
             <ul class="entry-meta clearfix">
-              <li><span class="label label-success">Active</span></li>
+              <li>
+                <span class="label label-success" ng-show="project.available">Active</span>
+                <span class="label label-danger" ng-show="!project.available">Deactive</span>
+              </li>
             </ul>
             <div class="entry-content">
-              <a href="<?=Url::to(['/setting/project'])?>/1" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
-              <a href="<?=Url::to(['/setting/project/edit'])?>/1" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
+              <a href="<?=Url::to(['/setting/project'])?>/{{project.id}}" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
+              <a href="<?=Url::to(['/setting/project/edit'])?>/{{project.id}}" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
             </div>
           </div>
         </div>

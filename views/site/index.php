@@ -44,7 +44,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
                   <a href="#"><img src="images/team/eric.png" alt="Customer Testimonails"></a>
                 </div>
                 <div class="testi-content">
-                  <p>Teachin' Tour Project is one of the project that can change the world.</p>
+                  <p>teachin' tour Project is one of the project that can change the world.</p>
                   <div class="testi-meta">
                     Eric Prom
                   </div>
@@ -68,7 +68,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
     </div>
     <div class="container clearfix">
       <div class="heading-block center">
-        <h3><span>Teachin' Tour</span> Projects</h3>
+        <h3><span>teachin' tour</span> Projects</h3>
         <span>You can pick the project that suit your style for remarkable experiences!</span>
       </div>
 
@@ -111,8 +111,8 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
     </div>
     <div class="section topmargin-sm footer-stick">
       <div class="heading-block center">
-        <h3>What's <span>Teachin' Tour</span>?</h3>
-        <span>We are a language barrier breaking platform where you can part of a team and find a new way of travelling to discover an unseen thailand through the local.</span>
+        <h3>What's <span>teachin' tour</span>?</h3>
+        <span>We are a language barrier breaking platform where you can be part of a team and find a new way of traveling, discovering an unseen thailand through the local.</span>
       </div>
       <div class="center">
       <?=Html::a('Learn more about us', ['/about/'],['data' => ['method' => 'post'],'class'=>'button button-border button-light button-rounded button-large']);?>
