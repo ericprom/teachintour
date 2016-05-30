@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and discovering the local people';
 ?>
@@ -30,7 +31,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
 
 <!-- Content
 ============================================= -->
-<section id="content">
+<section id="content" ng-controller="MainController" ng-cloak>
 
   <div class="content-wrap">
     <div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
@@ -73,37 +74,19 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
       </div>
 
       <div class="container clearfix">
-        <div class="col_one_third bottommargin-lg">
+        <div class="col_one_third bottommargin-lg" ng-repeat="project in Projects" ng-class="(Projects.length==($inde+1))?' col_last':''">
           <div class="feature-box center media-box fbox-bg">
+            <a href="<?=Url::to(['/project'])?>/{{project.id}}">
             <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/teachin.png" alt="Image"></a>
+              <img class="image_fade" src="{{project.cover[1]}}" alt="{{project.title}}">
             </div>
             <div class="fbox-desc">
-              <h3>Teachin' English</h3>
+              <h3>{{project.title}} {{Projects.length}}</h3>
             </div>
+            </a>
           </div>
         </div>
-        <div class="col_one_third bottommargin-lg">
-          <div class="feature-box center media-box fbox-bg">
-            <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/camp.png" alt="Image"></a>
-            </div>
-            <div class="fbox-desc">
-              <h3>Restoration Camp</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col_one_third bottommargin-lg col_last">
-          <div class="feature-box center media-box fbox-bg">
-            <div class="fbox-media">
-              <a href="#"><img class="image_fade" src="images/project/care.png" alt="Image"></a>
-            </div>
-            <div class="fbox-desc">
-              <h3>Childcare</h3>
-            </div>
-          </div>
-        </div>
-
+        <div class="clear"></div>
         <div class="center">
         <?=Html::a('More projects', ['/project/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
         </div>

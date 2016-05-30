@@ -489,3 +489,27 @@ controllers.controller('ProjectDetailController', ['API','$scope', '$location', 
     });
   }
 ]);
+///////////////////////////////////////////////////MAIN VIEW///////////////////////////////////////////////////
+controllers.controller('MainController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.limit = 6;
+    $scope.skip = 0;
+    $scope.total = 0;
+    $scope.Projects = [];
+    $scope.feedItem = function(skip,limit){
+      API.Project({filter: {action:"select", section:"all",skip:skip,limit:limit}}).then(function (result) {
+        if(result.status){
+          angular.forEach(result.data, function (element, index, array) {
+              $scope.Projects.push(element);
+          });
+          $scope.total = result.total;
+        }
+      });
+    }
+    $scope.feedItem($scope.skip,$scope.limit);
+    $scope.loadMoreItem = function(){
+        $scope.skip += 10;
+        $scope.feedItem($scope.skip,$scope.limit);
+    }
+  }
+]);
