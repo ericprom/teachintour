@@ -56,14 +56,6 @@ $this->title = 'Fees | '.Yii::$app->params["company_name"].'';
         </table>
       </div>
     </div>
-    <div class="section topmargin-sm footer-stick">
-      <div class="heading-block center">
-        <h3><span>Ready</span> to get started?</h3>
-        <span>For more specific program information please contact us.</span>
-      </div>
-      <div class="center">
-      <?=Html::a('Apply Now', ['/apply/'],['data' => ['method' => 'post'],'class'=>'button button-border button-rounded button-large']);?>
-      </div>
-    </div>
+    <?= $this->render('apply_footer') ?>
   </div>
 </section><!-- #content end -->

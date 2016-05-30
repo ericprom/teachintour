@@ -14,18 +14,10 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
     <h1>Locations</h1>
   </div>
 
-</section><!-- #page-title end -->
-
-<!-- Content
-============================================= -->
+</section>
 <section id="content">
-
   <div class="content-wrap">
-
     <div class="container clearfix">
-
-      <!-- Posts
-      ============================================= -->
       <div id="posts">
         <div class="entry clearfix">
           <div class="entry-image clearfix">
@@ -57,9 +49,8 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
           </div>
         </div>
 
-      </div><!-- #posts end -->
+      </div>
     </div>
-
+    <?= $this->render('apply_footer') ?>
   </div>
-
-</section><!-- #content end -->
+</section>

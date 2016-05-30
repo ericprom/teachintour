@@ -105,9 +105,10 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     });
     return deferred.promise;
   }
-  var File = function(host,param) {
+  var File = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
+    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/file';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -339,13 +340,35 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.projectID = $window.location.pathname.split('/setting/project/edit/')[1];
     $scope.Project = {
-        available:false
-      };
+      available:false
+    };
+    $scope.Cover = {
+      list:[],
+      addMore:false
+    };
+    $scope.getProjectCover = function(){
+      API.File({filter: {action:'select',folder:'projects',section:'covers',location:$scope.projectID}}).then(function (result) {
+        if(result.status){
+          $scope.Cover.list = [];
+          angular.forEach(result.data, function (element, index, array) {
+            if($scope.Project.cover!='' && md5.createHash($scope.Project.cover)==element.key_path){
+              element.covered = true;
+            }
+            else{
+              element.covered = false;
+            }
+            $scope.Cover.list.push(element);
+          });
+        }
+      });
+    }
     API.Project({filter: {action:"manage", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
         $scope.Project = result.data;
         $scope.Project.available = API.parseBool(result.data.available);
       }
+    }).then(function(){
+      $scope.getProjectCover();
     });
     $scope.updateNewProject = function(){
       if($scope.Project.title!=''){
@@ -365,6 +388,45 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
           if(result.status){
             API.Toaster(result.toast,'Project',result.message);
             $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/project/';
+          }
+        });
+      }
+    }
+
+    $scope.addCover = function(){
+      $scope.Cover.addMore = true;
+    }
+    $scope.deleteCover = function(data){
+      if(!data.covered){
+        API.File({filter: {action:"unlink",section:"cover",path:data.original_path}}).then(function (result) {
+          if(result.status){
+            API.Remove($scope.Cover.list,data);
+            API.Toaster(result.toast,'Cover',result.message);
+          }
+        });
+      }
+      else{
+        API.Toaster('warning','Cover','ระบบไม่สามารถลบรูป Cover ได้');
+      }
+    }
+    $scope.cancelUpload = function(){
+      $scope.getProjectCover();
+      $scope.Cover.addMore = false;
+    }
+    $scope.markAsCover = function(data){
+      $scope.Program.cover = data.original_path;
+      if($scope.Program.cover.length >= 1){
+        API.Project({filter: {action:"update",section:"cover",data:$scope.Project}}).then(function (result) {
+          if(result.status){
+             angular.forEach($scope.Cover.list, function (element, index, array) {
+              if(element.key_path == data.key_path){
+                element.cover = true;
+              }
+              else{
+                element.cover = false;
+              }
+             });
+            API.Toaster(result.toast,'Project',result.message);
           }
         });
       }

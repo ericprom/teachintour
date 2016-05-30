@@ -9420,7 +9420,7 @@ body:not(.device-touch) .clients-grid li a {
   display: block;
   margin-bottom: 0;
   font-size: 19px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
