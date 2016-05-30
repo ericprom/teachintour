@@ -22,15 +22,15 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
         <div class="entry clearfix">
           <div class="entry-image clearfix">
             <div class="portfolio-single-image masonry-thumbs col-6" data-big="3" data-lightbox="gallery">
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/2.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/3.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/3.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/6-1.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/6-1.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/6-2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/6-2.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/12.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/12.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/12-1.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/12-1.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/13.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/13.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/18.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/18.jpg" alt=""></a>
-              <a href="<?=Yii::$app->request->baseUrl;?>/images/blog/full/19.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/blog/small/19.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
+              <a href="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" data-lightbox="gallery-item"><img class="image_fade" src="<?=Yii::$app->request->baseUrl;?>/images/locations/galleries/1/koket.jpg" alt=""></a>
             </div>
           </div>
           <div class="entry-title">

@@ -74,14 +74,14 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
       </div>
 
       <div class="container clearfix">
-        <div class="col_one_third bottommargin-lg" ng-repeat="project in Projects" ng-class="(Projects.length==($inde+1))?' col_last':''">
+        <div class="col_one_third bottommargin-lg" ng-repeat="project in Projects">
           <div class="feature-box center media-box fbox-bg">
             <a href="<?=Url::to(['/project'])?>/{{project.id}}">
             <div class="fbox-media">
               <img class="image_fade" src="{{project.cover[1]}}" alt="{{project.title}}">
             </div>
             <div class="fbox-desc">
-              <h3>{{project.title}} {{Projects.length}}</h3>
+              <h3>{{project.title}}</h3>
             </div>
             </a>
           </div>

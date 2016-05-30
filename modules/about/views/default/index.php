@@ -33,10 +33,7 @@ $this->title = 'About | '.Yii::$app->params["company_name"].'';
         <div class="fslider" data-pagi="false" data-animation="fade">
           <div class="flexslider">
             <div class="slider-wrap">
-              <div class="slide"><a href="#"><img src="images/about/4.jpg" alt="About Image"></a></div>
-              <div class="slide"><a href="#"><img src="images/about/5.jpg" alt="About Image"></a></div>
-              <div class="slide"><a href="#"><img src="images/about/6.jpg" alt="About Image"></a></div>
-              <div class="slide"><a href="#"><img src="images/about/7.jpg" alt="About Image"></a></div>
+              <div class="slide"><img src="<?=Yii::$app->request->baseUrl; ?>/images/about/teachin_monk.jpg" ></div>
             </div>
           </div>
         </div>
