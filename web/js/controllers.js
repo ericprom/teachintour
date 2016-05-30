@@ -347,9 +347,9 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
       addMore:false
     };
     $scope.getProjectCover = function(){
+      $scope.Cover.list = [];
       API.File({filter: {action:'select',folder:'projects',section:'covers',location:$scope.projectID}}).then(function (result) {
         if(result.status){
-          $scope.Cover.list = [];
           angular.forEach(result.data, function (element, index, array) {
             if($scope.Project.cover!='' && md5.createHash($scope.Project.cover)==element.key_path){
               element.covered = true;
@@ -414,16 +414,16 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
       $scope.Cover.addMore = false;
     }
     $scope.markAsCover = function(data){
-      $scope.Program.cover = data.original_path;
-      if($scope.Program.cover.length >= 1){
+      $scope.Project.cover = data.original_path;
+      if($scope.Project.cover.length >= 1){
         API.Project({filter: {action:"update",section:"cover",data:$scope.Project}}).then(function (result) {
           if(result.status){
              angular.forEach($scope.Cover.list, function (element, index, array) {
               if(element.key_path == data.key_path){
-                element.cover = true;
+                element.covered = true;
               }
               else{
-                element.cover = false;
+                element.covered = false;
               }
              });
             API.Toaster(result.toast,'Project',result.message);

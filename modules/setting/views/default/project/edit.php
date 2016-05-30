@@ -59,33 +59,33 @@ $this->title = 'Update Project | '.Yii::$app->params["company_name"].'';
                 </div>
               </div>
               <div class="tab-content clearfix" id="project-cover">
-                <section class="row" ng-show="Cover.list.length>=1 && !Cover.addMore">
-                  <div class="col-md-4 col-sm-4" ng-repeat="cover in Cover.list">
-                    <div class="tour_container">
-                      <div class="img_container">
-                          <img src="{{cover.image_path[1]}}" class="img-responsive" alt="">
-                          <div class="ribbon top_covered" ng-show="cover.covered"></div>
-                      </div>
-                      <div class="tour_title">
-                       <button class="btn btn-default" ng-click="markAsCover(cover)">
-                          <i class="icon-picture"></i>
-                        </button>
-                       <button class="btn btn-default pull-right" ng-click="deleteCover(cover)">
-                          <i class="icon-trash"></i>
-                        </button>
-                      </div>
+                <section ng-show="Cover.list.length>=1 && !Cover.addMore">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      Pick one of the images below as a project cover.
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <button class="btn btn-default pull-right"
+                        ng-click="addCover()">
+                        <i class="icon-plus"></i>
+                      </button>
                     </div>
                   </div>
-                  <div class="col-md-4 col-sm-4">
-                    <div class="tour_container" ng-click="addCover()" style="cursor: pointer;">
-                      <div class="img_container">
-                          <img src="<?=Yii::$app->request->baseUrl; ?>/images/default/add.jpg" class="img-responsive" alt="">
-                      </div>
-                      <div class="tour_title">
-                        <h3 style="padding: 7px;text-align: center;">Add more cover</h3>
+                  <dev class="row">
+                    <div class="col-md-4 col-sm-4 portfolio" ng-repeat="cover in Cover.list">
+                      <div class="thumbnail">
+                        <img src="{{cover.image_path[1]}}" style="display: block;">
+                        <div class="caption">
+                          <a href="#" class="btn " ng-class="(cover.covered)?'btn-primary':'btn-default'" role="button" ng-click="markAsCover(cover)">
+                            <i class="icon-picture"></i>
+                          </a>
+                          <a href="#" class="btn btn-default pull-right" role="button" ng-click="deleteCover(cover)">
+                            <i class="icon-trash"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </dev>
                 </section>
                 <section ng-show="Cover.list.length<=0 || Cover.addMore">
                   <div class="row">

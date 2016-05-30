@@ -70,9 +70,14 @@ class ProjectController extends Controller
               break;
             case "update":
               $project = Projects::findOne(['id'=>$data["id"]]);
-              (isset($data["title"]))?$project->title = $data["title"]:$project->title = '';
-              (isset($data["detail"]))?$project->detail = $data["detail"]:$project->detail = '';
-              (isset($data["available"]))?$project->available = $data["available"]:$project->available = 'false';
+              if($options["section"]=='detail'){
+                (isset($data["title"]))?$project->title = $data["title"]:$project->title = '';
+                (isset($data["detail"]))?$project->detail = $data["detail"]:$project->detail = '';
+                (isset($data["available"]))?$project->available = $data["available"]:$project->available = 'false';
+              }
+              if($options["section"]=='cover'){
+                (isset($data["cover"]))?$project->cover = $data["cover"]:$project->cover = '';
+              }
               $project->updatedAt = time();
               $project->updatedBy = Yii::$app->user->identity->id;
               $project->update();
