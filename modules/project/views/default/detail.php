@@ -18,7 +18,7 @@ $this->title = 'Project Detail | '.Yii::$app->params["company_name"].'';
         <div class="single-event">
           <div class="col_three_fourth">
             <div class="entry-image">
-              <a href="#"><img src="<?=Yii::$app->request->baseUrl; ?>/images/events/1.jpg" alt="Event Single"></a>
+              <a href="#"><img src="{{Project.cover[1]}}" alt="{{Project.title}}"></a>
             </div>
 
             <div class="clear"></div>

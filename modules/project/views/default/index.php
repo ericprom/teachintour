@@ -6,7 +6,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
 ?>
-<section id="content">
+<section id="content" ng-controller="ProjectController" ng-cloak>
     <div class="content-wrap">
       <div class="container clearfix">
         <div class="heading-block">
@@ -16,40 +16,16 @@ $this->title = 'Projects | '.Yii::$app->params["company_name"].'';
         <div class="clear"></div>
       </div>
       <div class="container clearfix">
-        <div class="col_one_third bottommargin-lg">
+        <div class="col_one_third bottommargin-lg" ng-repeat="project in Projects">
           <div class="feature-box center media-box fbox-bg">
-            <div class="fbox-media">
-              <a href="<?=Url::to(['/project'])?>/1">
-                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/teachin.png" alt="Image">
-              </a>
-            </div>
-            <div class="fbox-desc">
-              <h3>Teachin' English</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col_one_third bottommargin-lg">
-          <div class="feature-box center media-box fbox-bg">
-            <div class="fbox-media">
-              <a href="<?=Url::to(['/project'])?>/1">
-                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/camp.png" alt="Image">
-              </a>
-            </div>
-            <div class="fbox-desc">
-              <h3>Restoration Camp</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col_one_third bottommargin-lg col_last">
-          <div class="feature-box center media-box fbox-bg">
-            <div class="fbox-media">
-              <a href="<?=Url::to(['/project'])?>/1">
-                <img class="image_fade" src="<?=Yii::$app->request->baseUrl; ?>/images/project/care.png" alt="Image">
-              </a>
-            </div>
-            <div class="fbox-desc">
-              <h3>Childcare</h3>
-            </div>
+            <a href="<?=Url::to(['/project'])?>/{{project.id}}">
+              <div class="fbox-media">
+                <img class="image_fade" src="{{project.cover[1]}}" alt="{{project.title}}">
+              </div>
+              <div class="fbox-desc">
+                <h3>{{project.title}}</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>

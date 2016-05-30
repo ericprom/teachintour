@@ -351,7 +351,8 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
       API.File({filter: {action:'select',folder:'projects',section:'covers',location:$scope.projectID}}).then(function (result) {
         if(result.status){
           angular.forEach(result.data, function (element, index, array) {
-            if($scope.Project.cover!='' && md5.createHash($scope.Project.cover)==element.key_path){
+            console.log($scope.Project.cover );
+            if(md5.createHash($scope.Project.cover)==element.key_path){
               element.covered = true;
             }
             else{
@@ -439,7 +440,7 @@ controllers.controller('SettingProjectDetailController', ['API','$scope', '$loca
     $scope.Project = {
         available:false
       };
-    API.Project({filter: {action:"manage", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
+    API.Project({filter: {action:"manage", section:"preview", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
         $scope.Project = result.data;
         $scope.Project.available = API.parseBool(result.data.available);
@@ -481,7 +482,7 @@ controllers.controller('ProjectDetailController', ['API','$scope', '$location', 
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.projectID = $window.location.pathname.split('/project/')[1];
     $scope.Project = {};
-    API.Project({filter: {action:"manage", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
+    API.Project({filter: {action:"select", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
         $scope.Project = result.data;
       }

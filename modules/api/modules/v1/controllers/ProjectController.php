@@ -36,7 +36,31 @@ class ProjectController extends Controller
             case "select":
               if($options["section"]=='all'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
-                $result["data"] = $project;
+                $total = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->all();
+                $program_cover = Array();
+                $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
+                foreach($project as $key => $value){
+                   if($value["cover"]!=null){
+                    $value["cover"] = Yii::$app->assetManager->publish($value["cover"]);
+                  }
+                  else{
+                    $value["cover"] = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $program_cover[] = $value;
+                }
+                $result["data"] = $program_cover;
+                $result["total"] = count($total);
+              }
+              if($options["section"]=='detail'){
+                $project = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true'],['=','id', $data["id"]]])->one();
+                $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
+                if($project->cover!=null){
+                  $project->cover = Yii::$app->assetManager->publish($project->cover);
+                }
+                else{
+                  $project->cover = Yii::$app->assetManager->publish($coverPath);
+                }
+                $result["data"] = $project->attributes;
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;
@@ -45,11 +69,33 @@ class ProjectController extends Controller
               if($options["section"]=='all'){
                 $project = Projects::find()->where(['<>','inactive', 1])->asArray()->all();
                 $total = Projects::find()->where(['<>','inactive', 1])->all();
-                $result["data"] = $project;
+                $program_cover = Array();
+                $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
+                foreach($project as $key => $value){
+                   if($value["cover"]!=null){
+                    $value["cover"] = Yii::$app->assetManager->publish($value["cover"]);
+                  }
+                  else{
+                    $value["cover"] = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $program_cover[] = $value;
+                }
+                $result["data"] = $program_cover;
                 $result["total"] = count($total);
               }
               if($options["section"]=='detail'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
+                $result["data"] = $project->attributes;
+              }
+              if($options["section"]=='preview'){
+                $project = Projects::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
+                $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
+                if($project->cover!=null){
+                  $project->cover = Yii::$app->assetManager->publish($project->cover);
+                }
+                else{
+                  $project->cover = Yii::$app->assetManager->publish($coverPath);
+                }
                 $result["data"] = $project->attributes;
               }
               $result["toast"] = 'success';

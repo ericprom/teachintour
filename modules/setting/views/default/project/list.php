@@ -32,7 +32,7 @@ $this->title = 'All Projects | '.Yii::$app->params["company_name"].'';
       <div id="posts" class="events small-thumbs">
         <div class="entry clearfix" ng-repeat="project in Projects">
           <div class="entry-image hidden-sm">
-            <img src="../images/project/teachin.png" alt="">
+            <img src="{{project.cover[1]}}" alt="">
           </div>
           <div class="entry-c">
             <div class="entry-title">
