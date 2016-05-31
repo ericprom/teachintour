@@ -4732,7 +4732,7 @@ body.device-touch.device-xxs .portfolio-notitle .portfolio-overlay { display: no
   position: relative;
   margin: 0 0 50px;
   padding: 0 0 50px;
-  border-bottom: 2px solid #F5F5F5;
+  // border-bottom: 2px solid #F5F5F5;
 }
 
 .entry-image { margin-bottom: 30px; }
