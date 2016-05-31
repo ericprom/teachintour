@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
 ?>
@@ -15,12 +16,12 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
 <section id="content" style="margin: 10px;">
     <div class="container clearfix">
           <div>
-            The terms and conditions are agreement between you and teachin' tour. We recommended you to read them carefully. By using our site, you confirm that you accept these terms of use and that you agree to comply with them. If you have any further question or concern please feel free to contact us.
+            The terms and conditions are agreement between you and Teachin’tour. We recommended you to read them carefully. By using our site, you confirm that you accept these terms of use and that you agree to comply with them. If you have any further question or concern please feel free to contact us.
           </div>
           <div style="margin-top: 10px;">
             <div><strong>APPLICATION/CONTACT</strong></div>
             <div style="text-indent: 20px;">
-              We will send you an email once we have processed your acceptance. You will confirm of the agreement by signing and returning to us by email. We will send you completed invoice, pack of program, schedule, and itinerary.
+              We will send you an email once we have processed your acceptance. You will confirm of the agreement by signing and returning to us by email. Please kindly see the <a href="<?=Url::to(['/apply'])?>">LINK</a>. We will send you completed invoice, pack of program, schedule, and itinerary.
             </div>
           </div>
           <div style="margin-top: 10px;">
@@ -58,7 +59,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
             <div><strong>TRAVEL and SURCHARGE</strong></div>
             <div style="text-indent: 20px;">The applicant is responsible for arranging and paying for their own travel, specifically included airfare and other transportation costs.</div>
             <div style="text-indent: 20px;">Following NO. 2 SUPPORTS AND SERVICES</div>
-            <div style="text-indent: 20px;">If you come directly from your country or SUVANABUMI IAIRPORT (BKK Airport) you will be landed at UDINTHANI INTERNATIONAL AIRPORT. We will pick you up at the local/international UDONTHANI AIRPORT.</div>
+            <div style="text-indent: 20px;">If you come directly from your country or SUVANABUMI INTERNATIONAL AIRPORT (BKK Airport) you will be landed at UDONTHANI INTERNATIONAL AIRPORT. We will pick you up at UDONTHANI AIRPORT.</div>
             <div style="text-indent: 20px;">If you live in Thailand we will provided you the itinerary and detail of journey to you via email but if you required us to pick up please email or call to inform us.</div>
             <div style="text-indent: 20px;">The applicant/volunteer supposed to carry all necessary document when you travelling abroad.</div>
             <div style="text-indent: 20px;">teachin' tour is not responsible for any supporting document necessary for the applicant’s travel need or other purpose.</div>
@@ -77,7 +78,6 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
             <div><strong>CACELLATION</strong></div>
             <div style="margin-left: 20px;">Cancellation by you.</div>
             <div style="margin-left: 50px;">If there is any cancel by you 2-3 week before started date you will be received the 30%refund back but if it only a week or no show up for the program, you will not received any refund. Cancellation may advised by writing an email for the reason.</div>
-            <div style="margin-left: 50px;">Non-refundable deposit paid to secure your reservation will normally be refund to you in any reason.</div>
             <div style="margin-left: 20px;">Cancellation by Teacin’ Tour</div>
             <div style="margin-left: 50px;">If there are any unexpected situations in any reason such as political, airline schedule change, nature disaster, or any damage to accommodation.  We will inform you and make you an alternative itinerary of choose an alternative depart date. If any changes are not possible for you, we will refund any fee back to you.</div>
           </div>
