@@ -125,9 +125,10 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     });
     return deferred.promise;
   }
-  var Mailer = function(host,param) {
+  var Mailer = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
+    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/mailer';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -356,6 +357,10 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
       list:[],
       addMore:false
     };
+    $scope.Gallery = {
+      list:[],
+      addMore:false
+    };
     $scope.getLocationCover = function(){
       $scope.Cover.list = [];
       API.File({filter: {action:'select',folder:'locations',section:'covers',location:$scope.locationID}}).then(function (result) {
@@ -372,6 +377,23 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
         }
       });
     }
+    $scope.getLocationGallery = function(){
+      $scope.Gallery.list = [];
+      API.File({filter: {action:'select',folder:'locations',section:'galleries',location:$scope.locationID}}).then(function (result) {
+        if(result.status){
+          $scope.Gallery.list = result.data;
+          // angular.forEach(result.data, function (element, index, array) {
+          //   if(md5.createHash($scope.Location.cover)==element.key_path){
+          //     element.covered = true;
+          //   }
+          //   else{
+          //     element.covered = false;
+          //   }
+          //   $scope.Gallery.list.push(element);
+          // });
+        }
+      });
+    }
     API.Location({filter: {action:"manage", section:"detail", data:{id:$scope.locationID }}}).then(function (result) {
       if(result.status){
         $scope.Location = result.data;
@@ -379,6 +401,7 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
       }
     }).then(function(){
       $scope.getLocationCover();
+      $scope.getLocationGallery();
     });
     $scope.updateNewLocation = function(){
       if($scope.Location.title!=''){
@@ -440,6 +463,22 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
           }
         });
       }
+    }
+
+    $scope.addGalleryImage = function(){
+      $scope.Gallery.addMore = true;
+    }
+    $scope.deleteGalleryImage = function(data){
+      API.File({filter: {action:"unlink",section:"gallery",path:data.original_path}}).then(function (result) {
+        if(result.status){
+          API.Remove($scope.Gallery.list,data);
+          API.Toaster(result.toast,'Gallery',result.message);
+        }
+      });
+    }
+    $scope.cancelGalleryUpload = function(){
+      $scope.getLocationGallery();
+      $scope.Gallery.addMore = false;
     }
   }
 ]);
@@ -638,6 +677,48 @@ controllers.controller('FeeController', ['API','$scope', '$location', '$window',
     });
   }
 ]);
+///////////////////////////////////////////////////LOCATION VIEW///////////////////////////////////////////////////
+controllers.controller('LocationController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.limit = 9;
+    $scope.skip = 0;
+    $scope.total = 0;
+    $scope.Locations = [];
+    $scope.feedItem = function(skip,limit){
+      API.Location({filter: {action:"select", section:"all",skip:skip,limit:limit}}).then(function (result) {
+        if(result.status){
+          $scope.Locations = result.data;
+          $scope.total = result.total;
+        }
+      });
+    }
+    $scope.feedItem($scope.skip,$scope.limit);
+    $scope.loadMoreItem = function(){
+        $scope.skip += 10;
+        $scope.feedItem($scope.skip,$scope.limit);
+    }
+  }
+]);
+controllers.controller('LocationDetailController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.LocationID = $window.location.pathname.split('/location/')[1];
+    $scope.Location = {};
+    $scope.Galleries = [];
+    API.Location({filter: {action:"select", section:"detail", data:{id:$scope.LocationID }}}).then(function (result) {
+      if(result.status){
+        $scope.Location = result.data;
+      }
+    }).then(function(){
+      // API.File({filter: {action:'select',folder:'locations',section:'galleries',location:$scope.LocationID}}).then(function (result) {
+      //   if(result.status){
+      //     console.log(result);
+      //     $scope.Galleries = result.data;
+      //   }
+      // });
+    });
+
+  }
+]);
 ///////////////////////////////////////////////////PROJECT VIEW///////////////////////////////////////////////////
 controllers.controller('ProjectController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
@@ -697,3 +778,41 @@ controllers.controller('MainController', ['API','$scope', '$location', '$window'
     }
   }
 ]);
+/////////////////////////////////////////////////CONTACT VIEW///////////////////////////////////////////////////
+controllers.controller('ContactFormController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.init = function(){
+      $scope.mail = {
+        bot:'REMOVE this text before send',
+        send:false
+      }
+    }
+    API.Mailer({filter: {action:"test"}}).then(function (result) {
+     console.log(result);
+    });
+    $scope.init();
+    $scope.contactUs = function(){
+      if($scope.mail.email){
+        if($scope.mail.bot==''){
+          $scope.mail.send = true;
+          API.Mailer({filter: {action:"contact", section:"email",data: $scope.mail}}).then(function (result) {
+            if(result.status){
+              API.Toaster(result.toast,'Mailer',result.message);
+              $scope.mail.send = false;
+              $scope.init();
+            }
+          });
+        }
+        else{
+          API.Toaster('warning','Mailer','Please remove Human verification text.');
+        }
+      }
+      else{
+        API.Toaster('warning','Mailer','Please fill in email address.');
+      }
+    }
+  }
+]);
+
+
+

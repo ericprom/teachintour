@@ -36,20 +36,20 @@ class MailerController extends Controller
           }
           switch($options["action"]){
             case "contact":
-              $message = "<b>".$data["firstname"]." ".$data["lastname"]."</b><br>";
-              $message .= "<b>อีเมล์:</b> ".$data["from"]."<br>";
-              $message .= "<b>โทร:</b> ".$data["phone"]."<br>";
-              $message .= "<b>ข้อความ:</b> ".$data["body"]."<br>";
+              $message = "<b>".$data["fullname"]."</b><br>";
+              $message .= "<b>Email:</b> ".$data["email"]."<br>";
+              $message .= "<b>Phone:</b> ".$data["phone"]."<br>";
+              $message .= "<b>Message:</b> ".$data["message"]."<br>";
               $mail = Yii::$app->mailer->compose()
-                ->setFrom($data["from"])
+                ->setFrom($data["email"])
                 ->setTo(Yii::$app->params['contact_email'])
                 ->setSubject($data["subject"])
                 ->setHtmlBody($message)
                 ->send();
               $result["toast"] = 'success';
               $result["status"] =$mail;
-              $result["message"] =  "ส่งข้อมูลเรียบร้อย";
-            break;
+              $result["message"] =  "You message has been sent.";
+              break;
           }
         }
       } catch(Exceptions $ex) {

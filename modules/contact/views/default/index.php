@@ -5,94 +5,58 @@
 use yii\helpers\Html;
 $this->title = 'Contact | '.Yii::$app->params["company_name"].'';
 ?>
-<!-- Page Sub Menu
-============================================= -->
 <div id="page-menu">
-
   <div id="page-menu-wrap">
-
     <div class="container clearfix">
-
       <div class="menu-title">Contact <span>Teachin' Tour</span></div>
     </div>
-
   </div>
-
-</div><!-- #page-menu end -->
-
-<!-- Contact Form & Map Overlay Section
-============================================= -->
+</div>
 <section id="map-overlay">
-
-  <div class="container clearfix">
-
-    <!-- Contact Form Overlay
-    ============================================= -->
+  <div class="container clearfix" ng-controller="ContactFormController" ng-cloak>
     <div id="contact-form-overlay-mini" class="clearfix">
-
       <div class="fancy-title title-dotted-border">
         <h3>Send us an Email</h3>
       </div>
-
       <div class="contact-widget">
-
         <div class="contact-form-result"></div>
-
-        <!-- Contact Form
-        ============================================= -->
-        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="<?=Yii::$app->request->baseUrl; ?>/include/sendemail-autoresponder.php" method="post">
-
-          <div class="col_full">
+          <div class="col_full" style="margin-bottom: 25px;">
             <label for="template-contactform-name">Fullname <small>*</small></label>
-            <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+            <input type="text" class="sm-form-control" id="template-contactform-name" ng-model="mail.fullname"/>
           </div>
-
-          <div class="col_full">
+          <div class="col_full" style="margin-bottom: 25px;">
             <label for="template-contactform-email">Email <small>*</small></label>
-            <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+            <input type="email" class="sm-form-control" id="template-contactform-email" ng-model="mail.email"/>
           </div>
-
           <div class="clear"></div>
-
-          <div class="col_full">
+          <div class="col_full" style="margin-bottom: 25px;">
             <label for="template-contactform-phone">Phone</label>
-            <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+            <input type="number" class="sm-form-control" id="template-contactform-phone" ng-model="mail.phone"/>
           </div>
           <div class="clear"></div>
-
-          <div class="col_full">
+          <div class="col_full" style="margin-bottom: 25px;">
             <label for="template-contactform-subject">Subject <small>*</small></label>
-            <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control" />
+            <input type="text" class="sm-form-control" id="template-contactform-subject" ng-model="mail.subject"/>
           </div>
-
-          <div class="col_full">
+          <div class="col_full" style="margin-bottom: 25px;">
             <label for="template-contactform-message">Message <small>*</small></label>
-            <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+            <textarea class="required sm-form-control" rows="6" cols="30" id="template-contactform-message"  ng-model="mail.message"></textarea>
           </div>
-
-          <div class="col_full hidden">
-            <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+          <div class="col_full" style="margin-bottom: 25px;">
+            <label  for="template-contactform-bot"><small>*</small>Human verification<small>*</small></label>
+            <input type="text" ng-model="mail.bot" class="form-control" id="template-contactform-bot">
           </div>
-
-          <div class="col_full">
-            <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+          <div class="col_full" style="margin-bottom: 25px;">
+            <button class="button button-3d nomargin" ng-click="contactUs()" style="width:100%;">
+            <i ng-class="(mail.send)?'icon-refresh icon-spin':'icon-mail'"></i>
+            Send Message
+            </button>
           </div>
-
-        </form>
-
       </div>
-
-
-    </div><!-- Contact Form Overlay End -->
-
+    </div>
   </div>
-
-  <!-- Google Map
-  ============================================= -->
   <section id="google-map" class="gmap"></section>
-
-</section><!-- Contact Form & Map Overlay Section End -->
-
+</section>
 <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.js"></script>
 <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
 <script type="text/javascript" src="<?=Yii::$app->request->baseUrl; ?>/js/jquery.gmap.js"></script>

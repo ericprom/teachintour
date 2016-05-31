@@ -143,6 +143,11 @@ class ProjectController extends Controller
               $result["status"] = TRUE;
               $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
               break;
+            case "test":
+              $result["toast"] = 'success';
+              $result["status"] = TRUE;
+              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
+              break;
           }
         }
       } catch(Exceptions $ex) {

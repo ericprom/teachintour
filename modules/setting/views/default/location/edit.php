@@ -26,6 +26,7 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
             <ul class="tab-nav clearfix">
               <li><a href="#location-detail">Location Detail</a></li>
               <li><a href="#location-cover">Location Cover</a></li>
+              <li><a href="#location-gallery">Location Gallery</a></li>
             </ul>
 
             <div class="tab-container">
@@ -90,7 +91,7 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
                 <section ng-show="Cover.list.length<=0 || Cover.addMore">
                   <div class="row">
                     <div class="col-md-6 col-sm-6">
-                      The recommended size for the cover is [800x533] and in [.jpg,.png,.gif] format.
+                      The recommended size for the cover is [1140x400] and in [.jpg,.png,.gif] format.
                     </div>
                     <div class="col-md-6 col-sm-6">
                       <button class="btn btn-default pull-right"
@@ -101,6 +102,53 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
                   </div>
                   <hr>
                   <form id="my-cover-dropzone" action="<?=Yii::$app->request->baseUrl; ?>/api/v1/file/upload" class="dropzone" name="{{locationID}}">
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                  </form>
+                </section>
+              </div>
+              <div class="tab-content clearfix" id="location-gallery">
+              <section ng-show="Gallery.list.length>=1 && !Gallery.addMore">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      Pick one of the images below as a location gallery.
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <button class="btn btn-default pull-right"
+                        ng-click="addGalleryImage()">
+                        <i class="icon-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <dev class="row">
+                    <div class="col-md-4 col-sm-4 portfolio" ng-repeat="gallery in Gallery.list">
+                      <div class="thumbnail">
+                        <img src="{{gallery.image_path[1]}}" style="display: block;">
+                        <div class="caption">
+                          <a href="#" class="btn btn-default" role="button">
+                            <i class="icon-picture"></i>
+                          </a>
+                          <a href="#" class="btn btn-default pull-right" role="button" ng-click="deleteGalleryImage(gallery)">
+                            <i class="icon-trash"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </dev>
+                </section>
+                <section ng-show="Gallery.list.length<=0 || Gallery.addMore">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      The recommended size for the gallery is [800x533] and in [.jpg,.png,.gif] format.
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <button class="btn btn-default pull-right"
+                        ng-click="cancelGalleryUpload()">
+                        X
+                      </button>
+                    </div>
+                  </div>
+                  <hr>
+                  <form id="my-gallery-dropzone" action="<?=Yii::$app->request->baseUrl; ?>/api/v1/file/upload" class="dropzone" name="{{locationID}}">
                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                   </form>
                 </section>
@@ -121,6 +169,14 @@ $(document).ready(function() {
         init: function() {
             this.on("processing", function(file) {
                 this.options.url = document.getElementById("my-cover-dropzone").getAttribute("action")+"?folder=locations&section=covers&location="+document.getElementById("my-cover-dropzone").name;
+            });
+        }
+    };
+    Dropzone.options.myGalleryDropzone = {
+        acceptedFiles: "image/jpeg,image/png,image/gif",
+        init: function() {
+            this.on("processing", function(file) {
+                this.options.url = document.getElementById("my-cover-dropzone").getAttribute("action")+"?folder=locations&section=galleries&location="+document.getElementById("my-gallery-dropzone").name;
             });
         }
     };
