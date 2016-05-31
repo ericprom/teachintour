@@ -217,27 +217,27 @@ $user = Yii::$app->user->identity;
                   <h4>Company</h4>
                   <ul>
                     <li>
-                      <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('About', ['/about/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <li>
-                      <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <li>
-                      <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <li>
-                      <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <li>
-                      <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <?php if(Yii::$app->user->isGuest){?>
                     <li>
-                      <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
+                      <?=Html::a('Register', ['/register/'],['data' => ['method' => 'get']]);?>
                     </li>
                     <?php }?>
                     <li>
-                    <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'post']]);?>
+                    <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'get']]);?>
                     </li>
                   </ul>
                 </div>
