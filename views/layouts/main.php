@@ -89,45 +89,45 @@ $user = Yii::$app->user->identity;
           <h4>Teachin' Tour</h4>
           <?php }else{?>
             <?php if(!Yii::$app->user->isGuest){?>
-            <h4><?=Html::a($user->username, ['/profile/'],['data' => ['method' => 'post']]);?></h4>
+            <h4><?=Html::a($user->username, ['/profile/'],['data' => ['method' => 'get']]);?></h4>
             <?php }?>
           <?php }?>
           <nav class="nav-tree nobottommargin">
             <ul>
               <li class="visible-xs">
-                <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Home', ['/'],['data' => ['method' => 'get']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('About', ['/about/'],['data' => ['method' => 'get']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'get']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'get']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'get']]);?>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'get']]);?>
               </li>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin){?>
               <li>
-                <?=Html::a('Admin Area', ['/user/admin/index/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Admin Area', ['/user/admin/index/'],['data' => ['method' => 'get']]);?>
               </li>
               <?php }?>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin || !Yii::$app->user->isGuest && Yii::$app->user->can('Manage')){?>
               <li>
-                <?=Html::a('Settings', ['/setting/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Settings', ['/setting/'],['data' => ['method' => 'get']]);?>
               </li>
               <?php }?>
               <?php if(Yii::$app->user->isGuest){?>
               <li>
-                <?=Html::a('Register', ['/register/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Register', ['/register/'],['data' => ['method' => 'get']]);?>
               </li>
               <li>
-                <?=Html::a('Log in', ['/login/'],['data' => ['method' => 'post']]);?>
+                <?=Html::a('Log in', ['/login/'],['data' => ['method' => 'get']]);?>
               </li>
               <?php }else{?>
               <li>
