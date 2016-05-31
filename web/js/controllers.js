@@ -88,7 +88,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   var Fee = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
-    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/fee';
+    var host = '/api/v1/fee';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -98,7 +98,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   var Location = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
-    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/location';
+    var host = '/api/v1/location';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -108,7 +108,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   var Project = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
-    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/project';
+    var host = '/api/v1/project';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -118,7 +118,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   var File = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
-    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/file';
+    var host = '/api/v1/file';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
@@ -128,7 +128,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   var Mailer = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
-    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/mailer';
+    var host = '/api/v1/mailer';
     $http.post(host,param).success(function(results) {
       deferred.resolve(results);
       $rootScope.processing = false;
