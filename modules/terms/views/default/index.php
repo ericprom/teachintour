@@ -21,7 +21,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           <div style="margin-top: 10px;">
             <div><strong>APPLICATION/CONTACT</strong></div>
             <div style="text-indent: 20px;">
-              We will send you an email once we have processed your acceptance. You will confirm of the agreement by signing and returning to us by email. Please kindly see the <a href="<?=Url::to(['/apply'])?>">LINK</a>. We will send you completed invoice, pack of program, schedule, and itinerary.
+              We will send you an email once we have processed your acceptance. You will confirm of the agreement by signing and returning to us by email. We will send you completed invoice, pack of program, schedule, and itinerary.
             </div>
           </div>
           <div style="margin-top: 10px;">
@@ -102,4 +102,6 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           </div> -->
           </span>
   </div>
+
+    <?= $this->render('apply_footer') ?>
 </section><!-- #content end -->

@@ -38,6 +38,9 @@ $config = [
         'contact' => [
             'class' => 'app\modules\contact\contactModules',
         ],
+        'apply' => [
+            'class' => 'app\modules\apply\applyModules',
+        ],
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableUnconfirmedLogin' => false,

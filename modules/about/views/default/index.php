@@ -5,8 +5,6 @@
 use yii\helpers\Html;
 $this->title = 'About | '.Yii::$app->params["company_name"].'';
 ?>
-<!-- Page Sub Menu
-============================================= -->
 <div id="page-menu">
   <div id="page-menu-wrap">
     <div class="container clearfix">
