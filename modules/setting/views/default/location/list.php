@@ -23,32 +23,28 @@ $this->title = 'All Locations | '.Yii::$app->params["company_name"].'';
     </div>
   </div>
 </div>
-<section id="content">
+<section id="content" ng-controller="SettingLocationController" ng-cloak>
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="fancy-title title-border">
         <h3>All Locations</h3>
       </div>
-      <div id="posts" class="events small-thumbs">
-        <div class="entry clearfix">
-          <div class="entry-image hidden-sm">
-            <img src="../images/project/teachin.png" alt="">
-          </div>
-          <div class="entry-c">
-            <div class="entry-title">
-              <h2>Namsom, Udonthani</h2>
-            </div>
-            <ul class="entry-meta clearfix">
-              <li><span class="label label-success">Active</span></li>
-            </ul>
-            <div class="entry-content">
-              <a href="<?=Url::to(['/setting/location'])?>/1" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
-              <a href="<?=Url::to(['/setting/location/edit'])?>/1" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
+      <dev class="row">
+        <div class="col-md-4 col-sm-4 portfolio"  ng-repeat="location in Locations">
+          <div class="thumbnail">
+            <img src="{{location.cover[1]}}" style="display: block;">
+            <div class="caption">
+              <h4><i ng-class="(location.available)?'icon-eye':'icon-eye-close'"></i> {{location.title}}</h4>
+              <a href="<?=Url::to(['/setting/location'])?>/{{location.id}}" class="btn btn-default" role="button">
+                <i class="icon-file"></i>
+              </a>
+              <a href="<?=Url::to(['/setting/location/edit'])?>/{{location.id}}" class="btn btn-default pull-right" role="button">
+                <i class="icon-edit"></i>
+              </a>
             </div>
           </div>
         </div>
-
-      </div>
+      </dev>
     </div>
   </div>
 </div>

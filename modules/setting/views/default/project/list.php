@@ -29,29 +29,22 @@ $this->title = 'All Projects | '.Yii::$app->params["company_name"].'';
       <div class="fancy-title title-border">
         <h3>All Projects</h3>
       </div>
-      <div id="posts" class="events small-thumbs">
-        <div class="entry clearfix" ng-repeat="project in Projects">
-          <div class="entry-image hidden-sm">
-            <img src="{{project.cover[1]}}" alt="">
-          </div>
-          <div class="entry-c">
-            <div class="entry-title">
-              <h2>{{project.title}}</h2>
-            </div>
-            <ul class="entry-meta clearfix">
-              <li>
-                <span class="label label-success" ng-show="project.available">Active</span>
-                <span class="label label-danger" ng-show="!project.available">Deactive</span>
-              </li>
-            </ul>
-            <div class="entry-content">
-              <a href="<?=Url::to(['/setting/project'])?>/{{project.id}}" class="btn btn-default"><i class="icon-eye"></i> Preview</a>
-              <a href="<?=Url::to(['/setting/project/edit'])?>/{{project.id}}" class="btn btn-danger"><i class="icon-edit"></i> Edit</a>
+      <dev class="row">
+        <div class="col-md-4 col-sm-4 portfolio"  ng-repeat="project in Projects">
+          <div class="thumbnail">
+            <img src="{{project.cover[1]}}" style="display: block;">
+            <div class="caption">
+              <h4><i ng-class="(project.available)?'icon-eye':'icon-eye-close'"></i> {{project.title}}</h4>
+              <a href="<?=Url::to(['/setting/project'])?>/{{project.id}}" class="btn btn-default" role="button">
+                <i class="icon-file"></i>
+              </a>
+              <a href="<?=Url::to(['/setting/project/edit'])?>/{{project.id}}" class="btn btn-default pull-right" role="button">
+                <i class="icon-edit"></i>
+              </a>
             </div>
           </div>
         </div>
-
-      </div>
+      </dev>
     </div>
   </div>
 </div>

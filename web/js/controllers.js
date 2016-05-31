@@ -95,6 +95,16 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     });
     return deferred.promise;
   }
+  var Location = function(param) {
+    $rootScope.processing = true;
+    var deferred = $q.defer();
+    var host = $window.location.href.split('/teachintour/')[0]+'/teachintour/api/v1/location';
+    $http.post(host,param).success(function(results) {
+      deferred.resolve(results);
+      $rootScope.processing = false;
+    });
+    return deferred.promise;
+  }
   var Project = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
@@ -150,6 +160,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
   };
   return {
     Fee:Fee,
+    Location:Location,
     Project:Project,
     File:File,
     Mailer:Mailer,
@@ -283,6 +294,169 @@ controllers.controller('SettingFeeEditController', ['API','$scope', '$location',
   }
 ]);
 
+///////////////////////////////////////////////////SETTING LOCATION///////////////////////////////////////////////////
+controllers.controller('SettingLocationController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.limit = 10;
+    $scope.skip = 0;
+    $scope.total = 0;
+    $scope.Locations = [];
+    $scope.feedItem = function(skip,limit){
+      API.Location({filter: {action:"manage", section:"all",skip:skip,limit:limit}}).then(function (result) {
+        if(result.status){
+          angular.forEach(result.data, function (element, index, array) {
+              element.available = API.parseBool(element.available);
+              $scope.Locations.push(element);
+          });
+          $scope.total = result.total;
+        }
+      });
+    }
+    $scope.feedItem($scope.skip,$scope.limit);
+    $scope.loadMoreItem = function(){
+        $scope.skip += 10;
+        $scope.feedItem($scope.skip,$scope.limit);
+    }
+  }
+]);
+controllers.controller('SettingLocationAddController', ['API','$scope', '$location', '$window', '$http',
+  function (API, $scope, $location, $window,  $http) {
+    $scope.init = function (){
+      $scope.Location = {
+        available:true
+      };
+    }
+    $scope.init();
+    $scope.saveNewLocation = function(){
+      if($scope.Location.title!=''){
+        API.Location({filter: {action:'create',data:$scope.Location}}).then(function (result) {
+          if(result.status && result.data.id){
+            API.Toaster(result.toast,'Location',result.message);
+            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/location/edit/'+result.data.id;
+            $scope.init();
+          }
+          else{
+            API.Toaster('warning','Location','เกิดข้อผิดพลาด');
+          }
+        });
+      }
+      else{
+        API.Toaster('warning','Location','กรุณากรอกข้อมูลก่อนทำการบันทึก');
+      }
+    }
+  }
+]);
+controllers.controller('SettingLocationEditController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.locationID = $window.location.pathname.split('/setting/location/edit/')[1];
+    $scope.Location = {
+      available:false
+    };
+    $scope.Cover = {
+      list:[],
+      addMore:false
+    };
+    $scope.getLocationCover = function(){
+      $scope.Cover.list = [];
+      API.File({filter: {action:'select',folder:'locations',section:'covers',location:$scope.locationID}}).then(function (result) {
+        if(result.status){
+          angular.forEach(result.data, function (element, index, array) {
+            if(md5.createHash($scope.Location.cover)==element.key_path){
+              element.covered = true;
+            }
+            else{
+              element.covered = false;
+            }
+            $scope.Cover.list.push(element);
+          });
+        }
+      });
+    }
+    API.Location({filter: {action:"manage", section:"detail", data:{id:$scope.locationID }}}).then(function (result) {
+      if(result.status){
+        $scope.Location = result.data;
+        $scope.Location.available = API.parseBool(result.data.available);
+      }
+    }).then(function(){
+      $scope.getLocationCover();
+    });
+    $scope.updateNewLocation = function(){
+      if($scope.Location.title!=''){
+        API.Location({filter: {action:'update', section:"detail",data:$scope.Location}}).then(function (result) {
+          if(result.status){
+            API.Toaster(result.toast,'Location',result.message);
+          }
+        });
+      }
+      else{
+        API.Toaster('warning','Location','กรุณากรอกข้อมูลก่อนทำการบันทึก');
+      }
+    }
+    $scope.deleteNewLocation = function(){
+      if($scope.Location.id!=null){
+        API.Location({filter: {action:'delete',data:$scope.Location}}).then(function (result) {
+          if(result.status){
+            API.Toaster(result.toast,'Location',result.message);
+            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/location/';
+          }
+        });
+      }
+    }
+
+    $scope.addCover = function(){
+      $scope.Cover.addMore = true;
+    }
+    $scope.deleteCover = function(data){
+      if(!data.covered){
+        API.File({filter: {action:"unlink",section:"cover",path:data.original_path}}).then(function (result) {
+          if(result.status){
+            API.Remove($scope.Cover.list,data);
+            API.Toaster(result.toast,'Cover',result.message);
+          }
+        });
+      }
+      else{
+        API.Toaster('warning','Cover','ระบบไม่สามารถลบรูป Cover ได้');
+      }
+    }
+    $scope.cancelUpload = function(){
+      $scope.getLocationCover();
+      $scope.Cover.addMore = false;
+    }
+    $scope.markAsCover = function(data){
+      $scope.Location.cover = data.original_path;
+      if($scope.Location.cover.length >= 1){
+        API.Location({filter: {action:"update",section:"cover",data:$scope.Location}}).then(function (result) {
+          if(result.status){
+             angular.forEach($scope.Cover.list, function (element, index, array) {
+              if(element.key_path == data.key_path){
+                element.covered = true;
+              }
+              else{
+                element.covered = false;
+              }
+             });
+            API.Toaster(result.toast,'Location',result.message);
+          }
+        });
+      }
+    }
+  }
+]);
+controllers.controller('SettingLocationDetailController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.locationID = $window.location.pathname.split('/setting/location/')[1];
+    $scope.Location = {
+        available:false
+      };
+    API.Location({filter: {action:"manage", section:"preview", data:{id:$scope.locationID }}}).then(function (result) {
+      if(result.status){
+        $scope.Location = result.data;
+        $scope.Location.available = API.parseBool(result.data.available);
+      }
+    });
+  }
+]);
 ///////////////////////////////////////////////////SETTING PROJECT///////////////////////////////////////////////////
 controllers.controller('SettingProjectController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
@@ -335,7 +509,6 @@ controllers.controller('SettingProjectAddController', ['API','$scope', '$locatio
     }
   }
 ]);
-
 controllers.controller('SettingProjectEditController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.projectID = $window.location.pathname.split('/setting/project/edit/')[1];
@@ -373,7 +546,7 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
     });
     $scope.updateNewProject = function(){
       if($scope.Project.title!=''){
-        API.Project({filter: {action:'update',data:$scope.Project}}).then(function (result) {
+        API.Project({filter: {action:'update', section:"detail",data:$scope.Project}}).then(function (result) {
           if(result.status){
             API.Toaster(result.toast,'Project',result.message);
           }
