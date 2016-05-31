@@ -18,7 +18,7 @@ $this->title = 'Locations | '.Yii::$app->params["company_name"].'';
         <div id="posts">
           <div class="entry clearfix" ng-repeat="location in Locations">
             <div class="entry-image clearfix">
-                <a href="{{location.cover[1]}}" data-lightbox="gallery-item">
+                <a href="<?=Url::to(['/location'])?>/{{location.id}}" data-lightbox="gallery-item">
                 <img class="image_fade" src="{{location.cover[1]}}" alt="">
                 </a>
             </div>
