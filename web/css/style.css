@@ -3419,7 +3419,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
 #content {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   background-color: #FFF;
 }
 

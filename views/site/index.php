@@ -14,7 +14,7 @@ $this->title = ''.Yii::$app->params["company_name"].' | teaching, learning and d
       <div class="slider-caption slider-caption-center">
         <h2 data-animate="fadeInUp">Can you Teach?</h2>
         <p data-animate="fadeInUp" data-delay="200">Get the remarkable experience in Thailand through teaching a local students.</p>
-        <a data-animate="fadeInUp" data-delay="600" href="#" class="button button-3d button-teal button-large nobottommargin" style="margin: 30px 0 0 10px;">Apply Now</a>
+        <a data-animate="fadeInUp" data-delay="600" href="<?=Url::to(['/apply'])?>" class="button button-3d button-teal button-large nobottommargin" style="margin: 30px 0 0 10px;">Apply Now</a>
       </div>
     </div>
     <div class="video-wrap">
