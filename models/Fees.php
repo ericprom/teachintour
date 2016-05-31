@@ -27,7 +27,7 @@ class Fees extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Fees';
+        return 'fees';
     }
 
     /**
