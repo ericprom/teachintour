@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -95,39 +96,39 @@ $user = Yii::$app->user->identity;
           <nav class="nav-tree nobottommargin">
             <ul>
               <li class="visible-xs">
-                <?=Html::a('Home', ['/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/'])?>">Home</a>
               </li>
               <li class="visible-xs">
-                <?=Html::a('About', ['/about/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/about'])?>">About</a>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/location'])?>">Locations</a>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/project'])?>">Projects</a>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/fee'])?>">Fees</a>
               </li>
               <li class="visible-xs">
-                <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/contact'])?>">Contact</a>
               </li>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin){?>
               <li>
-                <?=Html::a('Admin Area', ['/user/admin/index/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/user/admin/index'])?>">Admin Area</a>
               </li>
               <?php }?>
               <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin || !Yii::$app->user->isGuest && Yii::$app->user->can('Manage')){?>
               <li>
-                <?=Html::a('Settings', ['/setting/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/setting'])?>">Settings</a>
               </li>
               <?php }?>
               <?php if(Yii::$app->user->isGuest){?>
               <li>
-                <?=Html::a('Register', ['/register/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/register'])?>">Register</a>
               </li>
               <li>
-                <?=Html::a('Log in', ['/login/'],['data' => ['method' => 'get']]);?>
+                <a href="<?=Url::to(['/login'])?>">Log in</a>
               </li>
               <?php }else{?>
               <li>
@@ -163,22 +164,22 @@ $user = Yii::$app->user->identity;
             <nav id="primary-menu" class="style-4">
               <ul>
                 <li <?=$homeActive?>>
-                  <?=Html::a('Home', ['//'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/'])?>">Home</a>
                 </li>
                 <li <?=$aboutActive?>>
-                  <?=Html::a('About', ['/about/'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/about'])?>">About</a>
                 </li>
                 <li <?=$locationActive;?>>
-                  <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/location'])?>">Locations</a>
                 </li>
                 <li <?=$projectActive;?>>
-                  <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/project'])?>">Projects</a>
                 </li>
                 <li <?=$feeActive;?>>
-                  <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/fee'])?>">Fees</a>
                 </li>
                 <li <?=$contactActive?>>
-                  <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'post']]);?>
+                  <a href="<?=Url::to(['/contact'])?>">Contact</a>
                 </li>
               </ul>
               <div id="side-panel-trigger" class="side-panel-trigger">
@@ -217,27 +218,27 @@ $user = Yii::$app->user->identity;
                   <h4>Company</h4>
                   <ul>
                     <li>
-                      <?=Html::a('About', ['/about/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/about'])?>">About</a>
                     </li>
                     <li>
-                      <?=Html::a('Locations', ['/location/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/location'])?>">Locations</a>
                     </li>
                     <li>
-                      <?=Html::a('Projects', ['/project/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/project'])?>">Projects</a>
                     </li>
                     <li>
-                      <?=Html::a('Fees', ['/fee/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/fee'])?>">Fees</a>
                     </li>
                     <li>
-                      <?=Html::a('Contact', ['/contact/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/contact'])?>">Contact</a>
                     </li>
                     <?php if(Yii::$app->user->isGuest){?>
                     <li>
-                      <?=Html::a('Register', ['/register/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/register'])?>">Register</a>
                     </li>
                     <?php }?>
                     <li>
-                    <?=Html::a('Terms and condition', ['/terms/'],['data' => ['method' => 'get']]);?>
+                      <a href="<?=Url::to(['/terms'])?>">Terms and condition</a>
                     </li>
                   </ul>
                 </div>
