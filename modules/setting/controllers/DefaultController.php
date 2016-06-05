@@ -20,7 +20,7 @@ class DefaultController extends Controller
                 ],
                 'rules' => [
                     [
-                        'actions' => ['index','project', 'location', 'fee'],
+                        'actions' => ['index','project', 'location', 'fee','application'],
                         'allow' => true,
                         'roles' => ['Admin'],
                     ],
@@ -89,6 +89,23 @@ class DefaultController extends Controller
           }
           else{
             return $this->render('fee/list');
+          }
+        }
+    }
+    public function actionApplication()
+    {
+        $request = Yii::$app->request;
+        $id = $request->get('id');
+        $page = $request->get('page');
+        if($page){
+          return $this->render('application/'.$page);
+        }
+        else{
+          if($id){
+            return $this->render('application/detail');
+          }
+          else{
+            return $this->render('application/list');
           }
         }
     }

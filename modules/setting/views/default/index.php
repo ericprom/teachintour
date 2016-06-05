@@ -40,6 +40,14 @@ $this->title = 'All Settings | '.Yii::$app->params["company_name"].'';
           <h3>Manage Fee<span class="subtitle">Create and Update Fees</span></h3>
         </div>
       </div>
+      <div class="col_one_third">
+        <div class="feature-box fbox-center fbox-border fbox-dark fbox-effect noborder">
+          <div class="fbox-icon">
+            <a href="<?=Url::to(['/setting/application'])?>"><i class="icon-file"></i></a>
+          </div>
+          <h3>Manage Application<span class="subtitle">Mange & Approve Applicants</span></h3>
+        </div>
+      </div>
       <div class="clear"></div>
     </div>
   </div>
