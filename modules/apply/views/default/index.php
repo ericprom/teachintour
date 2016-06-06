@@ -52,8 +52,8 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             <div class="col_one_third col_last">
               <label for="personal-form-gender">Gender</label>
               <select class="selectpicker form-control" id="personal-form-gender" style="">
-                <option>Male</option>
-                <option>Female</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
               </select>
             </div>
             <div class="clear"></div>
