@@ -5,6 +5,11 @@
 use yii\helpers\Html;
 $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
 ?>
+<style type="text/css">
+  .selectpicker{
+    height: 41px; border: 2px solid #DDD;
+  }
+</style>
 <div id="page-menu">
   <div id="page-menu-wrap">
     <div class="container clearfix">
@@ -37,11 +42,19 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             </div>
             <div class="col_one_third">
               <label for="personal-form-dob">Date of birth</label>
-              <input type="text" id="personal-form-dob" class="sm-form-control" />
+              <div class="input-group">
+                <input type="text" id="personal-form-dob" class="sm-form-control tleft" placeholder="MM/DD/YYYY">
+                <span class="input-group-addon" style="padding: 9px 12px;">
+                  <i class="icon-calendar2"></i>
+                </span>
+              </div>
             </div>
             <div class="col_one_third col_last">
               <label for="personal-form-gender">Gender</label>
-              <input type="text" id="personal-form-gender" class="sm-form-control" />
+              <select class="selectpicker form-control" id="personal-form-gender" style="">
+                <option>Male</option>
+                <option>Female</option>
+              </select>
             </div>
             <div class="clear"></div>
             <div class="col_two_third">
@@ -102,15 +115,24 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
           </div>
           <div class="col_two_fifth">
             <label for="program-form-location">Location</label>
-            <input type="text" id="program-form-location" class="sm-form-control" />
+            <select class="selectpicker form-control" id="program-form-location">
+              <option>Namsom, Udonthani</option>
+            </select>
           </div>
           <div class="col_two_fifth">
             <label for="program-form-program">Program</label>
-            <input type="text" id="program-form-program" class="sm-form-control" />
+            <select class="selectpicker form-control" id="program-form-program">
+              <option>Teaching</option>
+            </select>
           </div>
           <div class="col_one_fifth col_last">
             <label for="program-form-start">Start date</label>
-            <input type="text" id="program-form-start" class="sm-form-control" />
+            <div class="input-group">
+              <input type="text" id="program-form-start" class="sm-form-control tleft" placeholder="MM/DD/YYYY">
+              <span class="input-group-addon" style="padding: 9px 12px;">
+                <i class="icon-calendar2"></i>
+              </span>
+            </div>
           </div>
           <div class="clear"></div>
         </div>
@@ -215,3 +237,15 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
     </div>
   </div>
 </section>
+
+<script type="text/javascript" src="<?=Yii::$app->request->baseUrl; ?>/js/jquery.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('#personal-form-dob').datepicker({
+      autoclose: true,
+    });
+    $('#program-form-start').datepicker({
+      autoclose: true,
+    });
+  });
+</script>
