@@ -823,5 +823,20 @@ controllers.controller('ContactFormController', ['API','$scope', '$location', '$
   }
 ]);
 
-
+///////////////////////////////////////////////////APPLY ONLINE///////////////////////////////////////////////////
+controllers.controller('ApplyOnlineController', ['API','$scope', '$location', '$window', '$http', 'md5',
+  function (API, $scope, $location, $window,  $http, md5) {
+    $scope.ApplyNow = function(){
+      $scope.Apply = {
+        personal: $scope.personal,
+        address: $scope.address,
+        tour: $scope.tour,
+        other: $scope.other,
+        emergency: $scope.emergency,
+        background: $scope.background
+      };
+      console.log($scope.Apply);
+    }
+  }
+]);
 
