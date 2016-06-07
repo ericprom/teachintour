@@ -15,6 +15,7 @@ class BowerAsset extends AssetBundle
     public $css = [
         'toaster/toaster.css',
         'dropzone/css/dropzone.css',
+        'bootstrap-datepicker/css/bootstrap-datepicker.min.css'
     ];
     public $js = [
         'angular/angular.min.js',
@@ -23,7 +24,8 @@ class BowerAsset extends AssetBundle
         'moment/moment.js',
         'ui/ui-bootstrap.js',
         'dropzone/dropzone.js',
-        'angular-md5/angular-md5.js'
+        'angular-md5/angular-md5.js',
+        'bootstrap-datepicker/js/bootstrap-datepicker.min.js',
     ];
     public $jsOptions = [
         'position' => View::POS_END,

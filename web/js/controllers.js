@@ -1,4 +1,4 @@
-var controllers = angular.module('controllers', ['toaster', 'ngAnimate','ui.bootstrap', 'angular-md5']);
+var controllers = angular.module('controllers', ['toaster', 'ngAnimate','ui.bootstrap', 'angular-md5','angularMoment']);
 controllers.directive('validNumber', function() {
   return {
     require: '?ngModel',
@@ -133,6 +133,16 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     });
     return deferred.promise;
   }
+  var Apply = function(param) {
+    $rootScope.processing = true;
+    var deferred = $q.defer();
+    var host = Host()+'/api/v1/apply';
+    $http.post(host,param).success(function(results) {
+      deferred.resolve(results);
+      $rootScope.processing = false;
+    });
+    return deferred.promise;
+  }
   var Mailer = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
@@ -172,6 +182,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     Location:Location,
     Project:Project,
     File:File,
+    Apply:Apply,
     Mailer:Mailer,
     parseBool:parseBool,
     Toaster:Toaster,
@@ -824,8 +835,26 @@ controllers.controller('ContactFormController', ['API','$scope', '$location', '$
 ]);
 
 ///////////////////////////////////////////////////APPLY ONLINE///////////////////////////////////////////////////
-controllers.controller('ApplyOnlineController', ['API','$scope', '$location', '$window', '$http', 'md5',
-  function (API, $scope, $location, $window,  $http, md5) {
+controllers.controller('ApplyOnlineController', ['API','$scope', '$location', '$window', '$http', 'md5', 'moment',
+  function (API, $scope, $location, $window,  $http, md5, moment) {
+    $scope.init = function(){
+      $scope.personal = {
+        gender:'1'
+      };
+      $scope.address = {};
+      $scope.tour = {
+        location:'1',
+        project:'1'
+      };
+      $scope.other = {};
+      $scope.emergency = {};
+      $scope.background = {
+        violation:'no',
+        criminal:'no'
+      };
+    }
+    $scope.init();
+
     $scope.ApplyNow = function(){
       $scope.Apply = {
         personal: $scope.personal,

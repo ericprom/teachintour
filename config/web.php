@@ -60,6 +60,11 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+          'bundles' => [
+            'yii\web\JqueryAsset' => false,
+          ],
+        ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

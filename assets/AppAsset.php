@@ -27,17 +27,14 @@ class AppAsset extends AssetBundle
       'css/magnific-popup.css',
       'css/responsive.css',
       'css/components/radio-checkbox.css',
-      'css/components/datepicker.css'
     ];
 
     public $js = [
-        'js/jquery.js',
         'js/plugins.js',
         'js/functions.js',
         'js/apps.js',
         'js/controllers.js',
-        'js/components/moment.js',
-        'js/components/datepicker.js',
+        'js/ng-moment.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

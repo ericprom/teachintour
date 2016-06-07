@@ -52,6 +52,7 @@ $user = Yii::$app->user->identity;
       <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
+    <script type="text/javascript" src="<?=Yii::$app->request->baseUrl; ?>/js/jquery.js"></script>
     <title><?= Html::encode($this->title) ?></title>
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
@@ -75,6 +76,7 @@ $user = Yii::$app->user->identity;
       $loginActive='';($menu=='login')?$loginActive='class="current"':'';
       $registerActive='';($menu=='register')?$registerActive='class="current"':'';
     ?>
+
   </head>
 
   <body class="stretched side-panel-left">
