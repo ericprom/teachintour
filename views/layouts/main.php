@@ -28,7 +28,7 @@ $user = Yii::$app->user->identity;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="teachin, tour, teachin tour, travel, teach, local, thailand" />
     <meta name="description" content="teachin tour - A new way of touring that can help other.">
-    <meta name="google-site-verification" content="XsaJTPi_TTNOLkjsP6NrAuU5qEujoslUkZIPvcFSOWU" />
+    <meta name="google-site-verification" content="WZdfpTkwS_H7x_YWp_4PhCiu33p34EVB2VwBujpIai4" />
     <!-- Favicon Generator -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?=Yii::$app->request->baseUrl; ?>/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?=Yii::$app->request->baseUrl; ?>/favicon/apple-icon-60x60.png">

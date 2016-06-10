@@ -835,27 +835,50 @@ controllers.controller('ContactFormController', ['API','$scope', '$location', '$
 ]);
 
 ///////////////////////////////////////////////////APPLY ONLINE///////////////////////////////////////////////////
-controllers.controller('ApplyOnlineController', ['API','$scope', '$location', '$window', '$http', 'md5', 'moment',
-  function (API, $scope, $location, $window,  $http, md5, moment) {
+controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5', 'moment',
+  function (API, $rootScope, $scope, $location, $window,  $http, md5, moment) {
     $scope.init = function(){
       $scope.personal = {
-        gender:'1'
+        firstname:'',
+        lastname:'',
+        nationality:'',
+        date_of_birth:'',
+        gender:'1',
+        email:'',
+        phone:''
       };
-      $scope.address = {};
+      $scope.address = {
+        street:'',
+        city:'',
+        state:'',
+        zipcode:'',
+        country:''
+      };
       $scope.tour = {
         location:'1',
-        project:'1'
+        project:'1',
+        start_date:''
       };
-      $scope.other = {};
-      $scope.emergency = {};
+      $scope.other = {
+        education:'',
+        experience:'',
+        skill:''
+      };
+      $scope.emergency = {
+        contact:''
+      };
       $scope.background = {
         violation:'no',
         criminal:'no'
       };
+      $scope.processing = false;
     }
     $scope.init();
-
+    $scope.submitApplication = function(data){
+      console.log(data);
+    }
     $scope.ApplyNow = function(){
+      $scope.processing = true;
       $scope.Apply = {
         personal: $scope.personal,
         address: $scope.address,
@@ -864,7 +887,23 @@ controllers.controller('ApplyOnlineController', ['API','$scope', '$location', '$
         emergency: $scope.emergency,
         background: $scope.background
       };
-      console.log($scope.Apply);
+      var status = [];
+      for (var k in $scope.Apply) {
+        if ($scope.Apply.hasOwnProperty(k)) {
+          for (var m in $scope.Apply[k]) {
+            if($scope.Apply[k][m].length>0){
+              status.push(true);
+            }
+            else{
+              status.push(false);
+              API.Toaster('warning','Apply',m+' cannot be blank.');
+            }
+          }
+        }
+      }
+      if(status.indexOf(false) <= -1){
+        $scope.submitApplication($scope.Apply);
+      }
     }
   }
 ]);

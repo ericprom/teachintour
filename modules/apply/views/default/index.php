@@ -130,7 +130,7 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
           <div class="col_one_fifth col_last">
             <label for="program-form-start">Start date<span class="text-danger">*</span></label>
             <div class="input-group">
-                <input type="text" class="sm-form-control tleft" placeholder="2016-12-31" ng-model="tour.start" id='program-form-start'>
+                <input type="text" class="sm-form-control tleft" placeholder="2016-12-31" ng-model="tour.start_date" id='program-form-start'>
                 <span class="input-group-addon" style="padding: 9px 12px;cursor:pointer;">
                 <i class="icon-calendar2"></i>
               </span>
@@ -240,7 +240,7 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
         <div class="col-lg-12 col-md-12 col-sm-12">
           <center>
             <button class="button button-3d button-large" ng-click="ApplyNow()">
-              Submit Application
+              <i ng-class="(processing)?'icon-cog icon-spin':''"></i> Submit Application
             </button>
           </center>
         </div>
