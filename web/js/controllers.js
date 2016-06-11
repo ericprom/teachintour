@@ -90,7 +90,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
       return "http://localhost:8888/teachintour/";
     }
     else{
-      return;
+      return "http://teachintour.com/";
     }
   }
   var Fee = function(param) {
