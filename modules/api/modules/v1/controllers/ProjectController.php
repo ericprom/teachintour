@@ -112,7 +112,7 @@ class ProjectController extends Controller
               $result["data"] = $project->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "บันทึกข้อมูลเรียบร้อย";
+              $result["message"] =  "Project fee has been added.";
               break;
             case "update":
               $project = Projects::findOne(['id'=>$data["id"]]);
@@ -130,7 +130,7 @@ class ProjectController extends Controller
               $result["data"] = $project->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "อัพเดทข้อมูลเรียบร้อย";
+              $result["message"] =  "Project fee has been updated.";
               break;
             case "delete":
               $project = Projects::findOne(['id'=>$data["id"]]);
@@ -141,19 +141,15 @@ class ProjectController extends Controller
               $result["data"] = $project->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
-              break;
-            case "test":
-              $result["toast"] = 'success';
-              $result["status"] = TRUE;
-              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
+              $result["message"] =  "Project fee has been deleted.";
               break;
           }
         }
       } catch(Exceptions $ex) {
           $result["status"] = FALSE;
           $result["error"] = $ex;
-          $result["message"] =  "เกิดข้อผิดพลาด ไม่สามารถบันทึกข้อมูลได้";
+          $result["toast"] = 'warning';
+          $result["message"] =  "Oops! Somthing went wrong.";
       }
       echo json_encode($result);
     }

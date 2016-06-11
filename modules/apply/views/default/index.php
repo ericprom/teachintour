@@ -146,20 +146,20 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             <h3 class="">OTHER DETAIL</h3>
           </div>
           <div class="col_full">
-            <label for="personal-form-education">Education<span class="text-danger">*</span></label>
-            <textarea class="sm-form-control" id="personal-form-education" rows="6" cols="30" ng-model="other.education"></textarea>
+            <label for="other-form-education">Education<span class="text-danger">*</span></label>
+            <textarea class="sm-form-control" id="other-form-education" rows="6" cols="30" ng-model="other.education"></textarea>
           </div>
           <div class="col_full">
-            <label for="personal-form-experiences">Volunteer/Work Experiences<span class="text-danger">*</span></label>
-            <textarea class="sm-form-control" id="personal-form-experiences" rows="6" cols="30" ng-model="other.experience"></textarea>
+            <label for="other-form-experiences">Volunteer/Work Experiences<span class="text-danger">*</span></label>
+            <textarea class="sm-form-control" id="other-form-experiences" rows="6" cols="30" ng-model="other.experience"></textarea>
           </div>
           <div class="col_full">
-            <label for="personal-form-language">Language Ability<span class="text-danger">*</span></label>
-            <textarea class="sm-form-control" id="personal-form-language" rows="6" cols="30" ng-model="other.language"></textarea>
+            <label for="other-form-language">Language Ability<span class="text-danger">*</span></label>
+            <textarea class="sm-form-control" id="other-form-language" rows="6" cols="30" ng-model="other.language"></textarea>
           </div>
           <div class="col_full">
-            <label for="personal-form-skills">Special Skills<span class="text-danger">*</span></label>
-            <textarea class="sm-form-control" id="personal-form-skills" rows="6" cols="30" ng-model="other.skill"></textarea>
+            <label for="other-form-skills">Special Skills<span class="text-danger">*</span></label>
+            <textarea class="sm-form-control" id="other-form-skills" rows="6" cols="30" ng-model="other.skill"></textarea>
           </div>
         </div>
         <div class="clear bottommargin"></div>
@@ -170,8 +170,8 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             <h3 class="">EMERGENCY</h3>
           </div>
           <div class="col_full">
-            <label for="personal-form-contact">Contact information<span class="text-danger">*</span></label>
-            <textarea class="sm-form-control" id="personal-form-contact" rows="6" cols="30" ng-model="emergency.contact"></textarea>
+            <label for="emergency-form-contact">Contact information<span class="text-danger">*</span></label>
+            <textarea class="sm-form-control" id="emergency-form-contact" rows="6" cols="30" ng-model="emergency.contact"></textarea>
           </div>
         </div>
         <div class="clear bottommargin"></div>
@@ -185,7 +185,7 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             ALL APPLICANTS MUST ASNWER THE FOLLOWING QUESTION, FAILURE TO ANSWER HONESTLY WILL DISQUALIFY THE APPLICANT FROM SERVICE AS A VOLUNTEER WITH OUR ORGANIZATION.
           </div>
           <div class="col_full">
-            <label for="personal-form-contact">
+            <label for="background-form-violation">
               Have you ever been convicted of a crime or pleaded no contested for any offense or violation other than minor traffic violations?
             </label>
             <div>
@@ -196,10 +196,16 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
               <input id="radio-2" class="radio-style" name="radio-group-1" type="radio"  ng-model="background.violation" value="no">
               <label for="radio-2" class="radio-style-2-label">No</label>
             </div>
+            <div ng-show="background.violation=='yes'">
+              <label for="background-form-violation-detail">
+                Please explain.
+              </label>
+              <textarea class="sm-form-control" id="background-form-violation-detail" rows="6" cols="30" ng-model="background.violation_detail"></textarea>
+            </div>
           </div>
 
           <div class="col_full">
-            <label for="personal-form-contact">
+            <label for="background-form-criminal">
               Do you have any pending criminal charges against you?
             </label>
             <div>
@@ -209,6 +215,12 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             <div>
               <input id="radio-4" class="radio-style" name="radio-group-2" type="radio" ng-model="background.criminal" value="no">
               <label for="radio-4" class="radio-style-2-label">No</label>
+            </div>
+            <div ng-show="background.criminal=='yes'">
+               <label for="background-form-criminal-detail">
+                Please explain.
+              </label>
+              <textarea class="sm-form-control" id="background-form-criminal-detail" rows="6" cols="30" ng-model="background.criminal_detail"></textarea>
             </div>
           </div>
 
@@ -232,7 +244,13 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
             I understand that no Volunteer or representative of the Agency other than the President of the Agency has any authority to enter into any agreement for employment for any specified period of time, or to make any agreement contrary to the foregoing. Further, the Agency may not alter the at-will nature of the volunteer relationship unless the Agency does so specifically and in writing. I also understand that all offers of volunteer positions are conditioned on the provision of satisfactory proof of an applicant's identity, background check and legal authority to enter Thailand.
             </div>
           </div>
-          <span class="text-danger">*</span>PLEASE FILL IN ALL OF THE REQUIRED FIELDS
+          <div>
+            <span class="text-danger">*</span>PLEASE FILL IN ALL OF THE REQUIRED FIELDS
+          </div>
+          <div>
+            <input id="checkbox-12" class="checkbox-style" type="checkbox"  ng-model="agreement">
+            <label for="checkbox-12" class="checkbox-style-3-label">Agree to TERMS AND CONDITIONS</label>
+          </div>
         </div>
         <div class="clear bottommargin"></div>
       </div>

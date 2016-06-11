@@ -112,7 +112,7 @@ class LocationController extends Controller
               $result["data"] = $location->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "บันทึกข้อมูลเรียบร้อย";
+              $result["message"] =  "Location fee has been added.";
               break;
             case "update":
               $location = Locations::findOne(['id'=>$data["id"]]);
@@ -130,7 +130,7 @@ class LocationController extends Controller
               $result["data"] = $location->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "อัพเดทข้อมูลเรียบร้อย";
+              $result["message"] =  "Location fee has been updated.";
               break;
             case "delete":
               $location = Locations::findOne(['id'=>$data["id"]]);
@@ -141,14 +141,15 @@ class LocationController extends Controller
               $result["data"] = $location->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
+              $result["message"] =  "Location fee has been deleted.";
               break;
           }
         }
       } catch(Exceptions $ex) {
           $result["status"] = FALSE;
           $result["error"] = $ex;
-          $result["message"] =  "เกิดข้อผิดพลาด ไม่สามารถบันทึกข้อมูลได้";
+          $result["toast"] = 'warning';
+          $result["message"] =  "Oops! Somthing went wrong.";
       }
       echo json_encode($result);
     }

@@ -838,6 +838,7 @@ controllers.controller('ContactFormController', ['API','$scope', '$location', '$
 controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5', 'moment',
   function (API, $rootScope, $scope, $location, $window,  $http, md5, moment) {
     $scope.init = function(){
+      $scope.agreement = false;
       $scope.personal = {
         firstname:'',
         lastname:'',
@@ -869,23 +870,38 @@ controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '
       };
       $scope.background = {
         violation:'no',
-        criminal:'no'
+        violation_detail:'NA',
+        criminal:'no',
+        criminal_detail:'NA'
       };
-      $scope.processing = false;
     }
     $scope.init();
     $scope.submitApplication = function(data){
-      console.log(data);
+      if(data.agreement){
+        console.log(data);
+        // API.Apply({filter: {action:'create',data:data}}).then(function (result) {
+        //   if(result.status){
+        //     API.Toaster(result.toast,'Application',result.message);
+        //   }
+        //   else{
+        //     API.Toaster('warning','Project','เกิดข้อผิดพลาด');
+        //   }
+        // });
+      }
+      else{
+        $rootScope.processing = false;
+        API.Toaster('warning','teachin\' tour','Please accept TERMS AND CONDITIONS before submitting the form!');
+      }
     }
     $scope.ApplyNow = function(){
-      $scope.processing = true;
       $scope.Apply = {
         personal: $scope.personal,
         address: $scope.address,
         tour: $scope.tour,
         other: $scope.other,
         emergency: $scope.emergency,
-        background: $scope.background
+        background: $scope.background,
+        agreement:$scope.agreement
       };
       var status = [];
       for (var k in $scope.Apply) {

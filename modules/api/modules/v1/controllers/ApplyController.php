@@ -33,105 +33,93 @@ class ApplyController extends Controller
             }
           }
           switch($options["action"]){
-            case "select":
-              if($options["section"]=='all'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
-                $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->all();
-                $program_cover = Array();
-                $coverPath = Yii::getAlias('@webroot') .'/images/Applications/covers/default.jpg';
-                foreach($application as $key => $value){
-                   if($value["cover"]!=null){
-                    $value["cover"] = Yii::$app->assetManager->publish($value["cover"]);
-                  }
-                  else{
-                    $value["cover"] = Yii::$app->assetManager->publish($coverPath);
-                  }
-                  $program_cover[] = $value;
-                }
-                $result["data"] = $program_cover;
-                $result["total"] = count($total);
-              }
-              if($options["section"]=='detail'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','available', 'true'],['=','id', $data["id"]]])->one();
-                $coverPath = Yii::getAlias('@webroot') .'/images/Applications/covers/default.jpg';
-                if($application->cover!=null){
-                  $application->cover = Yii::$app->assetManager->publish($application->cover);
-                }
-                else{
-                  $application->cover = Yii::$app->assetManager->publish($coverPath);
-                }
-                $result["data"] = $application->attributes;
-              }
-              $result["toast"] = 'success';
-              $result["status"] = TRUE;
-              break;
-            case "manage":
-              if($options["section"]=='all'){
-                $application = Applications::find()->where(['<>','inactive', 1])->asArray()->all();
-                $total = Applications::find()->where(['<>','inactive', 1])->all();
-                $program_cover = Array();
-                $coverPath = Yii::getAlias('@webroot') .'/images/Applications/covers/default.jpg';
-                foreach($application as $key => $value){
-                   if($value["cover"]!=null){
-                    $value["cover"] = Yii::$app->assetManager->publish($value["cover"]);
-                  }
-                  else{
-                    $value["cover"] = Yii::$app->assetManager->publish($coverPath);
-                  }
-                  $program_cover[] = $value;
-                }
-                $result["data"] = $program_cover;
-                $result["total"] = count($total);
-              }
-              if($options["section"]=='detail'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $result["data"] = $application->attributes;
-              }
-              if($options["section"]=='preview'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $coverPath = Yii::getAlias('@webroot') .'/images/Applications/covers/default.jpg';
-                if($application->cover!=null){
-                  $application->cover = Yii::$app->assetManager->publish($application->cover);
-                }
-                else{
-                  $application->cover = Yii::$app->assetManager->publish($coverPath);
-                }
-                $result["data"] = $application->attributes;
-              }
-              $result["toast"] = 'success';
-              $result["status"] = TRUE;
-              break;
             case "create":
               $application = new Applications();
-              (isset($data["title"]))?$application->title = $data["title"]:$application->title = '';
-              (isset($data["detail"]))?$application->detail = $data["detail"]:$application->detail = '';
-              (isset($data["available"]))?$application->available = $data["available"]:$application->available = 'false';
+              (isset($data["personal"]["firstname"]))?$application->firstname = $data["personal"]["firstname"]:$application->firstname = '';
+              (isset($data["personal"]["lastname"]))?$application->lastname = $data["personal"]["lastname"]:$application->lastname = '';
+              (isset($data["personal"]["nationality"]))?$application->nationality = $data["personal"]["nationality"]:$application->nationality = '';
+              (isset($data["personal"]["date_of_birth"]))?$application->date_of_birth = $data["personal"]["date_of_birth"]:$application->date_of_birth = null;
+              (isset($data["personal"]["gender"]))?$application->gender = $data["personal"]["gender"]:$application->gender = 0;
+              (isset($data["personal"]["email"]))?$application->email = $data["personal"]["email"]:$application->email = '';
+              (isset($data["personal"]["phone"]))?$application->phone = $data["personal"]["phone"]:$application->phone = '';
+              (isset($data["personal"]["line"]))?$application->line = $data["personal"]["line"]:$application->line = '';
+              (isset($data["personal"]["facebook"]))?$application->facebook = $data["personal"]["facebook"]:$application->facebook = '';
+              (isset($data["personal"]["skype"]))?$application->skype = $data["personal"]["skype"]:$application->skype = '';
+              (isset($data["address"]["street"]))?$application->street = $data["address"]["street"]:$application->street = '';
+              (isset($data["address"]["city"]))?$application->city = $data["address"]["city"]:$application->city = '';
+              (isset($data["address"]["state"]))?$application->state = $data["address"]["state"]:$application->state = '';
+              (isset($data["address"]["zipcode"]))?$application->zipcode = $data["address"]["zipcode"]:$application->zipcode = '';
+              (isset($data["address"]["country"]))?$application->country = $data["address"]["country"]:$application->country = '';
+              (isset($data["tour"]["location_id"]))?$application->location_id = $data["tour"]["location_id"]:$application->location_id = 0;
+              (isset($data["tour"]["program_id"]))?$application->program_id = $data["tour"]["program_id"]:$application->program_id = 0;
+              (isset($data["tour"]["start_date"]))?$application->start_date = $data["tour"]["start_date"]:$application->start_date = null;
+              (isset($data["other"]["education"]))?$application->education = $data["other"]["education"]:$application->education = '';
+              (isset($data["other"]["experience"]))?$application->experience = $data["other"]["experience"]:$application->experience = '';
+              (isset($data["other"]["language"]))?$application->language = $data["other"]["language"]:$application->language = '';
+              (isset($data["other"]["skill"]))?$application->skill = $data["other"]["skill"]:$application->skill = '';
+              (isset($data["emergency"]["emergency"]))?$application->emergency = $data["emergency"]["emergency"]:$application->emergency = '';
+              (isset($data["background"]["violation"]))?$application->violation = $data["background"]["violation"]:$application->violation = '';
+              (isset($data["background"]["violation_detail"]))?$application->violation_detail = $data["background"]["violation_detail"]:$application->violation_detail = '';
+              (isset($data["background"]["criminal"]))?$application->criminal = $data["background"]["criminal"]:$application->criminal = '';
+              (isset($data["background"]["criminal_detail"]))?$application->criminal_detail = $data["background"]["criminal_detail"]:$application->criminal_detail = '';
+              (isset($data["agreement"]))?$application->agreement = $data["agreement"]:$application->agreement = 1;
               $application->createdAt = time();
               $application->createdBy = Yii::$app->user->identity->id;
               $application->save();
               $result["data"] = $application->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "บันทึกข้อมูลเรียบร้อย";
+              $result["message"] =  "Your form has been summited for review.";
               break;
             case "update":
               $application = Applications::findOne(['id'=>$data["id"]]);
-              if($options["section"]=='detail'){
-                (isset($data["title"]))?$application->title = $data["title"]:$application->title = '';
-                (isset($data["detail"]))?$application->detail = $data["detail"]:$application->detail = '';
-                (isset($data["available"]))?$application->available = $data["available"]:$application->available = 'false';
-              }
-              if($options["section"]=='cover'){
-                (isset($data["cover"]))?$application->cover = $data["cover"]:$application->cover = '';
-              }
+              (isset($data["personal"]["firstname"]))?$application->firstname = $data["personal"]["firstname"]:$application->firstname = '';
+              (isset($data["personal"]["lastname"]))?$application->lastname = $data["personal"]["lastname"]:$application->lastname = '';
+              (isset($data["personal"]["nationality"]))?$application->nationality = $data["personal"]["nationality"]:$application->nationality = '';
+              (isset($data["personal"]["date_of_birth"]))?$application->date_of_birth = $data["personal"]["date_of_birth"]:$application->date_of_birth = null;
+              (isset($data["personal"]["gender"]))?$application->gender = $data["personal"]["gender"]:$application->gender = 0;
+              (isset($data["personal"]["email"]))?$application->email = $data["personal"]["email"]:$application->email = '';
+              (isset($data["personal"]["phone"]))?$application->phone = $data["personal"]["phone"]:$application->phone = '';
+              (isset($data["personal"]["line"]))?$application->line = $data["personal"]["line"]:$application->line = '';
+              (isset($data["personal"]["facebook"]))?$application->facebook = $data["personal"]["facebook"]:$application->facebook = '';
+              (isset($data["personal"]["skype"]))?$application->skype = $data["personal"]["skype"]:$application->skype = '';
+              (isset($data["address"]["street"]))?$application->street = $data["address"]["street"]:$application->street = '';
+              (isset($data["address"]["city"]))?$application->city = $data["address"]["city"]:$application->city = '';
+              (isset($data["address"]["state"]))?$application->state = $data["address"]["state"]:$application->state = '';
+              (isset($data["address"]["zipcode"]))?$application->zipcode = $data["address"]["zipcode"]:$application->zipcode = '';
+              (isset($data["address"]["country"]))?$application->country = $data["address"]["country"]:$application->country = '';
+              (isset($data["tour"]["location_id"]))?$application->location_id = $data["tour"]["location_id"]:$application->location_id = 0;
+              (isset($data["tour"]["program_id"]))?$application->program_id = $data["tour"]["program_id"]:$application->program_id = 0;
+              (isset($data["tour"]["start_date"]))?$application->start_date = $data["tour"]["start_date"]:$application->start_date = null;
+              (isset($data["other"]["education"]))?$application->education = $data["other"]["education"]:$application->education = '';
+              (isset($data["other"]["experience"]))?$application->experience = $data["other"]["experience"]:$application->experience = '';
+              (isset($data["other"]["language"]))?$application->language = $data["other"]["language"]:$application->language = '';
+              (isset($data["other"]["skill"]))?$application->skill = $data["other"]["skill"]:$application->skill = '';
+              (isset($data["emergency"]["emergency"]))?$application->emergency = $data["emergency"]["emergency"]:$application->emergency = '';
+              (isset($data["background"]["violation"]))?$application->violation = $data["background"]["violation"]:$application->violation = '';
+              (isset($data["background"]["violation_detail"]))?$application->violation_detail = $data["background"]["violation_detail"]:$application->violation_detail = '';
+              (isset($data["background"]["criminal"]))?$application->criminal = $data["background"]["criminal"]:$application->criminal = '';
+              (isset($data["background"]["criminal_detail"]))?$application->criminal_detail = $data["background"]["criminal_detail"]:$application->criminal_detail = '';
               $application->updatedAt = time();
               $application->updatedBy = Yii::$app->user->identity->id;
               $application->update();
               $result["data"] = $application->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "อัพเดทข้อมูลเรียบร้อย";
+              $result["message"] =  "Your form has been update and wait for review.";
               break;
+            case "approve":
+              $application = Applications::findOne(['id'=>$data["id"]]);
+              (isset($data["approval"]))?$application->approval = $data["approval"]:$application->approval = 0;
+              $application->approvedAt = time();
+              $application->approvedBy = Yii::$app->user->identity->id;
+              $application->update();
+              $result["data"] = $application->attributes;
+              $result["toast"] = 'success';
+              $result["status"] = TRUE;
+              $result["message"] =  "This application has deleted.";
+              break;
+
             case "delete":
               $application = Applications::findOne(['id'=>$data["id"]]);
               $application->updatedAt = time();
@@ -141,19 +129,15 @@ class ApplyController extends Controller
               $result["data"] = $application->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
-              break;
-            case "test":
-              $result["toast"] = 'success';
-              $result["status"] = TRUE;
-              $result["message"] =  "ระบบลบโปรแกรมเรียบร้อย";
+              $result["message"] =  "This application has deleted.";
               break;
           }
         }
       } catch(Exceptions $ex) {
           $result["status"] = FALSE;
           $result["error"] = $ex;
-          $result["message"] =  "เกิดข้อผิดพลาด ไม่สามารถบันทึกข้อมูลได้";
+          $result["toast"] = 'warning';
+          $result["message"] =  "Oops! Somthing went wrong.";
       }
       echo json_encode($result);
     }

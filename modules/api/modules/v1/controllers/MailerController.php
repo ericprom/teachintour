@@ -55,7 +55,8 @@ class MailerController extends Controller
       } catch(Exceptions $ex) {
           $result["status"] = FALSE;
           $result["error"] = $ex;
-          $result["message"] =  "เกิดข้อผิดพลาด ไม่สามารถบันทึกข้อมูลได้";
+          $result["toast"] = 'warning';
+          $result["message"] =  "Oops! Somthing went wrong.";
       }
       echo json_encode($result);
     }
