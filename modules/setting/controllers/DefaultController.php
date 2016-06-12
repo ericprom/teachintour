@@ -22,13 +22,8 @@ class DefaultController extends Controller
                     [
                         'actions' => ['index','project', 'location', 'fee','application'],
                         'allow' => true,
-                        'roles' => ['Admin'],
+                        'roles' => ['Admin','Manager'],
                     ],
-                    // [
-                    //     'actions' => ['insert'],
-                    //     'allow' => true,
-                    //     'roles' => ['?', '@', 'admin'],
-                    // ],
                 ],
             ],
         ];

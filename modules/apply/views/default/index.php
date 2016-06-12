@@ -118,13 +118,13 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
           <div class="col_two_fifth">
             <label for="program-form-location">Location<span class="text-danger">*</span></label>
             <select class="selectpicker form-control" id="program-form-location" ng-model="tour.location">
-              <option value="1">Namsom, Udonthani</option>
+              <option value="{{location.id}}" ng-repeat="location in Locations">{{location.title}}</option>
             </select>
           </div>
           <div class="col_two_fifth">
             <label for="program-form-program">Program<span class="text-danger">*</span></label>
             <select class="selectpicker form-control" id="program-form-program" ng-model="tour.project">
-              <option value="1">Teaching</option>
+              <option value="{{project.id}}" ng-repeat="project in Projects">{{project.title}}</option>
             </select>
           </div>
           <div class="col_one_fifth col_last">
@@ -135,6 +135,12 @@ $this->title = 'Apply Online | '.Yii::$app->params["company_name"].'';
                 <i class="icon-calendar2"></i>
               </span>
             </div>
+          </div>
+          <div class="col_one_fifth col_last">
+            <label for="program-form-fee">Fee<span class="text-danger">*</span></label>
+            <select class="selectpicker form-control" id="program-form-fee" ng-model="tour.fee">
+              <option value="{{fee.id}}" ng-repeat="fee in Fees">{{fee.title}} (${{fee.price}})</option>
+            </select>
           </div>
           <div class="clear"></div>
         </div>

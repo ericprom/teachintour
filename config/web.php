@@ -41,6 +41,9 @@ $config = [
         'apply' => [
             'class' => 'app\modules\apply\applyModules',
         ],
+        'application' => [
+            'class' => 'app\modules\application\applicationModules',
+        ],
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableUnconfirmedLogin' => false,
@@ -131,6 +134,9 @@ $config = [
 
                 //Project URL Management
                 'project/<id:\d+>' => 'project',
+
+                //Application URL Management
+                'application/<id:\d+>' => 'application',
 
                 //Setting URL Management
                 'setting/<action:\w+>' => 'setting/default/<action>',

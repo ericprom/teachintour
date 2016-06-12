@@ -24,7 +24,8 @@ use Yii;
  * @property string $zipcode
  * @property string $country
  * @property integer $location_id
- * @property integer $program_id
+ * @property integer $project_id
+ * @property integer $fee_id
  * @property string $start_date
  * @property string $education
  * @property string $experience
@@ -36,6 +37,7 @@ use Yii;
  * @property string $criminal
  * @property string $criminal_detail
  * @property string $agreement
+ * @property string $note
  * @property string $approval
  * @property double $approvedAt
  * @property integer $approvedBy
@@ -61,10 +63,10 @@ class Applications extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            // [['firstname', 'lastname', 'nationality', 'date_of_birth', 'gender', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country', 'location_id', 'program_id', 'start_date', 'education', 'experience', 'language', 'skill', 'emergency', 'violation', 'criminal', 'agreement', 'approvedBy', 'createdAt', 'createdBy'], 'required'],
+            // [['firstname', 'lastname', 'nationality', 'date_of_birth', 'gender', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country', 'location_id', 'project_id', 'fee_id', 'start_date', 'education', 'experience', 'language', 'skill', 'emergency', 'violation', 'criminal', 'agreement', 'approvedBy', 'createdAt', 'createdBy'], 'required'],
             [['date_of_birth', 'start_date'], 'safe'],
-            [['gender', 'location_id', 'program_id', 'approvedBy', 'createdBy', 'updatedBy', 'inactive'], 'integer'],
-            [['education', 'experience', 'language', 'skill', 'emergency', 'violation_detail', 'criminal_detail'], 'string'],
+            [['gender', 'location_id', 'project_id', 'fee_id', 'approvedBy', 'createdBy', 'updatedBy', 'inactive'], 'integer'],
+            [['education', 'experience', 'language', 'skill', 'emergency', 'violation_detail', 'criminal_detail', 'note'], 'string'],
             [['approvedAt', 'createdAt', 'updatedAt'], 'number'],
             [['firstname', 'lastname', 'nationality', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country'], 'string', 'max' => 80],
             [['line', 'facebook', 'skype'], 'string', 'max' => 30],
@@ -95,7 +97,8 @@ class Applications extends \yii\db\ActiveRecord
             'zipcode' => 'Zipcode',
             'country' => 'Country',
             'location_id' => 'Location ID',
-            'program_id' => 'Program ID',
+            'project_id' => 'Project ID',
+            'fee_id' => 'Fee ID',
             'start_date' => 'Start Date',
             'education' => 'Education',
             'experience' => 'Experience',
@@ -107,6 +110,7 @@ class Applications extends \yii\db\ActiveRecord
             'criminal' => 'Criminal',
             'criminal_detail' => 'Criminal Detail',
             'agreement' => 'Agreement',
+            'note' => 'Note',
             'approval' => 'Approval',
             'approvedAt' => 'Approved At',
             'approvedBy' => 'Approved By',
@@ -116,5 +120,17 @@ class Applications extends \yii\db\ActiveRecord
             'updatedBy' => 'Updated By',
             'inactive' => 'Inactive',
         ];
+    }
+    public function getLocation()
+    {
+        return $this->hasOne(Locations::className(), ['id' => 'location_id']);
+    }
+    public function getProject()
+    {
+        return $this->hasOne(Projects::className(), ['id' => 'project_id']);
+    }
+    public function getFee()
+    {
+        return $this->hasOne(Fees::className(), ['id' => 'fee_id']);
     }
 }

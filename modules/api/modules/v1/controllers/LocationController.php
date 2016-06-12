@@ -34,6 +34,11 @@ class LocationController extends Controller
           }
           switch($options["action"]){
             case "select":
+              if($options["section"]=='appy'){
+                $location = Locations::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
+                $result["data"] = $location;
+                $result["total"] = count($location);
+              }
               if($options["section"]=='all'){
                 $location = Locations::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
                 $total = Locations::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->all();

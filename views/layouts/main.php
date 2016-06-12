@@ -133,6 +133,11 @@ $user = Yii::$app->user->identity;
                 <a href="<?=Url::to(['/login'])?>">Log in</a>
               </li>
               <?php }else{?>
+                <?php if(!Yii::$app->user->isGuest && !Yii::$app->user->identity->isAdmin && !Yii::$app->user->can('Manage')){?>
+                  <li>
+                    <a href="<?=Url::to(['/application'])?>">Application</a>
+                  </li>
+                <?php }?>
               <li>
                 <?=Html::a('Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
               </li>

@@ -34,6 +34,11 @@ class ProjectController extends Controller
           }
           switch($options["action"]){
             case "select":
+              if($options["section"]=='appy'){
+                $project = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
+                $result["data"] = $project;
+                $result["total"] = count($project);
+              }
               if($options["section"]=='all'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
                 $total = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->all();

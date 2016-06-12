@@ -34,6 +34,11 @@ class FeeController extends Controller
           }
           switch($options["action"]){
             case "select":
+              if($options["section"]=='appy'){
+                $fee = Fees::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
+                $result["data"] = $fee;
+                $result["total"] = count($fee);
+              }
               if($options["section"]=='all'){
                 $fee = Fees::find()->where(['and', ['<>','inactive', 1],['=','available', 'true']])->asArray()->all();
                 $result["data"] = $fee;

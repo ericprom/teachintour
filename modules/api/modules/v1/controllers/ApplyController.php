@@ -33,6 +33,35 @@ class ApplyController extends Controller
             }
           }
           switch($options["action"]){
+            case "manage":
+              if($options["section"]=='all'){
+                $application = Applications::find()->where(['<>','inactive', 1])->with('location','project','fee')->limit($options["limit"])->offset($options["skip"])->asArray()->all();
+                $total = Applications::find()->where(['<>','inactive', 1])->all();
+                $result["data"] = $application;
+                $result["total"] = count($total);
+              }
+              if($options["section"]=='preview'){
+                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->with('location','project','fee')->asArray()->all();
+                $result["data"] = $application;
+              }
+              $result["toast"] = 'success';
+              $result["status"] = TRUE;
+              break;
+            case "select":
+              if($options["section"]=='all'){
+                $applicantID = Yii::$app->user->identity->id;
+                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->with('location','project','fee')->limit($options["limit"])->offset($options["skip"])->asArray()->all();
+                $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->all();
+                $result["data"] = $application;
+                $result["total"] = count($total);
+              }
+              if($options["section"]=='detail'){
+                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->with('location','project','fee')->asArray()->all();
+                $result["data"] = $application;
+              }
+              $result["toast"] = 'success';
+              $result["status"] = TRUE;
+              break;
             case "create":
               $application = new Applications();
               (isset($data["personal"]["firstname"]))?$application->firstname = $data["personal"]["firstname"]:$application->firstname = '';
@@ -50,14 +79,15 @@ class ApplyController extends Controller
               (isset($data["address"]["state"]))?$application->state = $data["address"]["state"]:$application->state = '';
               (isset($data["address"]["zipcode"]))?$application->zipcode = $data["address"]["zipcode"]:$application->zipcode = '';
               (isset($data["address"]["country"]))?$application->country = $data["address"]["country"]:$application->country = '';
-              (isset($data["tour"]["location_id"]))?$application->location_id = $data["tour"]["location_id"]:$application->location_id = 0;
-              (isset($data["tour"]["program_id"]))?$application->program_id = $data["tour"]["program_id"]:$application->program_id = 0;
+              (isset($data["tour"]["location"]))?$application->location_id = $data["tour"]["location"]:$application->location_id = 0;
+              (isset($data["tour"]["project"]))?$application->project_id = $data["tour"]["project"]:$application->project_id = 0;
+              (isset($data["tour"]["fee"]))?$application->fee_id = $data["tour"]["fee"]:$application->fee_id = 0;
               (isset($data["tour"]["start_date"]))?$application->start_date = $data["tour"]["start_date"]:$application->start_date = null;
               (isset($data["other"]["education"]))?$application->education = $data["other"]["education"]:$application->education = '';
               (isset($data["other"]["experience"]))?$application->experience = $data["other"]["experience"]:$application->experience = '';
               (isset($data["other"]["language"]))?$application->language = $data["other"]["language"]:$application->language = '';
               (isset($data["other"]["skill"]))?$application->skill = $data["other"]["skill"]:$application->skill = '';
-              (isset($data["emergency"]["emergency"]))?$application->emergency = $data["emergency"]["emergency"]:$application->emergency = '';
+              (isset($data["emergency"]["contact"]))?$application->emergency = $data["emergency"]["contact"]:$application->emergency = '';
               (isset($data["background"]["violation"]))?$application->violation = $data["background"]["violation"]:$application->violation = '';
               (isset($data["background"]["violation_detail"]))?$application->violation_detail = $data["background"]["violation_detail"]:$application->violation_detail = '';
               (isset($data["background"]["criminal"]))?$application->criminal = $data["background"]["criminal"]:$application->criminal = '';
@@ -88,14 +118,15 @@ class ApplyController extends Controller
               (isset($data["address"]["state"]))?$application->state = $data["address"]["state"]:$application->state = '';
               (isset($data["address"]["zipcode"]))?$application->zipcode = $data["address"]["zipcode"]:$application->zipcode = '';
               (isset($data["address"]["country"]))?$application->country = $data["address"]["country"]:$application->country = '';
-              (isset($data["tour"]["location_id"]))?$application->location_id = $data["tour"]["location_id"]:$application->location_id = 0;
-              (isset($data["tour"]["program_id"]))?$application->program_id = $data["tour"]["program_id"]:$application->program_id = 0;
+              (isset($data["tour"]["location"]))?$application->location_id = $data["tour"]["location"]:$application->location_id = 0;
+              (isset($data["tour"]["project"]))?$application->project_id = $data["tour"]["project"]:$application->project_id = 0;
+              (isset($data["tour"]["fee"]))?$application->fee_id = $data["tour"]["fee"]:$application->fee_id = 0;
               (isset($data["tour"]["start_date"]))?$application->start_date = $data["tour"]["start_date"]:$application->start_date = null;
               (isset($data["other"]["education"]))?$application->education = $data["other"]["education"]:$application->education = '';
               (isset($data["other"]["experience"]))?$application->experience = $data["other"]["experience"]:$application->experience = '';
               (isset($data["other"]["language"]))?$application->language = $data["other"]["language"]:$application->language = '';
               (isset($data["other"]["skill"]))?$application->skill = $data["other"]["skill"]:$application->skill = '';
-              (isset($data["emergency"]["emergency"]))?$application->emergency = $data["emergency"]["emergency"]:$application->emergency = '';
+              (isset($data["emergency"]["contact"]))?$application->emergency = $data["emergency"]["contact"]:$application->emergency = '';
               (isset($data["background"]["violation"]))?$application->violation = $data["background"]["violation"]:$application->violation = '';
               (isset($data["background"]["violation_detail"]))?$application->violation_detail = $data["background"]["violation_detail"]:$application->violation_detail = '';
               (isset($data["background"]["criminal"]))?$application->criminal = $data["background"]["criminal"]:$application->criminal = '';
@@ -108,16 +139,22 @@ class ApplyController extends Controller
               $result["status"] = TRUE;
               $result["message"] =  "Your form has been update and wait for review.";
               break;
-            case "approve":
+            case "approval":
               $application = Applications::findOne(['id'=>$data["id"]]);
-              (isset($data["approval"]))?$application->approval = $data["approval"]:$application->approval = 0;
+              (isset($data["status"]))?$application->approval = $data["status"]:$application->approval = 'false';
+              (isset($data["note"]))?$application->note = $data["note"]:$application->note = '';
               $application->approvedAt = time();
               $application->approvedBy = Yii::$app->user->identity->id;
               $application->update();
               $result["data"] = $application->attributes;
               $result["toast"] = 'success';
               $result["status"] = TRUE;
-              $result["message"] =  "This application has deleted.";
+              if($data["status"]=='true'){
+                $result["message"] =  "This applicant has been approved.";
+              }
+              else{
+                $result["message"] =  "This applicant has been rejected.";
+              }
               break;
 
             case "delete":
