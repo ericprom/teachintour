@@ -310,12 +310,15 @@ controllers.controller('SettingFeeEditController', ['API','$scope', '$location',
         API.Toaster('warning','Pricing','กรุณากรอกข้อมูลก่อนทำการบันทึก');
       }
     }
-    $scope.deleteNewPrice = function(){
+    $scope.confirmDelete = function(){
+      $('#confirm-delete').modal('show');
+    }
+    $scope.deleteNow = function(){
       if($scope.Fee.id!=null){
         API.Fee({filter: {action:'delete',data:$scope.Fee}}).then(function (result) {
           if(result.status){
             API.Toaster(result.toast,'Pricing',result.message);
-            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/fee/';
+            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/fee';
           }
         });
       }
@@ -443,17 +446,19 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
         API.Toaster('warning','Location','กรุณากรอกข้อมูลก่อนทำการบันทึก');
       }
     }
-    $scope.deleteNewLocation = function(){
+    $scope.confirmDelete = function(){
+      $('#confirm-delete').modal('show');
+    }
+    $scope.deleteNow = function(){
       if($scope.Location.id!=null){
         API.Location({filter: {action:'delete',data:$scope.Location}}).then(function (result) {
           if(result.status){
             API.Toaster(result.toast,'Location',result.message);
-            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/location/';
+            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/location';
           }
         });
       }
     }
-
     $scope.addCover = function(){
       $scope.Cover.addMore = true;
     }
@@ -641,17 +646,19 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
         API.Toaster('warning','Project','กรุณากรอกข้อมูลก่อนทำการบันทึก');
       }
     }
-    $scope.deleteNewProject = function(){
+    $scope.confirmDelete = function(data){
+      $('#confirm-delete').modal('show');
+    }
+    $scope.deleteNow = function(){
       if($scope.Project.id!=null){
         API.Project({filter: {action:'delete',data:$scope.Project}}).then(function (result) {
           if(result.status){
             API.Toaster(result.toast,'Project',result.message);
-            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/project/';
+            $window.location=$window.location.pathname.split('/setting/')[0]+'/setting/project';
           }
         });
       }
     }
-
     $scope.addCover = function(){
       $scope.Cover.addMore = true;
     }
@@ -737,6 +744,20 @@ controllers.controller('SettingApplicationController', ['API','$scope', '$locati
     $scope.loadMoreItem = function(){
         $scope.skip += 10;
         $scope.feedItem($scope.skip,$scope.limit);
+    }
+    $scope.deleteObj = {};
+    $scope.confirmDelete = function(data){
+      $scope.deleteObj = data;
+      $('#confirm-delete').modal('show');
+    }
+    $scope.deleteNow = function(){
+      API.Apply({filter: {action:"delete", data:$scope.deleteObj}}).then(function (result) {
+        if(result.status){
+          $('#confirm-delete').modal('hide');
+          API.Remove($scope.Applications,$scope.deleteObj);
+          API.Toaster(result.toast,'Application',result.message);
+        }
+      });
     }
   }
 ]);
@@ -1111,61 +1132,85 @@ controllers.controller('ApplicationController', ['API','$scope', '$location', '$
         $scope.skip += 10;
         $scope.feedItem($scope.skip,$scope.limit);
     }
+
+    $scope.deleteObj = {};
+    $scope.confirmDelete = function(data){
+      $scope.deleteObj = data;
+      $('#confirm-delete').modal('show');
+    }
+    $scope.deleteNow = function(){
+      API.Apply({filter: {action:"delete", data:$scope.deleteObj}}).then(function (result) {
+        if(result.status){
+          $('#confirm-delete').modal('hide');
+          API.Remove($scope.Applications,$scope.deleteObj);
+          API.Toaster(result.toast,'Application',result.message);
+        }
+      });
+    }
   }
 ]);
 controllers.controller('ApplicationDetailController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.applicationID = $window.location.pathname.split('/application/')[1];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Apply({filter: {action:"select", section:"detail", data:{id:$scope.applicationID }}}).then(function (result) {
       if(result.status){
         var application = result.data[0];
-        $scope.approval = {
-          id:application.id,
-          status: application.approval,
-          date:application.approvedAt,
-          note:application.note
+        if(application){
+          $scope.hasItem = true;
+          $scope.approval = {
+            id:application.id,
+            status: application.approval,
+            date:application.approvedAt,
+            note:application.note
+          }
+          $scope.personal = {
+            firstname:application.firstname,
+            lastname:application.lastname,
+            nationality:application.nationality,
+            date_of_birth:application.date_of_birth,
+            gender:application.gender,
+            email:application.email,
+            phone:application.phone,
+            line:application.line,
+            facebook:application.facebook,
+            skype:application.skype,
+          };
+          $scope.address = {
+            street:application.street,
+            city:application.city,
+            state:application.state,
+            zipcode:application.zipcode,
+            country:application.country
+          };
+          $scope.tour = {
+            location:application.location,
+            project:application.project,
+            fee:application.fee,
+            start_date:application.start_date
+          };
+          $scope.other = {
+            education:application.education,
+            experience:application.experience,
+            language:application.language,
+            skill:application.skill
+          };
+          $scope.emergency = {
+            contact:application.emergency
+          };
+          $scope.background = {
+            violation:application.violation,
+            violation_detail:application.violation_detail,
+            criminal:application.criminal,
+            criminal_detail:application.criminal_detail
+          };
         }
-        $scope.personal = {
-          firstname:application.firstname,
-          lastname:application.lastname,
-          nationality:application.nationality,
-          date_of_birth:application.date_of_birth,
-          gender:application.gender,
-          email:application.email,
-          phone:application.phone,
-          line:application.line,
-          facebook:application.facebook,
-          skype:application.skype,
-        };
-        $scope.address = {
-          street:application.street,
-          city:application.city,
-          state:application.state,
-          zipcode:application.zipcode,
-          country:application.country
-        };
-        $scope.tour = {
-          location:application.location,
-          project:application.project,
-          fee:application.fee,
-          start_date:application.start_date
-        };
-        $scope.other = {
-          education:application.education,
-          experience:application.experience,
-          language:application.language,
-          skill:application.skill
-        };
-        $scope.emergency = {
-          contact:application.emergency
-        };
-        $scope.background = {
-          violation:application.violation,
-          violation_detail:application.violation_detail,
-          criminal:application.criminal,
-          criminal_detail:application.criminal_detail
-        };
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
   }
 ]);

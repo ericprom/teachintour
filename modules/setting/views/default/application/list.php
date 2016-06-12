@@ -54,7 +54,7 @@ $this->title = 'All Applications | '.Yii::$app->params["company_name"].'';
               <a href="<?=Url::to(['/setting/application'])?>/{{application.id}}" class="btn btn-info" role="button">
                 <i class="icon-file"></i>
               </a>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" ng-click="confirmDelete(application)">
                 <i class="icon-trash"></i>
               </button>
             </td>
@@ -70,5 +70,21 @@ $this->title = 'All Applications | '.Yii::$app->params["company_name"].'';
         </a>
       </div>
     </div>
+  </div>
+  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" style="margin-top: 200px;">
+              <div class="modal-header">
+                  <i class="icon-trash"></i>  <b>Application removal</b>
+              </div>
+              <div class="modal-body">
+                  Do you want to delete the application of <strong>{{(deleteObj.firstname+" "+deleteObj.lastname)}}</strong>?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-success btn-ok" ng-click="deleteNow()">Confirm</a>
+              </div>
+          </div>
+      </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 $this->title = 'Your Application | '.Yii::$app->params["company_name"].'';
 ?>
 <div ng-controller="ApplicationDetailController" ng-cloak>
-  <section id="page-title">
+  <section id="page-title" ng-show="hasItem && !isLoading">
     <div class="container clearfix">
       <h1 ng-show="approval.date==null">STATUS: REVIEWING</h1>
       <h1 ng-show="approval.date!=null && approval.status=='true'">STATUS: ACCEPTED</h1>
@@ -15,7 +15,14 @@ $this->title = 'Your Application | '.Yii::$app->params["company_name"].'';
     </div>
   </section>
   <section id="content">
-    <div class="content-wrap">
+    <div class="content-wrap" ng-show="!hasItem && !isLoading">
+      <div class="container clearfix">
+        <div class="col_full">
+          <div class="error404 center">404</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrap" ng-show="hasItem && !isLoading">
       <div class="container clearfix">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">

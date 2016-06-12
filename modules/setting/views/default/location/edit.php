@@ -64,7 +64,7 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
                   </div>
                   <div class="col_full nobottommargin">
                     <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" ng-click="updateNewLocation()">Update Now</button>
-                    <button class="button button-3d button-red nomargin pull-right" id="register-form-submit" name="register-form-submit" value="register" ng-click="deleteNewLocation()">Delete Now</button>
+                    <button class="button button-3d button-red nomargin pull-right" id="register-form-submit" name="register-form-submit" value="register" ng-click="confirmDelete()">Delete Now</button>
                   </div>
                 </div>
                 <div class="tab-content clearfix" id="location-cover">
@@ -168,6 +168,22 @@ $this->title = 'Update Location | '.Yii::$app->params["company_name"].'';
       </div>
     </div>
   </section>
+  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" style="margin-top: 200px;">
+              <div class="modal-header">
+                  <i class="icon-trash"></i>  <b>Localtion removal</b>
+              </div>
+              <div class="modal-body">
+                  Do you want to delete <strong>{{Location.title}}</strong>?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-success btn-ok" ng-click="deleteNow()">Confirm</a>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 <script src="<?=Yii::$app->request->baseUrl; ?>/js/jquery.js"></script>

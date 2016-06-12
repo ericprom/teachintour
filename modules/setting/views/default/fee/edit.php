@@ -84,10 +84,27 @@ $this->title = 'Update Pricing | '.Yii::$app->params["company_name"].'';
           <div class="line"></div>
           <div class="col_full nobottommargin">
             <button class="button button-3d button-black nomargin" ng-click="updateNewPrice()">Update Now</button>
-            <button class="button button-3d button-red nomargin pull-right" ng-click="deleteNewPrice()">Delete Now</button>
+            <button class="button button-3d button-red nomargin pull-right" ng-click="confirmDelete()">Delete Now</button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" style="margin-top: 200px;">
+              <div class="modal-header">
+                  <i class="icon-trash"></i>  <b>Pricing removal</b>
+              </div>
+              <div class="modal-body">
+                  Do you want to delete <strong>{{Fee.title}}</strong>?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-success btn-ok" ng-click="deleteNow()">Confirm</a>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
