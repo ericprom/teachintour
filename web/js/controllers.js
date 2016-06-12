@@ -1,4 +1,4 @@
-var controllers = angular.module('controllers', ['toaster', 'ngAnimate','ui.bootstrap', 'angular-md5','angularMoment']);
+var controllers = angular.module('controllers', ['angular-underscore','toaster', 'ngAnimate','ui.bootstrap', 'angular-md5','angularMoment']);
 controllers.directive('validNumber', function() {
   return {
     require: '?ngModel',
@@ -261,6 +261,8 @@ controllers.controller('SettingFeeAddController', ['API','$scope', '$location', 
 controllers.controller('SettingFeeEditController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.feeID = $window.location.pathname.split('/setting/fee/edit/')[1];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     $scope.Fee = {
         popular:false,
         shelt:false,
@@ -269,12 +271,19 @@ controllers.controller('SettingFeeEditController', ['API','$scope', '$location',
     $scope.Promotions = [];
     API.Fee({filter: {action:"manage", section:"detail", data:{id:$scope.feeID }}}).then(function (result) {
       if(result.status){
-        $scope.Fee = result.data;
-        $scope.Fee.popular = API.parseBool(result.data.popular);
-        $scope.Fee.shelf = API.parseBool(result.data.shelf);
-        $scope.Fee.available = API.parseBool(result.data.available);
-        $scope.Promotions = angular.fromJson(result.data.detail);
+        if(result.data){
+          $scope.hasItem = true;
+          $scope.Fee = result.data;
+          $scope.Fee.popular = API.parseBool(result.data.popular);
+          $scope.Fee.shelf = API.parseBool(result.data.shelf);
+          $scope.Fee.available = API.parseBool(result.data.available);
+          $scope.Promotions = angular.fromJson(result.data.detail);
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
     $scope.addPromotion = function(promotion){
       if(promotion!=null){
@@ -369,6 +378,8 @@ controllers.controller('SettingLocationAddController', ['API','$scope', '$locati
 controllers.controller('SettingLocationEditController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.locationID = $window.location.pathname.split('/setting/location/edit/')[1];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     $scope.Location = {
       available:false
     };
@@ -401,26 +412,24 @@ controllers.controller('SettingLocationEditController', ['API','$scope', '$locat
       API.File({filter: {action:'select',folder:'locations',section:'galleries',location:$scope.locationID}}).then(function (result) {
         if(result.status){
           $scope.Gallery.list = result.data;
-          // angular.forEach(result.data, function (element, index, array) {
-          //   if(md5.createHash($scope.Location.cover)==element.key_path){
-          //     element.covered = true;
-          //   }
-          //   else{
-          //     element.covered = false;
-          //   }
-          //   $scope.Gallery.list.push(element);
-          // });
         }
       });
     }
     API.Location({filter: {action:"manage", section:"detail", data:{id:$scope.locationID }}}).then(function (result) {
       if(result.status){
-        $scope.Location = result.data;
-        $scope.Location.available = API.parseBool(result.data.available);
+        if(result.data){
+          $scope.hasItem = true;
+          $scope.Location = result.data;
+          $scope.Location.available = API.parseBool(result.data.available);
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
     }).then(function(){
       $scope.getLocationCover();
       $scope.getLocationGallery();
+      $scope.isLoading = false;
     });
     $scope.updateNewLocation = function(){
       if($scope.Location.title!=''){
@@ -505,13 +514,22 @@ controllers.controller('SettingLocationDetailController', ['API','$scope', '$loc
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.locationID = $window.location.pathname.split('/setting/location/')[1];
     $scope.Location = {
-        available:false
-      };
+      available:false
+    };
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Location({filter: {action:"manage", section:"preview", data:{id:$scope.locationID }}}).then(function (result) {
       if(result.status){
-        $scope.Location = result.data;
-        $scope.Location.available = API.parseBool(result.data.available);
+        if(result.data){
+          $scope.hasItem = true;
+          $scope.Location = result.data;
+          $scope.Location.available = API.parseBool(result.data.available);
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
   }
 ]);
@@ -577,6 +595,8 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
       list:[],
       addMore:false
     };
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     $scope.getProjectCover = function(){
       $scope.Cover.list = [];
       API.File({filter: {action:'select',folder:'projects',section:'covers',location:$scope.projectID}}).then(function (result) {
@@ -596,11 +616,18 @@ controllers.controller('SettingProjectEditController', ['API','$scope', '$locati
     }
     API.Project({filter: {action:"manage", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
-        $scope.Project = result.data;
-        $scope.Project.available = API.parseBool(result.data.available);
+        if(result.data){
+          $scope.hasItem = true;
+          $scope.Project = result.data;
+          $scope.Project.available = API.parseBool(result.data.available);
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
     }).then(function(){
       $scope.getProjectCover();
+      $scope.isLoading = false;
     });
     $scope.updateNewProject = function(){
       if($scope.Project.title!=''){
@@ -669,13 +696,22 @@ controllers.controller('SettingProjectDetailController', ['API','$scope', '$loca
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.projectID = $window.location.pathname.split('/setting/project/')[1];
     $scope.Project = {
-        available:false
-      };
+      available:false
+    };
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Project({filter: {action:"manage", section:"preview", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
-        $scope.Project = result.data;
-        $scope.Project.available = API.parseBool(result.data.available);
+        if(result.data){
+          $scope.hasItem = true;
+          $scope.Project = result.data;
+          $scope.Project.available = API.parseBool(result.data.available);
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
   }
 ]);
@@ -707,56 +743,65 @@ controllers.controller('SettingApplicationController', ['API','$scope', '$locati
 controllers.controller('SettingApplicationDetailController', ['API','$scope', '$location', '$window', '$http', 'md5',
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.applicationID = $window.location.pathname.split('/setting/application/')[1];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Apply({filter: {action:"manage", section:"preview", data:{id:$scope.applicationID }}}).then(function (result) {
       if(result.status){
         var application = result.data[0];
-        $scope.approval = {
-          id:application.id,
-          status: application.approval,
-          date:application.approvedAt,
-          note:application.note
+        if(application){
+          $scope.hasItem = true;
+          $scope.approval = {
+            id:application.id,
+            status: application.approval,
+            date:application.approvedAt,
+            note:application.note
+          }
+          $scope.personal = {
+            firstname:application.firstname,
+            lastname:application.lastname,
+            nationality:application.nationality,
+            date_of_birth:application.date_of_birth,
+            gender:application.gender,
+            email:application.email,
+            phone:application.phone,
+            line:application.line,
+            facebook:application.facebook,
+            skype:application.skype,
+          };
+          $scope.address = {
+            street:application.street,
+            city:application.city,
+            state:application.state,
+            zipcode:application.zipcode,
+            country:application.country
+          };
+          $scope.tour = {
+            location:application.location,
+            project:application.project,
+            fee:application.fee,
+            start_date:application.start_date
+          };
+          $scope.other = {
+            education:application.education,
+            experience:application.experience,
+            language:application.language,
+            skill:application.skill
+          };
+          $scope.emergency = {
+            contact:application.emergency
+          };
+          $scope.background = {
+            violation:application.violation,
+            violation_detail:application.violation_detail,
+            criminal:application.criminal,
+            criminal_detail:application.criminal_detail
+          };
         }
-        $scope.personal = {
-          firstname:application.firstname,
-          lastname:application.lastname,
-          nationality:application.nationality,
-          date_of_birth:application.date_of_birth,
-          gender:application.gender,
-          email:application.email,
-          phone:application.phone,
-          line:application.line,
-          facebook:application.facebook,
-          skype:application.skype,
-        };
-        $scope.address = {
-          street:application.street,
-          city:application.city,
-          state:application.state,
-          zipcode:application.zipcode,
-          country:application.country
-        };
-        $scope.tour = {
-          location:application.location,
-          project:application.project,
-          fee:application.fee,
-          start_date:application.start_date
-        };
-        $scope.other = {
-          education:application.education,
-          experience:application.experience,
-          language:application.language,
-          skill:application.skill
-        };
-        $scope.emergency = {
-          contact:application.emergency
-        };
-        $scope.background = {
-          violation:application.violation,
-          violation_detail:application.violation_detail,
-          criminal:application.criminal,
-          criminal_detail:application.criminal_detail
-        };
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
     $scope.ResponseBack = function(){
       API.Apply({filter: {action:"approval", data:$scope.approval}}).then(function (result) {
@@ -811,19 +856,20 @@ controllers.controller('LocationDetailController', ['API','$scope', '$location',
     $scope.LocationID = $window.location.pathname.split('/location/')[1];
     $scope.Location = {};
     $scope.Galleries = [];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Location({filter: {action:"select", section:"detail", data:{id:$scope.LocationID }}}).then(function (result) {
       if(result.status){
-        $scope.Location = result.data;
+        if(result.data){
+          $scope.Location = result.data;
+          $scope.hasItem = true;
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
-    }).then(function(){
-      // API.File({filter: {action:'select',folder:'locations',section:'galleries',location:$scope.LocationID}}).then(function (result) {
-      //   if(result.status){
-      //     console.log(result);
-      //     $scope.Galleries = result.data;
-      //   }
-      // });
+      $scope.isLoading = false;
     });
-
   }
 ]);
 ///////////////////////////////////////////////////PROJECT VIEW///////////////////////////////////////////////////
@@ -855,10 +901,19 @@ controllers.controller('ProjectDetailController', ['API','$scope', '$location', 
   function (API, $scope, $location, $window,  $http, md5) {
     $scope.projectID = $window.location.pathname.split('/project/')[1];
     $scope.Project = {};
+    $scope.isLoading = true;
+    $scope.hasItem = false;
     API.Project({filter: {action:"select", section:"detail", data:{id:$scope.projectID }}}).then(function (result) {
       if(result.status){
-        $scope.Project = result.data;
+        if(result.data){
+          $scope.Project = result.data;
+          $scope.hasItem = true;
+        }
+        else{
+          $scope.hasItem = false;
+        }
       }
+      $scope.isLoading = false;
     });
   }
 ]);
@@ -1112,6 +1167,136 @@ controllers.controller('ApplicationDetailController', ['API','$scope', '$locatio
         };
       }
     });
+  }
+]);
+
+controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
+  function (API,$rootScope, $scope, $location, $window,  $http, md5) {
+    $scope.applicationID = $window.location.pathname.split('/application/edit/')[1];
+    $scope.Locations = [];
+    $scope.Projects = [];
+    $scope.Fees = [];
+    $scope.isLoading = true;
+    $scope.hasItem = false;
+    API.Location({filter: {action:"select", section:"appy"}}).then(function (result) {
+      if(result.status){
+        $scope.Locations = result.data;
+      }
+    });
+    API.Project({filter: {action:"select", section:"appy"}}).then(function (result) {
+      if(result.status){
+        $scope.Projects = result.data;
+      }
+    });
+    API.Fee({filter: {action:"select", section:"appy"}}).then(function (result) {
+      if(result.status){
+        $scope.Fees = result.data;
+      }
+    });
+    API.Apply({filter: {action:"select", section:"detail", data:{id:$scope.applicationID }}}).then(function (result) {
+      if(result.status){
+        var application = result.data[0];
+        if(application){
+          $scope.hasItem = true;
+          $scope.agreement = API.parseBool(application.agreement);
+          $scope.approval = {
+            id:application.id,
+            status: application.approval,
+            date:application.approvedAt,
+            note:application.note
+          }
+          $scope.personal = {
+            firstname:application.firstname,
+            lastname:application.lastname,
+            nationality:application.nationality,
+            date_of_birth:application.date_of_birth,
+            gender:application.gender,
+            email:application.email,
+            phone:application.phone,
+            line:application.line,
+            facebook:application.facebook,
+            skype:application.skype,
+          };
+          $scope.address = {
+            street:application.street,
+            city:application.city,
+            state:application.state,
+            zipcode:application.zipcode,
+            country:application.country
+          };
+          $scope.tour = {
+            location:application.location.id,
+            project:application.project.id,
+            fee:application.fee.id,
+            start_date:application.start_date
+          };
+          $scope.other = {
+            education:application.education,
+            experience:application.experience,
+            language:application.language,
+            skill:application.skill
+          };
+          $scope.emergency = {
+            contact:application.emergency
+          };
+          $scope.background = {
+            violation:application.violation,
+            violation_detail:application.violation_detail,
+            criminal:application.criminal,
+            criminal_detail:application.criminal_detail
+          };
+        }
+        else{
+          $scope.hasItem = false;
+        }
+      }
+      $scope.isLoading = false;
+    });
+    $scope.updateApplication = function(data){
+      if(data.agreement){
+        API.Apply({filter: {action:'update',data:data}}).then(function (result) {
+          if(result.status){
+            API.Toaster(result.toast,'Application',result.message);
+          }
+          else{
+            API.Toaster('warning','Project','เกิดข้อผิดพลาด');
+          }
+        });
+      }
+      else{
+        $rootScope.processing = false;
+        API.Toaster('warning','teachin\' tour','Please accept TERMS AND CONDITIONS before submitting the form!');
+      }
+    }
+    $scope.UpdateNow = function(){
+      $scope.Apply = {
+        id:$scope.applicationID,
+        personal: $scope.personal,
+        address: $scope.address,
+        tour: $scope.tour,
+        other: $scope.other,
+        emergency: $scope.emergency,
+        background: $scope.background,
+        agreement:$scope.agreement
+      };
+      var status = [];
+      for (var k in $scope.Apply) {
+        if ($scope.Apply.hasOwnProperty(k)) {
+          for (var m in $scope.Apply[k]) {
+            if($scope.Apply[k][m].length>0){
+              status.push(true);
+            }
+            else{
+              status.push(false);
+              API.Toaster('warning','Apply',m+' cannot be blank.');
+            }
+          }
+        }
+      }
+      if(status.indexOf(false) <= -1){
+        $scope.updateApplication($scope.Apply);
+      }
+    }
   }
 ]);
 

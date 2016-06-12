@@ -58,14 +58,19 @@ class LocationController extends Controller
               }
               if($options["section"]=='detail'){
                 $location = Locations::find()->where(['and', ['<>','inactive', 1],['=','available', 'true'],['=','id', $data["id"]]])->one();
-                $coverPath = Yii::getAlias('@webroot') .'/images/locations/covers/default.jpg';
-                if($location->cover!=null){
-                  $location->cover = Yii::$app->assetManager->publish($location->cover);
+                if($location){
+                  $coverPath = Yii::getAlias('@webroot') .'/images/locations/covers/default.jpg';
+                  if($location->cover!=null){
+                    $location->cover = Yii::$app->assetManager->publish($location->cover);
+                  }
+                  else{
+                    $location->cover = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $result["data"] = $location->attributes;
                 }
                 else{
-                  $location->cover = Yii::$app->assetManager->publish($coverPath);
+                  $result["data"] = $location;
                 }
-                $result["data"] = $location->attributes;
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;
@@ -90,18 +95,28 @@ class LocationController extends Controller
               }
               if($options["section"]=='detail'){
                 $location = Locations::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $result["data"] = $location->attributes;
+                if($location){
+                  $result["data"] = $location->attributes;
+                }
+                else{
+                  $result["data"] = $location;
+                }
               }
               if($options["section"]=='preview'){
                 $location = Locations::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $coverPath = Yii::getAlias('@webroot') .'/images/locations/covers/default.jpg';
-                if($location->cover!=null){
-                  $location->cover = Yii::$app->assetManager->publish($location->cover);
+                if($location){
+                  $coverPath = Yii::getAlias('@webroot') .'/images/locations/covers/default.jpg';
+                  if($location->cover!=null){
+                    $location->cover = Yii::$app->assetManager->publish($location->cover);
+                  }
+                  else{
+                    $location->cover = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $result["data"] = $location->attributes;
                 }
                 else{
-                  $location->cover = Yii::$app->assetManager->publish($coverPath);
+                  $result["data"] = $location;
                 }
-                $result["data"] = $location->attributes;
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;

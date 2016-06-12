@@ -7,14 +7,21 @@ use yii\helpers\Html;
 $this->title = 'Preview Location | '.Yii::$app->params["company_name"].'';
 ?>
 <div ng-controller="SettingLocationDetailController" ng-cloak>
-  <section id="page-title">
+  <section id="page-title" ng-show="hasItem && !isLoading">
 
     <div class="container clearfix">
       <h1>Preview: {{Location.title}}</h1>
     </div>
   </section>
   <section id="content">
-    <div class="content-wrap">
+    <div class="content-wrap" ng-show="!hasItem && !isLoading">
+      <div class="container clearfix">
+        <div class="col_full">
+          <div class="error404 center">404</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrap" ng-show="hasItem && !isLoading">
       <div class="container clearfix">
         <div class="col_two_third portfolio-single-image nobottommargin">
           <div class="masonry-thumbs col-3" data-big="3" data-lightbox="gallery">

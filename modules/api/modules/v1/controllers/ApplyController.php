@@ -48,15 +48,15 @@ class ApplyController extends Controller
               $result["status"] = TRUE;
               break;
             case "select":
+              $applicantID = Yii::$app->user->identity->id;
               if($options["section"]=='all'){
-                $applicantID = Yii::$app->user->identity->id;
                 $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->with('location','project','fee')->limit($options["limit"])->offset($options["skip"])->asArray()->all();
                 $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->all();
                 $result["data"] = $application;
                 $result["total"] = count($total);
               }
               if($options["section"]=='detail'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->with('location','project','fee')->asArray()->all();
+                $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->andWhere(['=','createdBy', $applicantID])->with('location','project','fee')->asArray()->all();
                 $result["data"] = $application;
               }
               $result["toast"] = 'success';
@@ -131,6 +131,9 @@ class ApplyController extends Controller
               (isset($data["background"]["violation_detail"]))?$application->violation_detail = $data["background"]["violation_detail"]:$application->violation_detail = '';
               (isset($data["background"]["criminal"]))?$application->criminal = $data["background"]["criminal"]:$application->criminal = '';
               (isset($data["background"]["criminal_detail"]))?$application->criminal_detail = $data["background"]["criminal_detail"]:$application->criminal_detail = '';
+              $application->approval = 'false';
+              $application->approvedAt = null;
+              $application->approvedBy = null;
               $application->updatedAt = time();
               $application->updatedBy = Yii::$app->user->identity->id;
               $application->update();

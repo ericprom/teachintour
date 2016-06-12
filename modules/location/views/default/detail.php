@@ -7,13 +7,20 @@ use yii\helpers\Html;
 $this->title = 'Location Detail | '.Yii::$app->params["company_name"].'';
 ?>
 <section id="content" ng-controller="LocationDetailController" ng-cloak>
-  <section id="page-title">
+  <section id="page-title" ng-show="hasItem && !isLoading">
     <div class="container clearfix">
       <h1>Namsom, Udonthani</h1>
     </div>
   </section>
   <section id="content">
-    <div class="content-wrap">
+    <div class="content-wrap" ng-show="!hasItem && !isLoading">
+      <div class="container clearfix">
+        <div class="col_full">
+          <div class="error404 center">404</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrap" ng-show="hasItem && !isLoading">
       <div class="container clearfix">
         <div class="postcontent nobottommargin clearfix">
           <div class="single-post nobottommargin">

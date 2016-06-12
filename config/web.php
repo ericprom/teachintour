@@ -137,6 +137,7 @@ $config = [
 
                 //Application URL Management
                 'application/<id:\d+>' => 'application',
+                'application/<action:\w+>/<id:\d+>' => 'application/default/<action>',
 
                 //Setting URL Management
                 'setting/<action:\w+>' => 'setting/default/<action>',

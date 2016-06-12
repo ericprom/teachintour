@@ -26,6 +26,8 @@ class BowerAsset extends AssetBundle
         'dropzone/dropzone.js',
         'angular-md5/angular-md5.js',
         'bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+        'underscore/underscore.min.js',
+        'underscore/angular-underscore.min.js',
     ];
     public $jsOptions = [
         'position' => View::POS_END,

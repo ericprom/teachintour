@@ -53,9 +53,12 @@ $this->title = 'Application | '.Yii::$app->params["company_name"].'';
               <a href="<?=Url::to(['/application'])?>/{{application.id}}" class="btn btn-info" role="button">
                 <i class="icon-file"></i>
               </a>
-              <a href="<?=Url::to(['/application/edit'])?>/{{application.id}}" class="btn btn-default" role="button">
+              <a href="<?=Url::to(['/application/edit'])?>/{{application.id}}" class="btn btn-default" role="button" ng-show="application.approval=='false'">
                 <i class="icon-edit"></i>
               </a>
+              <button class="btn btn-default" role="button" ng-show="application.approval=='true'" disabled>
+                <i class="icon-edit"></i>
+              </button>
               <button class="btn btn-danger">
                 <i class="icon-trash"></i>
               </button>

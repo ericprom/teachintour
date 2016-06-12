@@ -7,13 +7,20 @@ use yii\helpers\Html;
 $this->title = 'Project Detail | '.Yii::$app->params["company_name"].'';
 ?>
 <div ng-controller="ProjectDetailController" ng-cloak>
-  <section id="page-title">
+  <section id="page-title" ng-show="hasItem && !isLoading">
     <div class="container clearfix">
       <h1>{{Project.title}}</h1>
     </div>
   </section>
   <section id="content">
-    <div class="content-wrap">
+    <div class="content-wrap" ng-show="!hasItem && !isLoading">
+      <div class="container clearfix">
+        <div class="col_full">
+          <div class="error404 center">404</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrap" ng-show="hasItem && !isLoading">
       <div class="container clearfix">
         <div class="single-event">
           <div class="col_three_fourth">

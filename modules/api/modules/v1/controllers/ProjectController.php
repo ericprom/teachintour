@@ -59,13 +59,19 @@ class ProjectController extends Controller
               if($options["section"]=='detail'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1],['=','available', 'true'],['=','id', $data["id"]]])->one();
                 $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
-                if($project->cover!=null){
-                  $project->cover = Yii::$app->assetManager->publish($project->cover);
+
+                if($project){
+                  if($project->cover!=null){
+                    $project->cover = Yii::$app->assetManager->publish($project->cover);
+                  }
+                  else{
+                    $project->cover = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $result["data"] = $project->attributes;
                 }
                 else{
-                  $project->cover = Yii::$app->assetManager->publish($coverPath);
+                  $result["data"] = $project;
                 }
-                $result["data"] = $project->attributes;
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;
@@ -90,18 +96,28 @@ class ProjectController extends Controller
               }
               if($options["section"]=='detail'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $result["data"] = $project->attributes;
+                if($project){
+                  $result["data"] = $project->attributes;
+                }
+                else{
+                  $result["data"] = $project;
+                }
               }
               if($options["section"]=='preview'){
                 $project = Projects::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
-                if($project->cover!=null){
-                  $project->cover = Yii::$app->assetManager->publish($project->cover);
+                if($project){
+                  $coverPath = Yii::getAlias('@webroot') .'/images/projects/covers/default.jpg';
+                  if($project->cover!=null){
+                    $project->cover = Yii::$app->assetManager->publish($project->cover);
+                  }
+                  else{
+                    $project->cover = Yii::$app->assetManager->publish($coverPath);
+                  }
+                  $result["data"] = $project->attributes;
                 }
                 else{
-                  $project->cover = Yii::$app->assetManager->publish($coverPath);
+                  $result["data"] = $project;
                 }
-                $result["data"] = $project->attributes;
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;

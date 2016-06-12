@@ -10,6 +10,29 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+    public function behaviors()
+    {
+      return [
+        'access' => [
+          'class' => \yii\filters\AccessControl::className(),
+          'ruleConfig' => [
+              'class' => \yii\filters\AccessRule::className(),
+          ],
+          'rules' => [
+            [
+              'actions' => ['index', 'edit'],
+              'allow' => true,
+              'roles' => ['@'],
+            ],
+            [
+              'actions' => ['login'],
+              'allow' => true,
+              'roles' => ['?'],
+            ],
+          ],
+        ],
+      ];
+    }
     /**
      * Renders the index view for the module
      * @return string
@@ -24,5 +47,9 @@ class DefaultController extends Controller
       else{
         return $this->render('index');
       }
+    }
+    public function actionEdit()
+    {
+      return $this->render('edit');
     }
 }

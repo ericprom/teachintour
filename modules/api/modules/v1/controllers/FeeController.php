@@ -55,7 +55,12 @@ class FeeController extends Controller
               }
               if($options["section"]=='detail'){
                 $fee = Fees::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->one();
-                $result["data"] = $fee->attributes;
+                if($fee){
+                  $result["data"] = $fee->attributes;
+                }
+                else{
+                  $result["data"] = $fee;
+                }
               }
               $result["toast"] = 'success';
               $result["status"] = TRUE;
