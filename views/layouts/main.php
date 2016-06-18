@@ -76,7 +76,6 @@ $user = Yii::$app->user->identity;
       $loginActive='';($menu=='login')?$loginActive='class="current"':'';
       $registerActive='';($menu=='register')?$registerActive='class="current"':'';
     ?>
-
   </head>
 
   <body class="stretched side-panel-left">
@@ -148,19 +147,12 @@ $user = Yii::$app->user->identity;
         </div>
       </div>
     </div>
-    <!-- Document Wrapper
-  ============================================= -->
     <div id="wrapper" class="clearfix">
-
-      <!-- Header
-      ============================================= -->
       <header id="header" <?=$transparentHeader?> data-sticky-class="not-dark">
 
         <div id="header-wrap">
 
           <div class="container clearfix">
-            <!-- Logo
-            ============================================= -->
             <div id="logo">
               <a href="<?=Yii::$app->homeUrl;?>" class="standard-logo" data-dark-logo="<?=Yii::$app->request->baseUrl;?>/images/logo-dark.png"><img src="<?=Yii::$app->request->baseUrl;?>/images/logo.png" alt="Teachin' Tour"></a>
               <a href="<?=Yii::$app->homeUrl;?>" class="retina-logo" data-dark-logo="<?=Yii::$app->request->baseUrl;?>/images/logo-dark@2x.png"><img src="<?=Yii::$app->request->baseUrl;?>/images/logo@2x.png" alt="Teachin' Tour"></a>
@@ -192,24 +184,18 @@ $user = Yii::$app->user->identity;
               <div id="side-panel-trigger" class="side-panel-trigger">
                 <a href="#"><i class="icon-reorder"></i></a>
               </div>
-            </nav><!-- #primary-menu end -->
+            </nav>
 
           </div>
 
         </div>
 
-      </header><!-- #header end -->
-      <!--  -->
+      </header>
       <?= $content ?>
       <toaster-container></toaster-container>
-      <!-- Footer
-      ============================================= -->
       <footer id="footer" class="dark">
 
         <div class="container">
-
-          <!-- Footer Widgets
-          ============================================= -->
           <div class="footer-widgets-wrap clearfix">
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
@@ -284,17 +270,18 @@ $user = Yii::$app->user->identity;
                 © <?=Yii::$app->params['company_name'];?> 2016
               </div>
             </div>
-          </div><!-- .footer-widgets-wrap end -->
+          </div>
 
         </div>
-      </footer><!-- #footer end -->
+      </footer>
 
-    </div><!-- #wrapper end -->
-
-    <!-- Go To Top
-    ============================================= -->
+    </div>
     <div id="gotoTop" class="icon-angle-up"></div>
     <?php $this->endBody() ?>
+    <script src="https://cdn.omise.co/omise.js"></script>
+    <script>
+      Omise.setPublicKey("pkey_test_4xpip92iqmehclz4a4d");
+    </script>
   </body>
 </html>
 <?php $this->endPage() ?>
