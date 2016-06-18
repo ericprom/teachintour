@@ -136,6 +136,9 @@ $user = Yii::$app->user->identity;
                   <li>
                     <a href="<?=Url::to(['/application'])?>">Application</a>
                   </li>
+                  <li>
+                    <a href="<?=Url::to(['/payment'])?>">Payment</a>
+                  </li>
                 <?php }?>
               <li>
                 <?=Html::a('Log out', ['/logout/'],['data' => ['method' => 'post']]);?>
@@ -280,7 +283,7 @@ $user = Yii::$app->user->identity;
     <?php $this->endBody() ?>
     <script src="https://cdn.omise.co/omise.js"></script>
     <script>
-      Omise.setPublicKey("pkey_test_4xpip92iqmehclz4a4d");
+      Omise.setPublicKey("pkey_test_54dtg5n2fpnnzpm0l5v");
     </script>
   </body>
 </html>

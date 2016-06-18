@@ -1,15 +1,16 @@
 <?php
 
-namespace app\modules\application\controllers;
+namespace app\modules\payment\controllers;
 
 use Yii;
 use yii\web\Controller;
 
 /**
- * Default controller for the `application` module
+ * Default controller for the `payment` module
  */
 class DefaultController extends Controller
 {
+
     public function behaviors()
     {
       return [
@@ -20,7 +21,7 @@ class DefaultController extends Controller
           ],
           'rules' => [
             [
-              'actions' => ['index', 'edit'],
+              'actions' => ['index'],
               'allow' => true,
               'roles' => ['@'],
             ],
@@ -47,13 +48,5 @@ class DefaultController extends Controller
       else{
         return $this->render('index');
       }
-    }
-    public function actionEdit()
-    {
-      return $this->render('edit');
-    }
-    public function actionPayment()
-    {
-      return $this->render('payment');
     }
 }

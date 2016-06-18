@@ -1344,4 +1344,46 @@ controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope
     }
   }
 ]);
-
+controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
+  function (API,$rootScope, $scope, $location, $window,  $http, md5) {
+    $scope.hasItem = true;
+    $scope.card = {
+      name:'BUMBIN ARAUPORN',
+      number:'4242424242424242',
+      month:'02',
+      year:'2020',
+      cvv:'111',
+      collecting:false,
+      charging:false
+    }
+    $scope.CollectingCards = function(){
+      if($scope.card.name&&$scope.card.number&&$scope.card.month&&$scope.card.year&&$scope.card.cvv){
+        var card = {
+          "name": $scope.card.name,
+          "number": $scope.card.number,
+          "expiration_month": $scope.card.month,
+          "expiration_year": $scope.card.year,
+          "security_code": $scope.card.cvv
+        };
+        $scope.card.collecting = true;
+        Omise.createToken("card", card, function (statusCode, response) {
+          if (statusCode === 200) {
+            $scope.ChargingCards(response.id);
+          }
+          else{
+            API.Toaster('warning','Payment',response.message);
+          }
+          $scope.card.collecting = false;
+        });
+      }
+      else{
+        $scope.card.collecting = false;
+        API.Toaster('warning','Payment','Plese fill payment details.');
+      }
+    }
+    $scope.ChargingCards = function(token){
+      $scope.card.charging = true;
+      console.log(token);
+    }
+  }
+]);
