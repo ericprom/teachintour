@@ -168,7 +168,22 @@ class ApplyController extends Controller
                 $result["message"] =  "This applicant has been rejected.";
               }
               break;
-
+            case "payment":
+              $application = Applications::findOne(['id'=>$data["id"]]);
+              (isset($data["paid"]))?$application->paid = $data["paid"]:$application->paid = 'false';
+              $application->receivedAt = time();
+              $application->receivedBy = Yii::$app->user->identity->id;
+              $application->update();
+              $result["data"] = $application->attributes;
+              $result["toast"] = 'success';
+              $result["status"] = TRUE;
+              if($data["paid"]=='true'){
+                $result["message"] =  "This applicant has been mark as paid.";
+              }
+              else{
+                $result["message"] =  "This applicant has been mark as unpaid.";
+              }
+              break;
             case "delete":
               $application = Applications::findOne(['id'=>$data["id"]]);
               $application->updatedAt = time();

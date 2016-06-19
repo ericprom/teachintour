@@ -35,12 +35,11 @@ class PaymentController extends Controller
           }
           switch($options["action"]){
             case "pay":
-              // $userID = Yii::$app->user->identity->id;
-              // $userName = Yii::$app->user->name;
+              $userID = Yii::$app->user->identity->id;
               $card = array(
                 'amount'=> $data['amount'],
                 'currency'    => 'thb',
-                // 'description' => 'User ID:'.$userID.' User Name:'.$userName,
+                'description' => 'User#'.$userID.'-'.$data['description'],
                 'card' => $data['omise_token']
               );
               $charge = OmiseCharge::create($card);

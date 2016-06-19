@@ -742,9 +742,9 @@ controllers.controller('SettingApplicationController', ['API','$scope', '$locati
     $scope.Applications = [];
     $scope.feedItem = function(skip,limit){
       API.Apply({filter: {action:"manage", section:"all",skip:skip,limit:limit}}).then(function (result) {
-        console.log(result);
         if(result.status){
           angular.forEach(result.data, function (element, index, array) {
+              element.paid = API.parseBool(element.paid);
               $scope.Applications.push(element);
           });
           $scope.total = result.total;
@@ -766,6 +766,33 @@ controllers.controller('SettingApplicationController', ['API','$scope', '$locati
         if(result.status){
           $('#confirm-delete').modal('hide');
           API.Remove($scope.Applications,$scope.deleteObj);
+          API.Toaster(result.toast,'Application',result.message);
+        }
+      });
+    }
+
+    $scope.paymentObj = {};
+    $scope.confirmPayment = function(data){
+      $scope.paymentObj = data;
+      if($scope.paymentObj.paid){
+        $scope.paymentObj.action = 'unpaid';
+      }
+      else{
+        $scope.paymentObj.action = 'paid';
+      }
+      $('#confirm-payment').modal('show');
+    }
+    $scope.markAsPayNow = function(){
+      if($scope.paymentObj.paid){
+        $scope.paymentObj.paid = false;
+      }
+      else{
+        $scope.paymentObj.paid = true;
+      }
+      API.Apply({filter: {action:"payment", data:$scope.paymentObj}}).then(function (result) {
+        console.log(result);
+        if(result.status){
+          $('#confirm-payment').modal('hide');
           API.Toaster(result.toast,'Application',result.message);
         }
       });
@@ -1390,6 +1417,10 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
       });
     }
     $scope.feedApplication();
+    $scope.paymentApplication = function(application){
+      $scope.payment.amount = application.fee.price;
+      $scope.payment.description = 'Payment for application#'+application.id+', Detail:'+application.project.title+' at '+application.location.title+' ($'+application.fee.price+')';
+    }
     $scope.CollectingCards = function(data){
       var card = {
         "name": data.name,
@@ -1431,6 +1462,7 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
       $scope.payment.charging = true;
       var data = {
         amount:$scope.payment.amount*36*100,
+        description:$scope.payment.description,
         omise_token:token
       }
       API.Payment({filter: {action:'pay',data:data}}).then(function (result) {

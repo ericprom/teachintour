@@ -52,10 +52,10 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
             </div>  
             <div class="col_full">
               <label for="payment-form-application">Select Billing<span class="text-danger">*</span></label>
-              <select class="selectpicker form-control" id="payment-form-application" ng-model="payment.amount">
-                <option value="{{application.fee.price}}" ng-repeat="application in Applications">
-                  {{(application.project.title+" at "+application.location.title+" ($"+application.fee.price+")")}}
-                </option>
+              <select class="selectpicker form-control" id="payment-form-application" 
+              ng-options='(application.project.title+" at "+application.location.title+" ($"+application.fee.price+")") for application in Applications'
+              ng-change="paymentApplication(payment.data)" 
+              ng-model="payment.data">
               </select>
             </div>   
             <div class="col_full well payment-box" ng-show="payment.amount">

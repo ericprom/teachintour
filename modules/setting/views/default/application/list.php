@@ -34,7 +34,7 @@ $this->title = 'All Applications | '.Yii::$app->params["company_name"].'';
         </thead>
         <tbody>
           <tr ng-repeat="application in Applications">
-            <td class="text-center">{{$index+1}}</td>
+            <td class="text-center">{{application.id}}</td>
             <td>{{(application.firstname+" "+application.lastname)}}</td>
             <td>{{application.location.title}}</td>
             <td>{{application.project.title}}</td>
@@ -51,6 +51,9 @@ $this->title = 'All Applications | '.Yii::$app->params["company_name"].'';
               </span>
             </td>
             <td class="text-center">
+              <button class="btn" ng-class="(application.paid)?'btn-success':'btn-default'" ng-click="confirmPayment(application)">
+                <i class="icon-money"></i>
+              </button>
               <a href="<?=Url::to(['/setting/application'])?>/{{application.id}}" class="btn btn-info" role="button">
                 <i class="icon-file"></i>
               </a>
@@ -83,6 +86,22 @@ $this->title = 'All Applications | '.Yii::$app->params["company_name"].'';
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-success btn-ok" ng-click="deleteNow()">Confirm</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="confirm-payment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" style="margin-top: 200px;">
+              <div class="modal-header">
+                  <i class="icon-money"></i>  <b>Application Payment</b>
+              </div>
+              <div class="modal-body">
+                  Mark an application #<strong>{{paymentObj.id}}</strong> as {{paymentObj.action}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-success btn-ok" ng-click="markAsPayNow()">Confirm</a>
               </div>
           </div>
       </div>

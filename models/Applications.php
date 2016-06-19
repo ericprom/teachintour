@@ -39,6 +39,9 @@ use Yii;
  * @property string $criminal_detail
  * @property string $agreement
  * @property string $note
+ * @property string $paid
+ * @property double $receivedAt
+ * @property integer $receivedBy
  * @property string $approval
  * @property double $approvedAt
  * @property integer $approvedBy
@@ -66,12 +69,12 @@ class Applications extends \yii\db\ActiveRecord
         return [
             // [['firstname', 'lastname', 'nationality', 'passport', 'date_of_birth', 'gender', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country', 'location_id', 'project_id', 'fee_id', 'start_date', 'education', 'experience', 'language', 'skill', 'emergency', 'violation', 'criminal', 'agreement', 'approvedBy', 'createdAt', 'createdBy'], 'required'],
             [['date_of_birth', 'start_date'], 'safe'],
-            [['gender', 'location_id', 'project_id', 'fee_id', 'approvedBy', 'createdBy', 'updatedBy', 'inactive'], 'integer'],
+            [['gender', 'location_id', 'project_id', 'fee_id', 'receivedBy', 'approvedBy', 'createdBy', 'updatedBy', 'inactive'], 'integer'],
             [['education', 'experience', 'language', 'skill', 'emergency', 'violation_detail', 'criminal_detail', 'note'], 'string'],
-            [['approvedAt', 'createdAt', 'updatedAt'], 'number'],
+            [['receivedAt', 'approvedAt', 'createdAt', 'updatedAt'], 'number'],
             [['firstname', 'lastname', 'nationality', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country'], 'string', 'max' => 80],
             [['passport', 'line', 'facebook', 'skype'], 'string', 'max' => 30],
-            [['violation', 'criminal', 'agreement', 'approval'], 'string', 'max' => 5],
+            [['violation', 'criminal', 'agreement', 'paid', 'approval'], 'string', 'max' => 5],
         ];
     }
 
@@ -113,6 +116,9 @@ class Applications extends \yii\db\ActiveRecord
             'criminal_detail' => 'Criminal Detail',
             'agreement' => 'Agreement',
             'note' => 'Note',
+            'paid' => 'Paid',
+            'receivedAt' => 'Received At',
+            'receivedBy' => 'Received By',
             'approval' => 'Approval',
             'approvedAt' => 'Approved At',
             'approvedBy' => 'Approved By',
