@@ -59,6 +59,13 @@ class ApplyController extends Controller
                 $application = Applications::find()->where(['and', ['<>','inactive', 1], ['=','id', $data["id"]]])->andWhere(['=','createdBy', $applicantID])->with('location','project','fee')->asArray()->all();
                 $result["data"] = $application;
               }
+
+              if($options["section"]=='payment'){
+                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->with('location','project','fee')->asArray()->all();
+                $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->all();
+                $result["data"] = $application;
+                $result["total"] = count($total);
+              }
               $result["toast"] = 'success';
               $result["status"] = TRUE;
               break;

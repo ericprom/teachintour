@@ -65,20 +65,6 @@ $config = [
         ],
     ],
     'components' => [
-        // 'paypal'=> [
-        //     'class'        => 'marciocamello\Paypal',
-        //     'clientId'     => 'AfukmhK5qeOvZ1_r-3Ip1GhN7c_8zfPp3oP8WFeUOTI5xqbeUrSHz8y85OdE-ZV-HN8TVlE9tinsRvcq',
-        //     'clientSecret' => 'EBQicAuIJo2eOYklWWHGKVVZ3ogII43nTyf7qcccp9VxYT8wXh_VQIVFecYfDTISc28jiqEm4JbVyoGH',
-        //     'isProduction' => false,
-        //      'config'       => [
-        //          'http.ConnectionTimeOut' => 30,
-        //          'http.Retry'             => 1,
-        //          'mode'                   => 'marciocamello\Paypal::MODE_SANDBOX',
-        //          'log.LogEnabled'         => 'YII_DEBUG ? 1 : 0',
-        //          'log.FileName'           => '@runtime/logs/paypal.log',
-        //         'log.LogLevel'           => 'marciocamello\Paypal::LOG_LEVEL_FINE',
-        //     ]
-        // ],
         'assetManager' => [
           'bundles' => [
             'yii\web\JqueryAsset' => false,
@@ -153,8 +139,10 @@ $config = [
 
                 //Application URL Management
                 'application/<id:\d+>' => 'application',
-                'application/<action:\w+>' => 'application/default/<action>',
                 'application/<action:\w+>/<id:\d+>' => 'application/default/<action>',
+
+                //Payment URL Management
+                'payment/<action:\w+>' => 'payment/default/<action>',
 
                 //Setting URL Management
                 'setting/<action:\w+>' => 'setting/default/<action>',

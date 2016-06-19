@@ -143,6 +143,16 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     });
     return deferred.promise;
   }
+  var Payment = function(param) {
+    $rootScope.processing = true;
+    var deferred = $q.defer();
+    var host = Host()+'/api/v1/payment';
+    $http.post(host,param).success(function(results) {
+      deferred.resolve(results);
+      $rootScope.processing = false;
+    });
+    return deferred.promise;
+  }
   var Mailer = function(param) {
     $rootScope.processing = true;
     var deferred = $q.defer();
@@ -183,6 +193,7 @@ controllers.factory('API', function($window,$q,$timeout,$http,$rootScope,toaster
     Project:Project,
     File:File,
     Apply:Apply,
+    Payment:Payment,
     Mailer:Mailer,
     parseBool:parseBool,
     Toaster:Toaster,
@@ -368,7 +379,7 @@ controllers.controller('SettingLocationAddController', ['API','$scope', '$locati
             $scope.init();
           }
           else{
-            API.Toaster('warning','Location','เกิดข้อผิดพลาด');
+            API.Toaster('warning','Location','Oops! Somthing went wrong.');
           }
         });
       }
@@ -580,7 +591,7 @@ controllers.controller('SettingProjectAddController', ['API','$scope', '$locatio
             $scope.init();
           }
           else{
-            API.Toaster('warning','Project','เกิดข้อผิดพลาด');
+            API.Toaster('warning','Project','Oops! Somthing went wrong.');
           }
         });
       }
@@ -1070,7 +1081,7 @@ controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '
             API.Toaster(result.toast,'Application',result.message);
           }
           else{
-            API.Toaster('warning','Project','เกิดข้อผิดพลาด');
+            API.Toaster('warning','Project','Oops! Somthing went wrong.');
           }
         });
       }
@@ -1304,7 +1315,7 @@ controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope
             API.Toaster(result.toast,'Application',result.message);
           }
           else{
-            API.Toaster('warning','Project','เกิดข้อผิดพลาด');
+            API.Toaster('warning','Project','Oops! Somthing went wrong.');
           }
         });
       }
@@ -1347,43 +1358,95 @@ controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope
 controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
   function (API,$rootScope, $scope, $location, $window,  $http, md5) {
     $scope.hasItem = true;
-    $scope.card = {
-      name:'BUMBIN ARAUPORN',
-      number:'4242424242424242',
-      month:'02',
-      year:'2020',
-      cvv:'111',
-      collecting:false,
-      charging:false
+    $scope.init = function(){
+      $scope.card = {
+        name:'',
+        number:'',
+        month:'',
+        year:'',
+        cvv:''
+      }
+      $scope.payment = {
+        collecting:false,
+        charging:false,
+        amount:null
+      }
     }
-    $scope.CollectingCards = function(){
-      if($scope.card.name&&$scope.card.number&&$scope.card.month&&$scope.card.year&&$scope.card.cvv){
-        var card = {
-          "name": $scope.card.name,
-          "number": $scope.card.number,
-          "expiration_month": $scope.card.month,
-          "expiration_year": $scope.card.year,
-          "security_code": $scope.card.cvv
-        };
-        $scope.card.collecting = true;
-        Omise.createToken("card", card, function (statusCode, response) {
-          if (statusCode === 200) {
-            $scope.ChargingCards(response.id);
-          }
-          else{
-            API.Toaster('warning','Payment',response.message);
-          }
-          $scope.card.collecting = false;
-        });
+    $scope.init();
+
+    $scope.Applications = [];
+    $scope.feedApplication = function(){
+      API.Apply({filter: {action:"select", section:"payment"}}).then(function (result) {
+        console.log(result);
+        if(result.status){
+          angular.forEach(result.data, function (element, index, array) {
+              $scope.Applications.push(element);
+          });
+          $scope.total = result.total;
+        }
+      });
+    }
+    $scope.feedApplication();
+    $scope.CollectingCards = function(data){
+      var card = {
+        "name": data.name,
+        "number": data.number,
+        "expiration_month": data.month,
+        "expiration_year": data.year,
+        "security_code": data.cvv
+      };
+      $scope.payment.collecting = true;
+      Omise.createToken("card", card, function (statusCode, response) {
+        if (statusCode === 200) {
+          $scope.ChargingCards(response.id);
+        }
+        else{
+          API.Toaster('warning','Payment',response.message);
+        }
+        $scope.payment.collecting = false;
+      });
+    }
+    $scope.PreCollectingCards = function(){
+      var status = [];
+      for (var k in $scope.card) {
+        if($scope.card[k].length>0){
+          status.push(true);
+        }
+        else{
+          status.push(false);
+          API.Toaster('warning','Payment',k+' cannot be blank.');
+        }
+      }
+      if(status.indexOf(false) <= -1){
+        $scope.CollectingCards($scope.card);
       }
       else{
-        $scope.card.collecting = false;
-        API.Toaster('warning','Payment','Plese fill payment details.');
+        $scope.payment.collecting = false;
       }
     }
     $scope.ChargingCards = function(token){
-      $scope.card.charging = true;
-      console.log(token);
+      $scope.payment.charging = true;
+      var data = {
+        amount:$scope.payment.amount*36*100,
+        omise_token:token
+      }
+      API.Payment({filter: {action:'pay',data:data}}).then(function (result) {
+       if(result.status){
+          API.Toaster(result.toast,'Payment',result.message);
+          $scope.init();
+          $window.location=$window.location.pathname.split('/payment/')[0]+'/complete';
+        }
+        else{
+          API.Toaster('warning','Payment','Oops! Somthing went wrong.');
+        }
+        $scope.payment.charging = false;
+      });
     }
+  }
+]);
+
+controllers.controller('PaymentCompleteController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
+  function (API,$rootScope, $scope, $location, $window,  $http, md5) {
+    $scope.hasItem = true;
   }
 ]);
