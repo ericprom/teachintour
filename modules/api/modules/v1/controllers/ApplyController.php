@@ -61,7 +61,7 @@ class ApplyController extends Controller
               }
 
               if($options["section"]=='payment'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->with('location','project','fee')->asArray()->all();
+                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->andWhere(['=','approval', 'true'])->with('location','project','fee')->asArray()->all();
                 $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->all();
                 $result["data"] = $application;
                 $result["total"] = count($total);
@@ -74,6 +74,7 @@ class ApplyController extends Controller
               (isset($data["personal"]["firstname"]))?$application->firstname = $data["personal"]["firstname"]:$application->firstname = '';
               (isset($data["personal"]["lastname"]))?$application->lastname = $data["personal"]["lastname"]:$application->lastname = '';
               (isset($data["personal"]["nationality"]))?$application->nationality = $data["personal"]["nationality"]:$application->nationality = '';
+              (isset($data["personal"]["passport"]))?$application->passport = $data["personal"]["passport"]:$application->passport = '';
               (isset($data["personal"]["date_of_birth"]))?$application->date_of_birth = $data["personal"]["date_of_birth"]:$application->date_of_birth = null;
               (isset($data["personal"]["gender"]))?$application->gender = $data["personal"]["gender"]:$application->gender = 0;
               (isset($data["personal"]["email"]))?$application->email = $data["personal"]["email"]:$application->email = '';
@@ -113,6 +114,7 @@ class ApplyController extends Controller
               (isset($data["personal"]["firstname"]))?$application->firstname = $data["personal"]["firstname"]:$application->firstname = '';
               (isset($data["personal"]["lastname"]))?$application->lastname = $data["personal"]["lastname"]:$application->lastname = '';
               (isset($data["personal"]["nationality"]))?$application->nationality = $data["personal"]["nationality"]:$application->nationality = '';
+              (isset($data["personal"]["passport"]))?$application->passport = $data["personal"]["passport"]:$application->passport = '';
               (isset($data["personal"]["date_of_birth"]))?$application->date_of_birth = $data["personal"]["date_of_birth"]:$application->date_of_birth = null;
               (isset($data["personal"]["gender"]))?$application->gender = $data["personal"]["gender"]:$application->gender = 0;
               (isset($data["personal"]["email"]))?$application->email = $data["personal"]["email"]:$application->email = '';

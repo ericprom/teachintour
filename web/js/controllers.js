@@ -792,6 +792,7 @@ controllers.controller('SettingApplicationDetailController', ['API','$scope', '$
             firstname:application.firstname,
             lastname:application.lastname,
             nationality:application.nationality,
+            passport:application.passport,
             date_of_birth:application.date_of_birth,
             gender:application.gender,
             email:application.email,
@@ -1027,7 +1028,6 @@ controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '
     });
     API.Fee({filter: {action:"select", section:"appy"}}).then(function (result) {
       if(result.status){
-        console.log(result.data);
         $scope.Fees = result.data;
       }
     });
@@ -1037,6 +1037,7 @@ controllers.controller('ApplyOnlineController', ['API','$rootScope', '$scope', '
         firstname:'',
         lastname:'',
         nationality:'',
+        passport:'',
         date_of_birth:'',
         gender:'1',
         email:'',
@@ -1180,6 +1181,7 @@ controllers.controller('ApplicationDetailController', ['API','$scope', '$locatio
             firstname:application.firstname,
             lastname:application.lastname,
             nationality:application.nationality,
+            passport:application.passport,
             date_of_birth:application.date_of_birth,
             gender:application.gender,
             email:application.email,
@@ -1265,6 +1267,7 @@ controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope
             firstname:application.firstname,
             lastname:application.lastname,
             nationality:application.nationality,
+            passport:application.passport,
             date_of_birth:application.date_of_birth,
             gender:application.gender,
             email:application.email,

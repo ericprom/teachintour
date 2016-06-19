@@ -29,19 +29,22 @@ $this->title = 'Your Application | '.Yii::$app->params["company_name"].'';
             <div class="fancy-title title-bottom-border">
               <h3 class="">PERSONAL DETAILS</h3>
             </div>
-              <div class="col_full">
+              <div class="col_half">
                 <strong>Name:</strong> {{(personal.firstname+" "+personal.lastname)}}
               </div>
-              <div class="col_one_third ">
-                <strong>Nationality:</strong>{{personal.nationality}}
+              <div class="col_half col_last">
+                <strong>Passport:</strong> {{personal.passport}}
               </div>
               <div class="col_one_third">
                 <strong>Date of birth:</strong> {{personal.date_of_birth}}
               </div>
-              <div class="col_one_third col_last">
+              <div class="col_one_third ">
                 <strong>Gender:</strong>
                 <span ng-show="personal.gender==1">Male</span>
                 <span ng-show="personal.gender==0">Female</span>
+              </div>
+              <div class="col_one_third col_last">
+                <strong>Nationality:</strong>{{personal.nationality}}
               </div>
               <div class="col_half">
                 <strong>Email:</strong> {{personal.email}}

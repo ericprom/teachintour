@@ -29,8 +29,11 @@ $this->title = 'Preview Project | '.Yii::$app->params["company_name"].'';
             <div class="fancy-title title-bottom-border">
               <h3 class="">PERSONAL DETAILS</h3>
             </div>
-              <div class="col_full">
+              <div class="col_half">
                 <strong>Name:</strong> {{(personal.firstname+" "+personal.lastname)}}
+              </div>
+              <div class="col_half col_last">
+                <strong>Passport:</strong> {{personal.passport}}
               </div>
               <div class="col_one_third ">
                 <strong>Nationality:</strong>{{personal.nationality}}

@@ -11,6 +11,7 @@ use Yii;
  * @property string $firstname
  * @property string $lastname
  * @property string $nationality
+ * @property string $passport
  * @property string $date_of_birth
  * @property integer $gender
  * @property string $email
@@ -63,13 +64,13 @@ class Applications extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            // [['firstname', 'lastname', 'nationality', 'date_of_birth', 'gender', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country', 'location_id', 'project_id', 'fee_id', 'start_date', 'education', 'experience', 'language', 'skill', 'emergency', 'violation', 'criminal', 'agreement', 'approvedBy', 'createdAt', 'createdBy'], 'required'],
+            // [['firstname', 'lastname', 'nationality', 'passport', 'date_of_birth', 'gender', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country', 'location_id', 'project_id', 'fee_id', 'start_date', 'education', 'experience', 'language', 'skill', 'emergency', 'violation', 'criminal', 'agreement', 'approvedBy', 'createdAt', 'createdBy'], 'required'],
             [['date_of_birth', 'start_date'], 'safe'],
             [['gender', 'location_id', 'project_id', 'fee_id', 'approvedBy', 'createdBy', 'updatedBy', 'inactive'], 'integer'],
             [['education', 'experience', 'language', 'skill', 'emergency', 'violation_detail', 'criminal_detail', 'note'], 'string'],
             [['approvedAt', 'createdAt', 'updatedAt'], 'number'],
             [['firstname', 'lastname', 'nationality', 'email', 'phone', 'street', 'city', 'state', 'zipcode', 'country'], 'string', 'max' => 80],
-            [['line', 'facebook', 'skype'], 'string', 'max' => 30],
+            [['passport', 'line', 'facebook', 'skype'], 'string', 'max' => 30],
             [['violation', 'criminal', 'agreement', 'approval'], 'string', 'max' => 5],
         ];
     }
@@ -84,6 +85,7 @@ class Applications extends \yii\db\ActiveRecord
             'firstname' => 'Firstname',
             'lastname' => 'Lastname',
             'nationality' => 'Nationality',
+            'passport' => 'Passport',
             'date_of_birth' => 'Date Of Birth',
             'gender' => 'Gender',
             'email' => 'Email',
