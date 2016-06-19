@@ -61,7 +61,7 @@ class ApplyController extends Controller
               }
 
               if($options["section"]=='payment'){
-                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->andWhere(['=','approval', 'true'])->with('location','project','fee')->asArray()->all();
+                $application = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->andWhere(['and', ['=','approval', 'true'],['=','paid', 'false']])->with('location','project','fee')->asArray()->all();
                 $total = Applications::find()->where(['and', ['<>','inactive', 1],['=','createdBy', $applicantID]])->all();
                 $result["data"] = $application;
                 $result["total"] = count($total);
