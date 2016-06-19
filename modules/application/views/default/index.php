@@ -27,26 +27,17 @@ $this->title = 'Application | '.Yii::$app->params["company_name"].'';
           <th>Project</th>
           <th>Fee</th>
           <th>Calendar</th>
-          <!-- <th class="text-center" width="5%">Payment</th> -->
           <th class="text-center" width="5%">Status</th>
           <th class="text-center" width="15%">Manage</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="application in Applications">
-            <td class="text-center">{{$index+1}}</td>
+          <tr ng-repeat="application in Applications" ng-class="(application.paid=='true')?'success':''">
+            <td class="text-center">{{application.id}}</td>
             <td>{{application.location.title}}</td>
             <td>{{application.project.title}}</td>
             <td>{{(application.fee.title+" ($"+ application.fee.price+")")}}</td>
             <td>{{application.start_date}}</td>
-            <!-- <td class="text-center">
-              <span ng-show="application.paid=='true'">
-                <i class="icon-check text-success"></i>
-              </span>
-              <span ng-show="application.paid=='false'">
-                <i class="icon-clock text-warning"></i>
-              </span>
-            </td> -->
             <td class="text-center">
               <span ng-show="application.approvedAt==null">
                 <i class="icon-clock text-warning"></i>
