@@ -65,7 +65,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           </div>
           <div style="margin-top: 10px;">
             <div><strong>START AND CHANGE DATE</strong></div>
-            <div style="text-indent: 20px;">After confirmed and completed the full payment the teachin’ tour program. You may change date of your placement by up to 1- 3 months from the original date, if you wish to do so please kindly email us about the reason and give us the prefer of alternative date .For the first changing date, there is no additional cost.  But if there is change is the second time we will require you to pay an administration USD30 for each change.</div>
+            <div style="text-indent: 20px;">After confirmed and completed the full payment the teachin’ tour program. You may change date of your placement by up to 1- 3 months from the original date, if you wish to do so please kindly email us about the reason and give us the prefer of alternative date. For the first changing date, there is no additional cost.  But if there is change is the second time we will require you to pay an administration USD30 for each change.</div>
 
           </div>
           <div style="margin-top: 10px;">
