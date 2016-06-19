@@ -24,7 +24,7 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
 <div ng-controller="PaymentController" ng-cloak>
   <section id="page-title" ng-show="hasItem && !isLoading">
     <div class="container clearfix">
-      <h1>PAYMENT GATEWAY</h1>
+      <h1>THIS PAYMENT METHOD IS STILL IN DEVELOPMENT</h1>
     </div>
   </section>
   <section id="content">
