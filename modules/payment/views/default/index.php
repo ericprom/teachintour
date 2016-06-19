@@ -56,7 +56,8 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
             <div class="row" ng-show="payment.amount">
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <h5 style="margin-top: 15px;">
-                  <span class="text-danger">*</span>We will charge  your credit in Thai baht with the conversion of $1 = ฿36.
+                  <span class="text-danger">*</span>
+                  We payment total is USD {{payment.amount | number}}. Your actual payment will be submitted as THB {{payment.amount*36 | number}} based on recent exchange rates.
                 </h5>
               </div>
             </div>   
@@ -72,7 +73,7 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
               </div>
               <div class="form-group">
                 <label for="cardnumber">Card number</label>
-                <input type="text" placeholder="Card Number" class="form-control" ng-model="card.number"  ng-disabled="payment.collecting || payment.charging || processing">
+                <input type="text" placeholder="Card Number" class="form-control" ng-model="card.number"  ng-disabled="payment.collecting || payment.charging || processing" maxlength="16">
               </div>
               <div class="row">
                 <div class="col-xs-8 col-sm-8 col-md-8">

@@ -1377,7 +1377,6 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
     $scope.Applications = [];
     $scope.feedApplication = function(){
       API.Apply({filter: {action:"select", section:"payment"}}).then(function (result) {
-        console.log(result);
         if(result.status){
           angular.forEach(result.data, function (element, index, array) {
               $scope.Applications.push(element);
