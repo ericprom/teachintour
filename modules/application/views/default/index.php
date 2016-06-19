@@ -59,7 +59,7 @@ $this->title = 'Application | '.Yii::$app->params["company_name"].'';
               <button class="btn btn-default" role="button" ng-show="application.approval=='true'" disabled>
                 <i class="icon-edit"></i>
               </button>
-              <button class="btn btn-danger" ng-click="confirmDelete(application)">
+              <button class="btn btn-danger" ng-click="confirmDelete(application)" ng-disabled="application.paid=='true'">
                 <i class="icon-trash"></i>
               </button>
             </td>
