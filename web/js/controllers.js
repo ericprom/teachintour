@@ -1361,6 +1361,7 @@ controllers.controller('ApplicationEditController', ['API','$rootScope', '$scope
 controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
   function (API,$rootScope, $scope, $location, $window,  $http, md5) {
     $scope.hasItem = true;
+    $scope.isComplete = false;
     $scope.init = function(){
       $scope.card = {
         name:'',
@@ -1436,7 +1437,7 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
        if(result.status){
           API.Toaster(result.toast,'Payment',result.message);
           $scope.init();
-          $window.location=$window.location.pathname.split('/payment/')[0]+'/complete';
+          $scope.isComplete = true;
         }
         else{
           API.Toaster('warning','Payment','Oops! Somthing went wrong.');
@@ -1444,11 +1445,5 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
         $scope.payment.charging = false;
       });
     }
-  }
-]);
-
-controllers.controller('PaymentCompleteController', ['API','$rootScope', '$scope', '$location', '$window', '$http', 'md5',
-  function (API,$rootScope, $scope, $location, $window,  $http, md5) {
-    $scope.hasItem = true;
   }
 ]);

@@ -21,7 +21,7 @@ class DefaultController extends Controller
           ],
           'rules' => [
             [
-              'actions' => ['index','complete'],
+              'actions' => ['index'],
               'allow' => true,
               'roles' => ['@'],
             ],
@@ -41,10 +41,5 @@ class DefaultController extends Controller
     public function actionIndex()
     {
       return $this->render('index');
-    }
-
-    public function actionComplete()
-    {
-        return $this->render('complete');
     }
 }

@@ -24,18 +24,26 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
 <div ng-controller="PaymentController" ng-cloak>
   <section id="page-title" ng-show="hasItem && !isLoading">
     <div class="container clearfix">
-      <h1>THIS PAYMENT METHOD IS STILL IN DEVELOPMENT</h1>
+      <h1 ng-hide="isComplete">THIS PAYMENT METHOD IS STILL IN DEVELOPMENT</h1>
+      <h1 ng-show="isComplete">PAYMENT COMPLETE</h1>
     </div>
   </section>
   <section id="content">
-    <div class="content-wrap" ng-show="!hasItem && !isLoading">
+    <div class="content-wrap" ng-show="!hasItem && !isLoading && !isComplete">
       <div class="container clearfix">
         <div class="col_full">
           <div class="error404 center">404</div>
         </div>
       </div>
     </div>
-    <div class="content-wrap" ng-show="hasItem && !isLoading">
+    <div class="content-wrap" ng-show="hasItem && !isLoading && isComplete">
+      <div class="container clearfix">
+        <div class="col_full">
+          <div class="error404 center">THANKS</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrap" ng-show="hasItem && !isLoading && !isComplete">
       <div class="container clearfix">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
