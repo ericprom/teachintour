@@ -21,7 +21,7 @@ $this->title = 'Terms | '.Yii::$app->params["company_name"].'';
           <div style="margin-top: 10px;">
             <div><strong>APPLICATION AND ACCEPTANCE PROCEDURE</strong></div>
             <div style="text-indent: 20px;">
-              Each participant must first complete and submit the teachin’ tour application. There is no commitment in submitting an application as each applicant must first be accepted to participate on teachin’ tour program, within 3-5 business days of receiving an application, teachin’ tour will contact application in regard to a) ACCEPT INTO THE PROGRAM, b) NON-ACCEPT and C) WE NEEDED MORE INFORMATION. If accept teachin’ tour will notify applicant by email or phone with the instructions for the next stage of process.
+              Each participant must first complete and submit the teachin’ tour application. There is no commitment in submitting an application as each applicant must first be accepted to participate on teachin’ tour program, within 3-5 business days of receiving an application, teachin’ tour will contact applicant in regard to a) ACCEPT INTO THE PROGRAM, b) NON-ACCEPT and C) WE NEEDED MORE INFORMATION. If accept teachin’ tour will notify applicant by email or phone with the instructions for the next stage of process.
             </div>
           </div>
           <div style="margin-top: 10px;">
