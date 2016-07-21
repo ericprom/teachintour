@@ -1477,5 +1477,8 @@ controllers.controller('PaymentController', ['API','$rootScope', '$scope', '$loc
         $scope.payment.charging = false;
       });
     }
+    $scope.acceptPaymentPolicy = function(){
+      $('#accept-payment-policy').modal('show');
+    }
   }
 ]);

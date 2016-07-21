@@ -109,9 +109,13 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
               </div>
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
+                <div>
+                  <input id="checkbox-12" class="checkbox-style" type="checkbox"  ng-model="payment.agreement">
+                  <label for="checkbox-12" class="checkbox-style-3-label">CLICK TO ACCEPT <a ng-click="acceptPaymentPolicy()">REFUND POLICY</a></label>
+                </div>
                   <button class="btn btn btn-danger btn-block btn-lg" 
                     ng-click="PreCollectingCards()"
-                    ng-disabled="!payment.amount || payment.collecting || payment.charging">
+                    ng-disabled="!payment.amount || payment.collecting || payment.charging || !payment.agreement">
                     <i ng-class="(payment.collecting || payment.charging || processing)?'icon-cog icon-spin':''"></i> Pay Now
                   </button> 
                 </div>
@@ -143,4 +147,33 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
       </div>
     </div>
   </section>
+  <div class="modal fade" id="accept-payment-policy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" style="margin-top: 200px;">
+              <div class="modal-header">
+                  <i class="icon-file"></i>  <b>Payment Policy</b>
+              </div>
+              <div class="modal-body">
+                <div class="row" style="margin:10px;">
+                  <div class="col-sm-12">
+                  <ul>
+                    <li>
+                    If there is any cancel by you with any reason before started date and no show up for the program the payment is non-refundable.
+                    </li>
+                    <li>
+                    If there are any unexpected situations in any reason such as political, airline schedule change, nature disaster, or any damage to accommodation. We will inform you and make you an alternative itinerary of choose an alternative depart date. If any changes are not possible for you, we will refund a full payment back to you.
+                    </li>
+                    <li>
+                    In case of after arrival and made it home stay, you feel do not like and wanted to cancel you will receive 30% of the amount of payment.
+                    </li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
