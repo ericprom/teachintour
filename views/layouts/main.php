@@ -283,7 +283,7 @@ $user = Yii::$app->user->identity;
     <?php $this->endBody() ?>
     <script src="https://cdn.omise.co/omise.js"></script>
     <script>
-      Omise.setPublicKey("pkey_test_54dtg5n2fpnnzpm0l5v");
+      Omise.setPublicKey("pkey_54vn8htn829ymdoeu80");
     </script>
   </body>
 </html>
