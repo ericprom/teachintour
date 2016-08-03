@@ -110,7 +110,7 @@ $this->title = 'Your Payment | '.Yii::$app->params["company_name"].'';
                 <div class="col-xs-12 col-sm-12 col-md-12">
                 <div>
                   <input id="checkbox-12" class="checkbox-style" type="checkbox"  ng-model="payment.agreement">
-                  <label for="checkbox-12" class="checkbox-style-3-label">CLICK TO ACCEPT <a ng-click="acceptPaymentPolicy()">REFUND POLICY</a></label>
+                  <label for="checkbox-12" class="checkbox-style-3-label">CLICK TO ACCEPT <a ng-click="acceptPaymentPolicy()">PAYMENT POLICY</a></label>
                 </div>
                   <button class="btn btn btn-danger btn-block btn-lg" 
                     ng-click="PreCollectingCards()"
